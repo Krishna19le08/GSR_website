@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* Force the light palette site-wide: disable the `dark:` variant instead of
+   letting it follow the OS theme, since the design is white-background only. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Warm, place-rooted palette — sand paper, deep banyan teal, marigold accent.
+     Deliberately not the cream/terracotta or emerald-startup defaults. */
+  --background: #f4efe4;
+  --foreground: #262117;
+
+  --color-ink: #262117;
+  --color-ink-soft: #55503f;
+  --color-paper: #f4efe4;
+  --color-paper-deep: #e9e0cb;
+  --color-banyan: #1f4a44;
+  --color-banyan-deep: #12312c;
+  --color-marigold: #c98a11;
+  --color-marigold-deep: #a8710b;
+  --color-clay: #c7b89a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-paper: var(--color-paper);
+  --color-paper-deep: var(--color-paper-deep);
+  --color-banyan: var(--color-banyan);
+  --color-banyan-deep: var(--color-banyan-deep);
+  --color-marigold: var(--color-marigold);
+  --color-marigold-deep: var(--color-marigold-deep);
+  --color-clay: var(--color-clay);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+/* Global Members map — Leaflet's own marker chrome, cleared so the custom
+   .gsr-globe-marker below is all that shows (see LeafletMap.jsx) */
+.gsr-leaflet-icon {
+  background: transparent;
+  border: none;
+}
+
+/* Global Members map — marker chrome for LeafletMap.jsx's HTML markers */
+.gsr-globe-marker {
+  /* Globe.gl positions this element's center on the marker's lat/lng, so the
+     dot — not the label below it — must be the thing centered on that point.
+     Sizing the wrapper to the dot and centering it keeps the dot pinned
+     exactly on the coordinate regardless of label/tooltip content. */
+  position: relative;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+.gsr-globe-marker__dot {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+.gsr-globe-marker__core {
+  position: absolute;
+  inset: 3px;
+  border-radius: 9999px;
+  background: #d98e04;
+  box-shadow: 0 0 8px 2px rgba(217, 142, 4, 0.9);
+  transition: inset 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.gsr-globe-marker__ping {
+  position: absolute;
+  inset: 3px;
+  border-radius: 9999px;
+  background: rgba(217, 142, 4, 0.55);
+  animation: gsr-globe-marker-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.gsr-globe-marker__label {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.gsr-globe-marker:hover .gsr-globe-marker__label,
+.gsr-globe-marker--selected .gsr-globe-marker__label {
+  opacity: 1;
+}
+.gsr-globe-marker__label .city {
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+.gsr-globe-marker__label .country {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.gsr-globe-marker__tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  min-width: 170px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+  z-index: 20;
+  text-align: left;
+}
+.gsr-globe-marker__tooltip strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+.gsr-globe-marker__tooltip span {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: rgba(226, 232, 240, 0.75);
+}
+.gsr-globe-marker:hover .gsr-globe-marker__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.gsr-globe-marker:hover .gsr-globe-marker__core {
+  inset: 1px;
+  box-shadow: 0 0 14px 4px rgba(16, 185, 129, 1);
+}
+.gsr-globe-marker--selected .gsr-globe-marker__core {
+  background: #1f4a44;
+  inset: 1px;
+  box-shadow: 0 0 14px 4px rgba(31, 74, 68, 0.9);
+}
+.gsr-globe-marker--selected .gsr-globe-marker__ping {
+  background: rgba(31, 74, 68, 0.55);
+}
+.gsr-scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+.gsr-scroll-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.gsr-scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.gsr-scroll-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+}
+.gsr-scroll-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.55);
+}
+@keyframes gsr-globe-marker-ping {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  75%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
