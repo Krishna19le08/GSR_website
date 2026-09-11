@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <div className="inline-block bg-paper px-3 py-2">
               <Image
-                src="/GSR_v7.png"
+                src="/GSR_final_logo.png"
                 alt="GSR"
                 width={160}
                 height={54}

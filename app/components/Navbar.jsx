@@ -203,7 +203,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center">
           <Image
-            src="/GSR_v7.png"
+            src="/GSR_final_logo.png"
             alt="GSR"
             width={160}
             height={54}
