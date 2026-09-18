@@ -87,13 +87,12 @@ const solutions = [
 ];
 
 const whoCanUse = [
-  "NGOs & Non-Profits",
-  "Trusts & Societies",
-  "Charitable Foundations",
-  "CSR Teams",
-  "Educational Institutions",
-  "Community Organizations",
-  "Volunteer Networks",
+  "Trust",
+  "Society",
+  "Section 8",
+  "Non-Profits",
+  "Community",
+  "Volunteers",
 ];
 
 export default function GsrTech() {

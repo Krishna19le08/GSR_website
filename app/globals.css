@@ -212,6 +212,9 @@ body {
 .gsr-india-map .leaflet-interactive {
   cursor: pointer;
 }
+.gsr-india-map .leaflet-interactive:focus {
+  outline: none;
+}
 .leaflet-tooltip.gsr-state-label {
   background: transparent;
   border: none;

@@ -73,13 +73,15 @@ function DesktopDropdownItem({ item }) {
       onFocus={handleEnter}
       onBlur={handleLeave}
     >
-      <Link
-        href={item.href}
-        className="flex items-center justify-between gap-2 px-4 py-2 text-sm text-ink-soft hover:bg-paper-deep hover:text-banyan"
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between gap-2 px-4 py-2 text-left text-sm text-ink-soft hover:bg-paper-deep hover:text-banyan"
       >
         {item.label}
         <ChevronRight />
-      </Link>
+      </button>
       <div
         className={`absolute left-full top-0 z-50 ml-0.5 min-w-56 border border-clay bg-paper py-2 shadow-lg transition duration-150 ${
           open ? "visible translate-x-0 opacity-100" : "invisible -translate-x-1 opacity-0"
@@ -95,6 +97,24 @@ function DesktopDropdownItem({ item }) {
 }
 
 function DesktopNavItem({ item }) {
+  const [open, setOpen] = useState(false);
+  const closeTimer = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  function handleEnter() {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpen(true);
+  }
+
+  function handleLeave() {
+    closeTimer.current = setTimeout(() => setOpen(false), 150);
+  }
+
   if (!item.children?.length) {
     return (
       <Link
@@ -107,16 +127,26 @@ function DesktopNavItem({ item }) {
   }
 
   return (
-    <div className="group relative">
-      <Link
-        href={item.href}
+    <div
+      className="relative"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      onFocus={handleEnter}
+      onBlur={handleLeave}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
         className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-ink-soft hover:text-banyan"
       >
         {item.label}
         <ChevronDown />
-      </Link>
+      </button>
       <div
-        className="invisible absolute left-0 top-full z-50 min-w-64 -translate-y-1 border border-clay bg-paper py-2 opacity-0 shadow-lg transition duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+        className={`absolute left-0 top-full z-50 min-w-64 -translate-y-1 border border-clay bg-paper py-2 shadow-lg transition duration-150 ${
+          open ? "visible translate-y-0 opacity-100" : "invisible opacity-0"
+        }`}
         role="menu"
       >
         {item.children.map((child) => (
@@ -135,14 +165,25 @@ function MobileNavItem({ item, depth = 0, expanded, onToggle, onNavigate }) {
   return (
     <div className={depth > 0 ? "border-clay/60" : ""}>
       <div className="flex items-center justify-between">
-        <Link
-          href={item.href}
-          onClick={onNavigate}
-          className="flex-1 py-2.5 text-sm font-medium text-ink"
-          style={{ paddingLeft: depth * 16 }}
-        >
-          {item.label}
-        </Link>
+        {hasChildren ? (
+          <button
+            type="button"
+            onClick={() => onToggle(key)}
+            className="flex-1 py-2.5 text-left text-sm font-medium text-ink"
+            style={{ paddingLeft: depth * 16 }}
+          >
+            {item.label}
+          </button>
+        ) : (
+          <Link
+            href={item.href}
+            onClick={onNavigate}
+            className="flex-1 py-2.5 text-sm font-medium text-ink"
+            style={{ paddingLeft: depth * 16 }}
+          >
+            {item.label}
+          </Link>
+        )}
         {hasChildren && (
           <button
             type="button"

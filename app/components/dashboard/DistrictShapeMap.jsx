@@ -116,6 +116,10 @@ export default function DistrictShapeMap({ stateId, districts }) {
           zoomControl={false}
           scrollWheelZoom={false}
           doubleClickZoom={false}
+          dragging={false}
+          touchZoom={false}
+          boxZoom={false}
+          keyboard={false}
           attributionControl={false}
           className="h-full w-full"
         >

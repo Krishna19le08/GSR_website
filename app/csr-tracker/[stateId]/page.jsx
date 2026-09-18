@@ -75,7 +75,9 @@ export default async function StateDetail({ params }) {
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-ink-soft">
               Click a district on the map, or in the list below, to see its
-              spend by development sector, FY2014-15 through FY2024-25 combined.
+              spend by development sector, FY2014-15 through{" "}
+              <span className="text-base font-semibold text-banyan">FY2025-26</span>{" "}
+              combined.
             </p>
             <div className="mt-8">
               <Reveal>

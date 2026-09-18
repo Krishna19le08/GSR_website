@@ -42,23 +42,20 @@ export const mainNav = [
       },
       { label: "Education", href: "/social-responsibility/education" },
       { label: "Empowerment", href: "/social-responsibility/empowerment" },
+      { label: "Research", href: "/social-responsibility/research" },
     ],
   },
   {
     label: "GSR Tech",
     href: "/gsr-tech",
     children: [
+      { label: "GSR Tech", href: "/gsr-tech" },
       { label: "Naas (NGO-as-a-Service)", href: "/gsr-tech/naas" },
       { label: "GSR Network Hub", href: "/gsr-tech/network-hub" },
-      { label: "Website", href: "/gsr-tech/website" },
-      { label: "Apps", href: "/gsr-tech/apps" },
-      { label: "Software", href: "/gsr-tech/software" },
-      { label: "Social Media", href: "/gsr-tech/social-media" },
+      { label: "CSR Tracker", href: "/csr-tracker" },
     ],
   },
-  { label: "CSR Tracker", href: "/csr-tracker" },
-  { label: "Membership", href: "/join" },
-  { label: "Career", href: "/career" },
+  { label: "News/Media", href: "/news-media" },
 ];
 
 export const authNav = { label: "Login / Register", href: "/login" };

@@ -5,7 +5,6 @@ import {
   Eyebrow,
   ButtonPrimary,
   ButtonSecondary,
-  ButtonOnDark,
   Quote,
   Pill,
   Card,
@@ -135,7 +134,6 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <ButtonPrimary href="/join" rounded>Join Our Journey</ButtonPrimary>
-            <ButtonOnDark href="/donate" rounded>Donate</ButtonOnDark>
           </div>
         </div>
       </section>
