@@ -2,15 +2,6 @@ import Link from "next/link";
 import ImagePlaceholder from "./ImagePlaceholder";
 import Icon from "./icons";
 
-// Cycled across a grid of IconTile/IconCard entries so a row of cards
-// reads as the brand's banyan/marigold two-accent system plus a neutral
-// ink option, not one flat repeated color.
-const ICON_TONE_CYCLE = ["banyan", "marigold", "ink"];
-
-export function iconToneAt(index) {
-  return ICON_TONE_CYCLE[index % ICON_TONE_CYCLE.length];
-}
-
 export function Eyebrow({ children, tone = "light" }) {
   return (
     <span
@@ -29,39 +20,33 @@ export function Eyebrow({ children, tone = "light" }) {
   );
 }
 
-export function ButtonPrimary({ children, href = "#", rounded = false }) {
+export function ButtonPrimary({ children, href = "#" }) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center bg-marigold px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-marigold-deep hover:text-paper ${
-        rounded ? "rounded-full" : ""
-      }`}
+      className="inline-flex items-center justify-center bg-marigold px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-marigold-deep hover:text-paper"
     >
       {children}
     </Link>
   );
 }
 
-export function ButtonSecondary({ children, href = "#", rounded = false }) {
+export function ButtonSecondary({ children, href = "#" }) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center border border-ink/25 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-banyan hover:text-banyan ${
-        rounded ? "rounded-full" : ""
-      }`}
+      className="inline-flex items-center justify-center border border-ink/25 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-banyan hover:text-banyan"
     >
       {children}
     </Link>
   );
 }
 
-export function ButtonOnDark({ children, href = "#", rounded = false }) {
+export function ButtonOnDark({ children, href = "#" }) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center border border-paper/50 px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-paper hover:bg-paper/10 ${
-        rounded ? "rounded-full" : ""
-      }`}
+      className="inline-flex items-center justify-center border border-paper/50 px-6 py-3 text-sm font-semibold text-paper transition-colors hover:border-paper hover:bg-paper/10"
     >
       {children}
     </Link>
@@ -79,42 +64,11 @@ export function TextLink({ children, href = "#" }) {
   );
 }
 
-export function Pill({ children, rounded = false }) {
+export function Pill({ children }) {
   return (
-    <span
-      className={`inline-flex items-center border border-clay bg-paper px-4 py-2 text-xs font-medium text-ink-soft ${
-        rounded ? "rounded-full" : ""
-      }`}
-    >
+    <span className="inline-flex items-center border border-clay bg-paper px-4 py-2 text-xs font-medium text-ink-soft">
       {children}
     </span>
-  );
-}
-
-// Rounded, shadowed card shell — the Kindora-style feature/program card unit.
-// Opt-in (not used by the flat, bordered default components above) so
-// existing pages keep their editorial look; sections that want the
-// charity-template treatment wrap content in this instead.
-export function Card({ children, className = "", hover = true, padded = true }) {
-  return (
-    <div
-      className={`rounded-2xl border border-clay/60 bg-paper shadow-[0_1px_2px_rgba(38,33,23,0.06)] ${
-        padded ? "p-6" : ""
-      } ${hover ? "transition-shadow duration-200 hover:shadow-[0_12px_32px_rgba(38,33,23,0.1)]" : ""} ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-// Rounded-card variant of StatCard, for stat strips styled after the
-// charity-template's "impact metrics" grid.
-export function StatCardRounded({ value, label }) {
-  return (
-    <Card className="flex flex-col items-start gap-1 text-left" hover>
-      <p className="font-display text-3xl font-semibold tracking-tight text-ink">{value}</p>
-      <p className="mt-1 text-sm text-ink-soft">{label}</p>
-    </Card>
   );
 }
 
@@ -159,9 +113,10 @@ export function IconTile({ icon, tone = "banyan" }) {
   );
 }
 
-export function IconCard({ category, title, lede, bullets, linkHref, linkLabel }) {
+export function IconCard({ icon, category, title, lede, bullets, tone, linkHref, linkLabel }) {
   return (
     <div className="flex flex-col">
+      <IconTile icon={icon} tone={tone} />
       {category && <Eyebrow>{category}</Eyebrow>}
       <h3 className="mt-3 font-display text-lg font-semibold text-ink">{title}</h3>
       {lede && <p className="mt-2 text-sm leading-6 text-ink-soft">{lede}</p>}

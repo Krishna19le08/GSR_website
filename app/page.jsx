@@ -1,20 +1,14 @@
-import Link from "next/link";
 import ImagePlaceholder from "./components/ImagePlaceholder";
-import Icon from "./components/icons";
+import GlobalMembersGlobe from "./components/GlobalMembersGlobe";
 import {
   Eyebrow,
   ButtonPrimary,
   ButtonSecondary,
   ButtonOnDark,
+  IconTile,
   Quote,
   Pill,
-  Card,
-  StatCardRounded,
-  iconToneAt,
 } from "./components/ui";
-import IndiaStateMapSection from "./components/dashboard/IndiaStateMapSection";
-import Reveal from "./components/Reveal";
-import { getStates } from "./data/states-data";
 
 const coreValues = [
   {
@@ -99,87 +93,47 @@ const partnerTypes = [
 ];
 
 export default function Home() {
-  const states = getStates();
-
-  const impactStats = [
-    { value: coreValues.length, label: "Core values we hold ourselves to" },
-    { value: flagshipProjects.length, label: "Flagship projects running today" },
-    { value: journeySteps.length, label: "Steps in every community we join" },
-    { value: states.length, label: "States tracked in our Rating Protocol" },
-  ];
-
   return (
     <main className="flex flex-1 flex-col bg-paper">
       {/* 01 — HERO */}
-      <section className="relative isolate flex min-h-[calc(100svh-4rem)] items-end overflow-hidden bg-banyan-deep">
+      <section className="relative isolate flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-banyan-deep">
         <ImagePlaceholder
-          label="A community meeting under a banyan tree"
-          src="/images/hero-community.jpg"
+          label="[ A COMMUNITY MOMENT — HERO PHOTOGRAPH ]"
           ratio=""
           tone="emerald"
           className="absolute inset-0 h-full w-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/90 via-banyan-deep/40 to-banyan-deep/10" />
-        <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-          <p className="text-xs text-paper/70">
+        <div className="relative mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+          <p className="max-w-xl text-sm font-medium text-paper/70">
             Chennai, Tamil Nadu — and every community we get to know after
           </p>
-          <Eyebrow tone="dark">Our Mission</Eyebrow>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl lg:text-6xl">
             We show up for people first, and let the outcomes follow.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-paper/80">
+          <p className="mt-6 max-w-xl text-lg leading-8 text-paper/80">
             GSR unites people and organizations to protect the environment,
             expand education, and create opportunity for all — starting with
             the communities closest to us.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <ButtonPrimary href="/join" rounded>Join Our Journey</ButtonPrimary>
-            <ButtonOnDark href="/donate" rounded>Donate</ButtonOnDark>
+            <ButtonPrimary href="/join">Join Our Journey</ButtonPrimary>
+            <ButtonOnDark href="/donate">Donate</ButtonOnDark>
           </div>
         </div>
       </section>
 
-      {/* 01a — IMPACT AT A GLANCE + STATE RATING MAP */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
-            {impactStats.map((stat) => (
-              <StatCardRounded key={stat.label} value={stat.value} label={stat.label} />
-            ))}
-          </div>
-
-          <div className="mt-16 md:mt-20">
-            <Eyebrow>State Rating Protocol</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Click any state for its fund grantee details
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-ink-soft">
-              Every state and union territory is colored by its State
-              Rating Protocol tier, scored on CSR fund utilization and
-              year-on-year income growth.
-            </p>
-            <div className="mt-8">
-              <IndiaStateMapSection states={states} />
-            </div>
-            <div className="mt-8 flex justify-center">
-              <ButtonSecondary href="/csr-tracker">View Full State Rating</ButtonSecondary>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 01b — GLOBAL MEMBERS GLOBE */}
+      <GlobalMembersGlobe />
 
       {/* 02 — A NOTE FROM OUR FOUNDER */}
       <section className="bg-paper py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
-          <Reveal>
-            <ImagePlaceholder
-              label="[ ZEHRA FATHIMA, FOUNDER — PORTRAIT ]"
-              ratio="aspect-[4/3]"
-              rounded="rounded-3xl"
-            />
-          </Reveal>
-          <Reveal delay={120}>
+          <ImagePlaceholder
+            label="[ ZEHRA FATHIMA, FOUNDER — PORTRAIT ]"
+            ratio="aspect-[4/3]"
+          />
+          <div>
             <Eyebrow>A note from our founder</Eyebrow>
             <p className="mt-6 max-w-lg font-display text-2xl font-medium leading-snug text-ink sm:text-3xl">
               &ldquo;I started GSR because I kept meeting people who were
@@ -198,53 +152,31 @@ export default function Home() {
             <div className="mt-8">
               <ButtonSecondary href="/about">Learn More About Us</ButtonSecondary>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
       {/* 03 — CORE VALUES */}
       <section className="bg-paper-deep py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,17rem)_1fr] lg:gap-16">
-            <div>
-              <Eyebrow>What we stand for</Eyebrow>
-              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-[2.25rem]">
-                Six beliefs behind everything we build
-              </h2>
-              <p className="mt-4 text-sm leading-6 text-ink-soft">
-                Not a mission statement — the things we actually check
-                ourselves against before saying yes to new work.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {coreValues.map((value, i) => {
-                const tone = iconToneAt(i);
-                const toneClasses = {
-                  banyan: "bg-banyan/10 text-banyan",
-                  marigold: "bg-marigold/15 text-marigold-deep",
-                  ink: "bg-ink/10 text-ink-soft",
-                };
-                return (
-                  <Card key={value.title} className="flex items-start gap-4">
-                    <div
-                      className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                        toneClasses[tone] || toneClasses.banyan
-                      }`}
-                    >
-                      <Icon name={value.icon} className="size-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-lg font-semibold text-ink">
-                        {value.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-6 text-ink-soft">
-                        {value.description}
-                      </p>
-                    </div>
-                  </Card>
-                );
-              })}
-            </div>
+          <div className="max-w-2xl">
+            <Eyebrow>What we stand for</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              Six beliefs behind everything we build
+            </h2>
+          </div>
+          <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+            {coreValues.map((value) => (
+              <div key={value.title}>
+                <IconTile icon={value.icon} />
+                <h3 className="mt-5 font-display text-lg font-semibold text-ink">
+                  {value.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-ink-soft">
+                  {value.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -258,26 +190,23 @@ export default function Home() {
               Five projects, one reason: people asked us to start them
             </h2>
           </div>
-          <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {flagshipProjects.map((project) => {
-              return (
-                <Card key={project.name} className="flex flex-col overflow-hidden" padded={false} hover>
-                  <ImagePlaceholder
-                    label={project.name}
-                    ratio="aspect-[16/10]"
-                    className="rounded-none"
-                  />
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-display text-lg font-semibold text-ink">
-                      {project.name}
-                    </h3>
-                    <p className="mt-2 flex-1 text-sm leading-6 text-ink-soft">
-                      {project.description}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
+          <div className="mt-14 divide-y divide-clay border-y border-clay">
+            {flagshipProjects.map((project) => (
+              <div
+                key={project.name}
+                className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:gap-8"
+              >
+                <IconTile icon={project.icon} tone="marigold" />
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-ink">
+                    {project.name}
+                  </h3>
+                  <p className="mt-1 max-w-2xl text-sm leading-6 text-ink-soft">
+                    {project.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
           <div className="mt-12 flex justify-center">
             <ButtonSecondary href="/projects">View All Projects</ButtonSecondary>
@@ -288,8 +217,7 @@ export default function Home() {
       {/* 05 — ONE PLANET / ONE RESPONSIBILITY */}
       <section className="relative isolate overflow-hidden bg-banyan-deep py-24 md:py-32">
         <ImagePlaceholder
-          label="Forest, seen from a hillside in the Nilgiris"
-          src="/images/landscape-guardians.jpg"
+          label="[ FULL-WIDTH LANDSCAPE PHOTOGRAPH ]"
           ratio=""
           tone="emerald"
           className="absolute inset-0 h-full w-full"
@@ -301,28 +229,24 @@ export default function Home() {
             The Earth is not ours — we are its guardians
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-paper/75">
-            No project starts with us arriving with a plan already decided.
-            It starts with the same four steps, in the same order, everywhere
-            we go.
+            We are guardians of the Earth, not its owners. GSR connects
+            people and knowledge to protect our planet and build a more
+            equitable world — the same way, every time.
           </p>
 
-          <div className="mt-16 grid grid-cols-1 gap-5 text-left sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid grid-cols-1 gap-x-4 gap-y-10 text-left sm:grid-cols-2 lg:grid-cols-4">
             {journeySteps.map((item, i) => (
-              <Reveal
-                key={item.step}
-                delay={i * 100}
-                className="rounded-2xl border border-paper/15 bg-paper/5 p-6"
-              >
-                <span className="flex size-9 items-center justify-center rounded-full bg-marigold/20 font-display text-sm italic text-marigold">
+              <div key={item.step} className="border-t border-paper/25 pt-5">
+                <p className="text-xs font-semibold text-marigold">
                   {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-4 font-display text-lg font-semibold text-paper">
+                </p>
+                <p className="mt-2 font-display text-lg font-semibold text-paper">
                   {item.step}
                 </p>
                 <p className="mt-2 text-sm leading-6 text-paper/70">
                   {item.detail}
                 </p>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
@@ -356,10 +280,8 @@ export default function Home() {
       <section className="bg-paper-deep py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ImagePlaceholder
-            label="Children in a village classroom"
-            src="/images/youth-learning.jpg"
+            label="[ YOUTH LEARNING TOGETHER — PHOTOGRAPH ]"
             ratio="aspect-[21/9]"
-            rounded="rounded-3xl"
           />
           <div className="mx-auto mt-10 max-w-2xl text-center">
             <Eyebrow>Youth</Eyebrow>
@@ -394,47 +316,40 @@ export default function Home() {
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {partnerTypes.map((p) => (
-              <Pill key={p} rounded>{p}</Pill>
+              <Pill key={p}>{p}</Pill>
             ))}
           </div>
           <div className="mt-14 flex justify-center">
-            <ButtonSecondary href="/partner" rounded>Partner With Us</ButtonSecondary>
+            <ButtonSecondary href="/partner">Partner With Us</ButtonSecondary>
           </div>
         </div>
       </section>
 
       {/* 09 — FINAL CALL TO ACTION */}
-      <section className="bg-paper px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 rounded-3xl bg-banyan-deep px-6 py-16 shadow-[0_24px_60px_rgba(18,49,44,0.35)] sm:px-10 lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-16 lg:px-16">
-          <div>
-            <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-              There&rsquo;s a place for you in this, whoever you are
-            </h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-paper/70">
-              Time, money, a classroom, a contact who can open a door —
-              GSR runs on whatever people are able to give.
-            </p>
+      <section className="relative isolate overflow-hidden bg-banyan-deep py-28 md:py-36">
+        <ImagePlaceholder
+          label="[ HANDS AT WORK — BACKGROUND PHOTOGRAPH ]"
+          ratio=""
+          tone="emerald"
+          className="absolute inset-0 h-full w-full"
+        />
+        <div className="absolute inset-0 bg-banyan-deep/85" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl lg:text-5xl">
+            Be part of the change
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-paper/75">
+            Every action counts. Join GSR in protecting our planet,
+            expanding education, and empowering communities.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <ButtonPrimary href="/join">Join Our Journey</ButtonPrimary>
+            <ButtonOnDark href="/join/volunteer">Volunteer</ButtonOnDark>
+            <ButtonOnDark href="/donate">Donate</ButtonOnDark>
+            <ButtonOnDark href="/partner">
+              Sponsorship &amp; Collaboration
+            </ButtonOnDark>
           </div>
-          <ul className="divide-y divide-paper/15 border-t border-paper/15">
-            {[
-              { label: "Join Our Journey", detail: "Become a member and shape where we go next.", href: "/join" },
-              { label: "Volunteer", detail: "Give your time to a project near you.", href: "/join/volunteer" },
-              { label: "Donate", detail: "Fund the work directly, no middle layer.", href: "/donate" },
-              { label: "Sponsorship & Collaboration", detail: "Bring your organization in as a partner.", href: "/partner" },
-            ].map((action) => (
-              <li key={action.label}>
-                <Link
-                  href={action.href}
-                  className="group flex items-baseline justify-between gap-4 py-4 text-paper transition-colors hover:text-marigold"
-                >
-                  <span className="font-display text-lg font-semibold">{action.label}</span>
-                  <span className="hidden text-right text-sm text-paper/50 sm:block">
-                    {action.detail}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
     </main>

@@ -1,23 +1,11 @@
 import Link from "next/link";
 import ImagePlaceholder from "../../components/ImagePlaceholder";
-import Icon from "../../components/icons";
-import Reveal from "../../components/Reveal";
 import {
   Eyebrow,
-  Card,
-  iconToneAt,
+  ButtonPrimary,
+  ButtonOnDark,
+  IconCard,
 } from "../../components/ui";
-
-export const metadata = {
-  title: "Education for All — GSR",
-  description:
-    "GSR expands access to education through scholarships, digital and vocational skills training, leadership programmes and environmental learning.",
-  openGraph: {
-    title: "Education for All — GSR",
-    description:
-      "GSR expands access to education through scholarships, digital and vocational skills training, and leadership programmes.",
-  },
-};
 
 const focusAreas = [
   {
@@ -100,26 +88,25 @@ const related = [
 
 export default function Education() {
   return (
-    <main className="flex flex-1 flex-col bg-paper">
+    <main className="flex flex-1 flex-col bg-white dark:bg-zinc-950">
       {/* HERO */}
-      <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden bg-banyan-deep">
+      <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden bg-zinc-900">
         <ImagePlaceholder
-          label="Children in a village classroom"
-          src="/images/youth-learning.jpg"
+          label="[ EDUCATION HERO IMAGE HOLDER ]"
           ratio=""
           tone="emerald"
           className="absolute inset-0 h-full w-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/90 via-banyan-deep/40 to-banyan-deep/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-          <p className="text-xs text-paper/70">
+          <p className="text-xs text-zinc-300">
             <Link href="/">Home</Link> / <Link href="/#mission">Social Responsibility</Link> / Education
           </p>
           <Eyebrow tone="dark">Education for All</Eyebrow>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl">
+          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
             Knowledge Creates Opportunity
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-paper/80">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-200">
             Education is a foundation for sustainable development. We promote
             inclusive learning opportunities for children, students, youth, women,
             and communities who face barriers to education and skills development.
@@ -128,17 +115,17 @@ export default function Education() {
       </section>
 
       {/* OUR APPROACH */}
-      <section className="bg-paper py-20 md:py-28">
+      <section className="bg-white py-20 dark:bg-zinc-950 md:py-28">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Eyebrow>Our Approach</Eyebrow>
-          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
             Education Should Do More Than Transfer Information
           </h2>
-          <p className="mt-6 text-lg leading-8 text-ink-soft">
+          <p className="mt-6 text-lg leading-8 text-zinc-700 dark:text-zinc-300">
             Education should create knowledge, skills, confidence, responsibility
             and opportunity.
           </p>
-          <p className="mt-4 text-base leading-7 text-ink-soft">
+          <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
             Every child deserves access to quality learning, regardless of their
             social or economic background. Education creates opportunities, reduces
             poverty, and empowers future generations — it is not only about
@@ -148,96 +135,65 @@ export default function Education() {
       </section>
 
       {/* FOCUS AREAS */}
-      <section className="bg-paper-deep py-20 md:py-28">
+      <section className="bg-stone-50 py-20 dark:bg-zinc-900 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>Our Focus Areas</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
               Four ways we support learning
             </h2>
           </div>
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {focusAreas.map((area, i) => {
-              const tone = iconToneAt(i);
-              const toneClasses = {
-                banyan: "bg-banyan/10 text-banyan",
-                marigold: "bg-marigold/15 text-marigold-deep",
-                ink: "bg-ink/10 text-ink-soft",
-              };
-              return (
-                <Card key={area.title} className="flex items-start gap-4">
-                  <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                      toneClasses[tone] || toneClasses.banyan
-                    }`}
-                  >
-                    <Icon name={area.icon} className="size-5" />
-                  </div>
-                  <div>
-                    <Eyebrow>{area.category}</Eyebrow>
-                    <h3 className="mt-3 font-display text-lg font-semibold text-ink">
-                      {area.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-ink-soft">{area.lede}</p>
-                    <ul className="mt-4 space-y-1.5 text-sm leading-6 text-ink-soft">
-                      {area.bullets.map((item) => (
-                        <li key={item} className="flex gap-2">
-                          <span aria-hidden="true" className="text-banyan">
-                            &#10003;
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
-              );
-            })}
+          <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {focusAreas.map((area) => (
+              <div key={area.title} className="border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950">
+                <IconCard {...area} tone="emerald" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* HOW CHANGE HAPPENS */}
-      <section className="bg-paper py-20 md:py-28">
+      <section className="bg-white py-20 dark:bg-zinc-950 md:py-28">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>How Change Happens</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
               From a First Conversation to a Habit of Learning
             </h2>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-6 text-ink-soft/70">
+          <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-6 text-zinc-500 dark:text-zinc-500">
             GSR is a newly established foundation, so instead of staged
             before-and-after photos, here is the honest process behind every
             scholarship and learning programme we run — documented with real
             stories and photographs as each cohort completes its first year.
           </p>
-          <div className="mt-14 divide-y divide-clay">
+          <div className="mt-14 divide-y divide-zinc-200 dark:divide-zinc-800">
             {beforeAfter.map((item, i) => (
-              <Reveal key={item.title} delay={i * 100} className="flex gap-6 py-6">
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-banyan text-sm font-semibold text-banyan">
+              <div key={item.title} className="flex gap-6 py-6">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-emerald-600 text-sm font-semibold text-emerald-700 dark:border-emerald-500 dark:text-emerald-400">
                   {i + 1}
                 </span>
                 <div>
-                  <h4 className="font-display text-base font-semibold text-ink">
+                  <h4 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
                     {item.title}
                   </h4>
-                  <p className="mt-1 text-sm leading-6 text-ink-soft">
+                  <p className="mt-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                     {item.caption}
                   </p>
                 </div>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* RELATED */}
-      <section className="bg-paper-deep py-20 md:py-28">
+      <section className="bg-stone-50 py-20 dark:bg-zinc-900 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>Related</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
               Explore More of Our Work
             </h2>
           </div>
@@ -246,10 +202,10 @@ export default function Education() {
               <a
                 key={item.title}
                 href={item.href}
-                className="group flex items-center gap-4 border border-clay p-5 transition-colors hover:border-banyan"
+                className="group flex items-center gap-4 border border-zinc-200 p-5 transition-colors hover:border-emerald-600 dark:border-zinc-800 dark:hover:border-emerald-500"
               >
-                <span className="text-marigold-deep" aria-hidden="true">→</span>
-                <h4 className="font-display text-base font-semibold text-ink group-hover:text-banyan">
+                <span className="text-emerald-700 dark:text-emerald-400" aria-hidden="true">→</span>
+                <h4 className="text-base font-semibold text-zinc-900 group-hover:text-emerald-700 dark:text-zinc-50 dark:group-hover:text-emerald-400">
                   {item.title}
                 </h4>
               </a>
@@ -259,37 +215,27 @@ export default function Education() {
       </section>
 
       {/* CTA */}
-      <section className="bg-paper px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 rounded-3xl bg-banyan-deep px-6 py-16 shadow-[0_24px_60px_rgba(18,49,44,0.35)] sm:px-10 lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-16 lg:px-16">
-          <div>
-            <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-              Join Our Education Work
-            </h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-paper/70">
-              Sponsor a scholarship, volunteer as an educator, or partner
-              with us to build a learning resource centre.
-            </p>
+      <section className="relative isolate overflow-hidden bg-zinc-900 py-24 md:py-32">
+        <ImagePlaceholder
+          label="[ BACKGROUND IMAGE HOLDER ]"
+          ratio=""
+          tone="emerald"
+          className="absolute inset-0 h-full w-full"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <Eyebrow tone="dark">Help a Child Learn</Eyebrow>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Join Our Education Work
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-zinc-300">
+            Sponsor a scholarship, volunteer as an educator, or partner with us to
+            build a learning resource centre.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <ButtonPrimary href="/join/volunteer">Become a Volunteer</ButtonPrimary>
+            <ButtonOnDark href="/donate">Donate Now</ButtonOnDark>
           </div>
-          <ul className="divide-y divide-paper/15 border-t border-paper/15">
-            {[
-              { label: "Become a Volunteer", detail: "Teach, mentor, or support a classroom.", href: "/join/volunteer" },
-              { label: "Donate Now", detail: "Sponsor a scholarship directly.", href: "/donate" },
-              { label: "Partner With Us", detail: "Build a learning resource centre with us.", href: "/partner" },
-              { label: "See Our Impact", detail: "Follow learning programmes as they grow.", href: "/about/impact" },
-            ].map((action) => (
-              <li key={action.label}>
-                <Link
-                  href={action.href}
-                  className="group flex items-baseline justify-between gap-4 py-4 text-paper transition-colors hover:text-marigold"
-                >
-                  <span className="font-display text-lg font-semibold">{action.label}</span>
-                  <span className="hidden text-right text-sm text-paper/50 sm:block">
-                    {action.detail}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
     </main>
