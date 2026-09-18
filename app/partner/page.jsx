@@ -1,11 +1,25 @@
+import Link from "next/link";
 import ImagePlaceholder from "../components/ImagePlaceholder";
+import Icon from "../components/icons";
+import Reveal from "../components/Reveal";
 import {
   Eyebrow,
-  ButtonPrimary,
-  ButtonOnDark,
   Pill,
-  IconCard,
+  TextLink,
+  Card,
+  iconToneAt,
 } from "../components/ui";
+
+export const metadata = {
+  title: "Partner With Us — GSR",
+  description:
+    "GSR gives CSR teams, corporate foundations, government agencies and institutions a documented, governed, technology-tracked way to fund environmental, education and empowerment work in India.",
+  openGraph: {
+    title: "Partner With Us — GSR",
+    description:
+      "A documented, governed, technology-tracked way to fund environmental, education and empowerment work in India.",
+  },
+};
 
 const focusAreas = [
   {
@@ -91,22 +105,22 @@ const related = [
 
 export default function Partner() {
   return (
-    <main className="flex flex-1 flex-col bg-white dark:bg-zinc-950">
+    <main className="flex flex-1 flex-col bg-paper">
       {/* HERO */}
-      <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden bg-zinc-900">
+      <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden bg-banyan-deep">
         <ImagePlaceholder
           label="[ PARTNER HERO IMAGE HOLDER ]"
           ratio=""
           tone="emerald"
           className="absolute inset-0 h-full w-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/90 via-banyan-deep/40 to-banyan-deep/10" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
           <Eyebrow tone="dark">For CSR Teams, Foundations &amp; Institutions</Eyebrow>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl">
             Fund Work You Can Actually See
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-200">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-paper/80">
             GSR gives CSR teams, corporate foundations, government agencies and
             institutions a documented, governed, technology-tracked way to put
             funds behind environmental, education and empowerment work in India.
@@ -115,17 +129,17 @@ export default function Partner() {
       </section>
 
       {/* WHY PARTNER */}
-      <section className="bg-white py-20 dark:bg-zinc-950 md:py-28">
+      <section className="bg-paper py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Eyebrow>Why Fund Through GSR</Eyebrow>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             Three Things CSR Teams Ask For — Built In From Day One
           </h2>
-          <p className="mt-6 text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+          <p className="mt-6 text-lg leading-8 text-ink-soft">
             Governance you can verify. Documentation you can audit. A platform that
             reports back to you.
           </p>
-          <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-base leading-7 text-ink-soft">
             We are a newly registered foundation, and we are upfront about that.
             What we can offer from day one is structure: a named Board of
             Trustees, a Management Core Committee, a dedicated CSR Committee and
@@ -136,53 +150,97 @@ export default function Partner() {
       </section>
 
       {/* FOCUS GRID */}
-      <section className="bg-stone-50 py-20 dark:bg-zinc-900 md:py-28">
+      <section className="bg-paper-deep py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-            {focusAreas.map((area) => (
-              <div key={area.title} className="border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950">
-                <IconCard {...area} tone="emerald" />
-              </div>
-            ))}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {focusAreas.map((area, i) => {
+              const tone = iconToneAt(i);
+              const toneClasses = {
+                banyan: "bg-banyan/10 text-banyan",
+                marigold: "bg-marigold/15 text-marigold-deep",
+                ink: "bg-ink/10 text-ink-soft",
+              };
+              return (
+                <Card key={area.title} className="flex items-start gap-4">
+                  <div
+                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
+                      toneClasses[tone] || toneClasses.banyan
+                    }`}
+                  >
+                    <Icon name={area.icon} className="size-5" />
+                  </div>
+                  <div>
+                    <Eyebrow>{area.category}</Eyebrow>
+                    <h3 className="mt-3 font-display text-lg font-semibold text-ink">
+                      {area.title}
+                    </h3>
+                    {area.lede && (
+                      <p className="mt-2 text-sm leading-6 text-ink-soft">{area.lede}</p>
+                    )}
+                    {area.bullets?.length > 0 && (
+                      <ul className="mt-4 space-y-1.5 text-sm leading-6 text-ink-soft">
+                        {area.bullets.map((item) => (
+                          <li key={item} className="flex gap-2">
+                            <span aria-hidden="true" className="text-banyan">
+                              &#10003;
+                            </span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {area.linkHref && (
+                      <div className="mt-5">
+                        <TextLink href={area.linkHref}>{area.linkLabel || "Learn more"}</TextLink>
+                      </div>
+                    )}
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="bg-white py-20 dark:bg-zinc-950 md:py-28">
+      <section className="bg-paper py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>How a Partnership Works</Eyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               From first conversation to a funded, reported project
             </h2>
           </div>
-          <div className="mt-14 divide-y divide-zinc-200 dark:divide-zinc-800">
-            {steps.map((s) => (
-              <div key={s.step} className="flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
+          <div className="mt-14 divide-y divide-clay">
+            {steps.map((s, i) => (
+              <Reveal
+                key={s.step}
+                delay={i * 100}
+                className="flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+              >
                 <div className="sm:w-1/3">
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-marigold-deep">
                     {s.step}
                   </span>
-                  <h4 className="mt-1 text-base font-semibold text-zinc-900 dark:text-zinc-50">
+                  <h4 className="mt-1 font-display text-base font-semibold text-ink">
                     {s.title}
                   </h4>
                 </div>
-                <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400 sm:w-2/3">
+                <p className="text-sm leading-6 text-ink-soft sm:w-2/3">
                   {s.desc}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* WHO WE WORK WITH */}
-      <section className="bg-stone-50 py-20 dark:bg-zinc-900 md:py-28">
+      <section className="bg-paper-deep py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>Who We Partner With</Eyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               Built for the whole ecosystem around CSR giving
             </h2>
           </div>
@@ -195,11 +253,11 @@ export default function Partner() {
       </section>
 
       {/* RELATED */}
-      <section className="bg-white py-20 dark:bg-zinc-950 md:py-28">
+      <section className="bg-paper py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>Related</Eyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               Before You Reach Out
             </h2>
           </div>
@@ -208,10 +266,10 @@ export default function Partner() {
               <a
                 key={item.title}
                 href={item.href}
-                className="group flex items-center gap-4 border border-zinc-200 p-5 transition-colors hover:border-emerald-600 dark:border-zinc-800 dark:hover:border-emerald-500"
+                className="group flex items-center gap-4 border border-clay p-5 transition-colors hover:border-banyan"
               >
-                <span className="text-emerald-700 dark:text-emerald-400" aria-hidden="true">→</span>
-                <h4 className="text-base font-semibold text-zinc-900 group-hover:text-emerald-700 dark:text-zinc-50 dark:group-hover:text-emerald-400">
+                <span className="text-marigold-deep" aria-hidden="true">→</span>
+                <h4 className="font-display text-base font-semibold text-ink group-hover:text-banyan">
                   {item.title}
                 </h4>
               </a>
@@ -221,31 +279,37 @@ export default function Partner() {
       </section>
 
       {/* CTA */}
-      <section className="relative isolate overflow-hidden bg-zinc-900 py-24 md:py-32" id="cta">
-        <ImagePlaceholder
-          label="[ BACKGROUND IMAGE HOLDER ]"
-          ratio=""
-          tone="emerald"
-          className="absolute inset-0 h-full w-full"
-        />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <Eyebrow tone="dark">Let&apos;s Talk</Eyebrow>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Start a Partnership Conversation
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-zinc-300">
-            Tell us your CSR focus area and budget range — we&apos;ll come back with a
-            project concept that fits, not a generic pitch.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <ButtonPrimary href="mailto:info.gsrwf@gmail.com?subject=CSR%20Partnership%20Inquiry">
-              Email Our Partnerships Team
-            </ButtonPrimary>
-            <ButtonOnDark href="tel:+918754563555">
-              Call +91 87545 63555
-            </ButtonOnDark>
+      <section className="bg-paper px-4 py-20 sm:px-6 md:py-28 lg:px-8" id="cta">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 rounded-3xl bg-banyan-deep px-6 py-16 shadow-[0_24px_60px_rgba(18,49,44,0.35)] sm:px-10 lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-16 lg:px-16">
+          <div>
+            <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
+              Start a Partnership Conversation
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-7 text-paper/70">
+              Tell us your CSR focus area and budget range — we&apos;ll come
+              back with a project concept that fits, not a generic pitch.
+            </p>
           </div>
+          <ul className="divide-y divide-paper/15 border-t border-paper/15">
+            {[
+              { label: "Email Our Partnerships Team", detail: "Start the conversation over email.", href: "mailto:info.gsrwf@gmail.com?subject=CSR%20Partnership%20Inquiry" },
+              { label: "Call Us", detail: "+91 87545 63555", href: "tel:+918754563555" },
+              { label: "See Our Governance", detail: "Review the structure behind every partnership.", href: "/about/team" },
+              { label: "Explore GSR Tech", detail: "The platform that tracks what you fund.", href: "/gsr-tech" },
+            ].map((action) => (
+              <li key={action.label}>
+                <Link
+                  href={action.href}
+                  className="group flex items-baseline justify-between gap-4 py-4 text-paper transition-colors hover:text-marigold"
+                >
+                  <span className="font-display text-lg font-semibold">{action.label}</span>
+                  <span className="hidden text-right text-sm text-paper/50 sm:block">
+                    {action.detail}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>

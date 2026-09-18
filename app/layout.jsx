@@ -19,10 +19,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteDescription =
+  "Global Social Responsibility Welfare Foundation (GSR) — protecting the environment, advancing education, empowering communities, and creating opportunities for all.";
+
 export const metadata = {
-  title: "GSR — Global Social Responsibility Welfare Foundation",
-  description:
-    "Global Social Responsibility Welfare Foundation (GSR) — protecting the environment, advancing education, empowering communities, and creating opportunities for all.",
+  metadataBase: new URL("https://www.gsrwf.com"),
+  title: {
+    default: "GSR — Global Social Responsibility Welfare Foundation",
+    template: "%s",
+  },
+  description: siteDescription,
+  openGraph: {
+    type: "website",
+    siteName: "GSR — Global Social Responsibility Welfare Foundation",
+    title: "GSR — Global Social Responsibility Welfare Foundation",
+    description: siteDescription,
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GSR — Global Social Responsibility Welfare Foundation",
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -32,8 +50,11 @@ export default function RootLayout({ children }) {
       className={`${zillaSlab.variable} ${workSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
+        <a href="#main-content" className="gsr-skip-link">
+          Skip to main content
+        </a>
         <Navbar />
-        {children}
+        <div id="main-content">{children}</div>
         <Footer />
       </body>
     </html>

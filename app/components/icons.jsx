@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 const paths = {
   leaf: "M20 4C10 4 4 10 4 18v2h2c8 0 14-6 14-16zM6 20c3-6 7-9 12-12",
   droplet: "M12 3s6 7 6 11.5a6 6 0 1 1-12 0C6 10 12 3 12 3Z",
@@ -30,22 +32,42 @@ const paths = {
   network: "M12 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM5 18a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm14 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM12 9v5m-5.5 3L11 14m1 0 4.5 3",
   water: "M4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v0ZM4 12V9a4 4 0 0 1 4-4M20 12v3a4 4 0 0 1-4 4",
   seedling: "M12 21v-6M12 15C7 15 5 12 5 8c5 0 7 3 7 7Zm0 0c0-5 3-8 7-9 0 5-2 8-7 9Z",
+  search: "M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm9 2-4.7-4.7",
+  close: "M6 6l12 12M18 6 6 18",
 };
+
+// Hand-inked feel instead of a vector-perfect icon-library look: each glyph
+// gets a slightly different stroke weight and a light paper-grain wobble
+// (feTurbulence displacement), seeded from its own name so the same icon
+// always wobbles the same way rather than jittering between renders.
+function seedFrom(name) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i += 1) hash = (hash * 31 + name.charCodeAt(i)) % 97;
+  return hash;
+}
 
 export default function Icon({ name, className = "size-6" }) {
   const d = paths[name] || paths.sparkles;
+  const seed = seedFrom(name || "sparkles");
+  const strokeWidth = 1.5 + (seed % 5) * 0.09;
+  const filterId = useId();
+
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.6}
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
       aria-hidden="true"
     >
-      <path d={d} />
+      <filter id={filterId} x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed={seed} result="grain" />
+        <feDisplacementMap in="SourceGraphic" in2="grain" scale="0.9" />
+      </filter>
+      <path d={d} filter={`url(#${filterId})`} />
     </svg>
   );
 }

@@ -56,6 +56,7 @@ export const mainNav = [
       { label: "Social Media", href: "/gsr-tech/social-media" },
     ],
   },
+  { label: "CSR Tracker", href: "/csr-tracker" },
   { label: "Membership", href: "/join" },
   { label: "Career", href: "/career" },
 ];
