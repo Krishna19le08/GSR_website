@@ -44,6 +44,45 @@ body {
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
 }
 
+/* Visible keyboard-focus ring, site-wide. Mouse/touch interaction is
+   unaffected since :focus-visible only engages for keyboard/programmatic
+   focus. Marigold on banyan keeps the ring legible on both light and dark
+   section backgrounds. */
+:focus-visible {
+  outline: 2px solid var(--color-marigold);
+  outline-offset: 2px;
+}
+
+.gsr-skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  border: 1px solid var(--color-clay);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+.gsr-skip-link:focus {
+  top: 1rem;
+}
+
+/* Respect the OS-level reduced-motion preference across every transition
+   and animation on the site, not just the ones Reveal.jsx guards in JS. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Global Members map — Leaflet's own marker chrome, cleared so the custom
    .gsr-globe-marker below is all that shows (see LeafletMap.jsx) */
 .gsr-leaflet-icon {
@@ -163,6 +202,42 @@ body {
 }
 .gsr-globe-marker--selected .gsr-globe-marker__ping {
   background: rgba(31, 74, 68, 0.55);
+}
+/* India Rating Map (IndiaStateMap.jsx) — no basemap tiles, so the container
+   stays transparent and only the state/country polygons are visible. */
+.gsr-india-map .leaflet-container {
+  background: transparent;
+  cursor: default;
+}
+.gsr-india-map .leaflet-interactive {
+  cursor: pointer;
+}
+.leaflet-tooltip.gsr-state-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+.leaflet-tooltip.gsr-state-label::before {
+  display: none;
+}
+.leaflet-tooltip.gsr-state-preview {
+  border: 1px solid #d8cfb8;
+  border-radius: 2px;
+  background: #fbf8f0;
+  color: #1f2320;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 9px;
+  box-shadow: 0 2px 8px rgba(31, 35, 32, 0.15);
+}
+.leaflet-tooltip.gsr-state-preview::before {
+  border-top-color: #d8cfb8;
 }
 .gsr-scroll-thin {
   scrollbar-width: thin;

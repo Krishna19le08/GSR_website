@@ -1,11 +1,23 @@
 import Link from "next/link";
 import ImagePlaceholder from "../../components/ImagePlaceholder";
+import Icon from "../../components/icons";
+import Reveal from "../../components/Reveal";
 import {
   Eyebrow,
-  ButtonPrimary,
-  ButtonOnDark,
-  IconCard,
+  Card,
+  iconToneAt,
 } from "../../components/ui";
+
+export const metadata = {
+  title: "Environmental Protection — GSR",
+  description:
+    "GSR protects forests, rivers, wetlands, birds, wildlife and oceans through community-led conservation, restoration and environmental awareness.",
+  openGraph: {
+    title: "Environmental Protection — GSR",
+    description:
+      "GSR protects forests, rivers, wetlands, birds, wildlife and oceans through community-led conservation and restoration.",
+  },
+};
 
 const focusAreas = [
   {
@@ -102,25 +114,26 @@ const related = [
 
 export default function Environmental() {
   return (
-    <main className="flex flex-1 flex-col bg-white dark:bg-zinc-950">
+    <main className="flex flex-1 flex-col bg-paper">
       {/* HERO */}
-      <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden bg-zinc-900">
+      <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden bg-banyan-deep">
         <ImagePlaceholder
-          label="[ ENVIRONMENTAL HERO IMAGE HOLDER ]"
+          label="Forest, seen from a hillside in the Nilgiris"
+          src="/images/landscape-guardians.jpg"
           ratio=""
           tone="emerald"
           className="absolute inset-0 h-full w-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/90 via-banyan-deep/40 to-banyan-deep/10" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-          <p className="text-xs text-zinc-300">
+          <p className="text-xs text-paper/70">
             <Link href="/">Home</Link> / <Link href="/#mission">Social Responsibility</Link> / Environmental
           </p>
           <Eyebrow tone="dark">Environmental Protection</Eyebrow>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl">
             Protecting Nature, Wildlife &amp; Oceans
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-200">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-paper/80">
             Forests, rivers, wetlands, birds, animals, oceans and communities depend
             upon one another. We promote environmental awareness, conservation,
             research and sustainable community action to protect the natural world.
@@ -129,18 +142,18 @@ export default function Environmental() {
       </section>
 
       {/* OUR APPROACH */}
-      <section className="bg-white py-20 dark:bg-zinc-950 md:py-28">
+      <section className="bg-paper py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Eyebrow>Our Approach</Eyebrow>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             A Healthy Environment Is Essential for Healthy Communities
           </h2>
-          <p className="mt-6 text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+          <p className="mt-6 text-lg leading-8 text-ink-soft">
             Environmental protection cannot be treated as separate subjects — nature,
             biodiversity, wildlife, oceans and people are all part of one connected,
             living system.
           </p>
-          <p className="mt-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-base leading-7 text-ink-soft">
             We are committed to protecting forests, rivers, oceans, wildlife,
             biodiversity and natural ecosystems through community participation and
             environmental awareness. Together, every tree planted, every river
@@ -151,69 +164,97 @@ export default function Environmental() {
       </section>
 
       {/* FOCUS AREAS */}
-      <section className="bg-stone-50 py-20 dark:bg-zinc-900 md:py-28">
+      <section className="bg-paper-deep py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>Our Focus Areas</Eyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               Four connected areas of protection
             </h2>
           </div>
-          <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2">
-            {focusAreas.map((area) => (
-              <div
-                key={area.title}
-                className="border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950"
-              >
-                <IconCard {...area} tone="emerald" />
-              </div>
-            ))}
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {focusAreas.map((area, i) => {
+              const tone = iconToneAt(i);
+              const toneClasses = {
+                banyan: "bg-banyan/10 text-banyan",
+                marigold: "bg-marigold/15 text-marigold-deep",
+                ink: "bg-ink/10 text-ink-soft",
+              };
+              return (
+                <Card key={area.title} className="flex items-start gap-4">
+                  <div
+                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
+                      toneClasses[tone] || toneClasses.banyan
+                    }`}
+                  >
+                    <Icon name={area.icon} className="size-5" />
+                  </div>
+                  <div>
+                    <Eyebrow>{area.category}</Eyebrow>
+                    <h3 className="mt-3 font-display text-lg font-semibold text-ink">
+                      {area.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-ink-soft">{area.lede}</p>
+                    <ul className="mt-4 grid grid-cols-1 gap-1.5 text-sm leading-6 text-ink-soft sm:grid-cols-2">
+                      {area.bullets.map((item) => (
+                        <li key={item} className="flex gap-2">
+                          <span aria-hidden="true" className="text-banyan">
+                            &#10003;
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* HOW CHANGE HAPPENS */}
-      <section className="bg-white py-20 dark:bg-zinc-950 md:py-28">
+      <section className="bg-paper py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>How Change Happens</Eyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               From a Site Visit to a Living Ecosystem
             </h2>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-6 text-zinc-500 dark:text-zinc-500">
+          <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-6 text-ink-soft/70">
             GSR is a newly established foundation, so we won&rsquo;t show you
             staged before-and-after photos of work we haven&rsquo;t done yet.
             Here is the honest process every environmental project follows —
             and we&rsquo;ll document it in full, with real photographs, as
             each site completes its first cycle.
           </p>
-          <div className="mt-14 divide-y divide-zinc-200 dark:divide-zinc-800">
+          <div className="mt-14 divide-y divide-clay">
             {beforeAfter.map((item, i) => (
-              <div key={item.title} className="flex gap-6 py-6">
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-emerald-600 text-sm font-semibold text-emerald-700 dark:border-emerald-500 dark:text-emerald-400">
+              <Reveal key={item.title} delay={i * 100} className="flex gap-6 py-6">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-banyan text-sm font-semibold text-banyan">
                   {i + 1}
                 </span>
                 <div>
-                  <h4 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
+                  <h4 className="font-display text-base font-semibold text-ink">
                     {item.title}
                   </h4>
-                  <p className="mt-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                  <p className="mt-1 text-sm leading-6 text-ink-soft">
                     {item.caption}
                   </p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* RELATED */}
-      <section className="bg-stone-50 py-20 dark:bg-zinc-900 md:py-28">
+      <section className="bg-paper-deep py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow>Related</Eyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               Explore More of Our Work
             </h2>
           </div>
@@ -222,10 +263,10 @@ export default function Environmental() {
               <a
                 key={item.title}
                 href={item.href}
-                className="group flex items-center gap-4 border border-zinc-200 p-5 transition-colors hover:border-emerald-600 dark:border-zinc-800 dark:hover:border-emerald-500"
+                className="group flex items-center gap-4 border border-clay p-5 transition-colors hover:border-banyan"
               >
-                <span className="text-emerald-700 dark:text-emerald-400" aria-hidden="true">→</span>
-                <h4 className="text-base font-semibold text-zinc-900 group-hover:text-emerald-700 dark:text-zinc-50 dark:group-hover:text-emerald-400">
+                <span className="text-marigold-deep" aria-hidden="true">→</span>
+                <h4 className="font-display text-base font-semibold text-ink group-hover:text-banyan">
                   {item.title}
                 </h4>
               </a>
@@ -235,27 +276,38 @@ export default function Environmental() {
       </section>
 
       {/* CTA */}
-      <section className="relative isolate overflow-hidden bg-zinc-900 py-24 md:py-32">
-        <ImagePlaceholder
-          label="[ BACKGROUND IMAGE HOLDER ]"
-          ratio=""
-          tone="emerald"
-          className="absolute inset-0 h-full w-full"
-        />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <Eyebrow tone="dark">Protect Nature With Us</Eyebrow>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Join Our Environmental Work
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-zinc-300">
-            Volunteer for a tree-plantation drive, support bird and wildlife
-            conservation, or partner with us on a clean-water initiative.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <ButtonPrimary href="/join/volunteer">Become a Volunteer</ButtonPrimary>
-            <ButtonOnDark href="/donate">Donate Now</ButtonOnDark>
+      <section className="bg-paper px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 rounded-3xl bg-banyan-deep px-6 py-16 shadow-[0_24px_60px_rgba(18,49,44,0.35)] sm:px-10 lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-16 lg:px-16">
+          <div>
+            <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
+              Join Our Environmental Work
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-7 text-paper/70">
+              Volunteer for a tree-plantation drive, support bird and
+              wildlife conservation, or partner with us on a clean-water
+              initiative.
+            </p>
           </div>
+          <ul className="divide-y divide-paper/15 border-t border-paper/15">
+            {[
+              { label: "Become a Volunteer", detail: "Join a tree-plantation or clean-up drive.", href: "/join/volunteer" },
+              { label: "Donate Now", detail: "Fund conservation work directly.", href: "/donate" },
+              { label: "Partner With Us", detail: "Sponsor a clean-water or habitat initiative.", href: "/partner" },
+              { label: "See Our Impact", detail: "Follow environmental projects as they progress.", href: "/about/impact" },
+            ].map((action) => (
+              <li key={action.label}>
+                <Link
+                  href={action.href}
+                  className="group flex items-baseline justify-between gap-4 py-4 text-paper transition-colors hover:text-marigold"
+                >
+                  <span className="font-display text-lg font-semibold">{action.label}</span>
+                  <span className="hidden text-right text-sm text-paper/50 sm:block">
+                    {action.detail}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>
