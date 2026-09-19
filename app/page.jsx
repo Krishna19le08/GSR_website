@@ -118,16 +118,14 @@ export default function Home() {
           tone="emerald"
           className="absolute inset-0 h-full w-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/90 via-banyan-deep/40 to-banyan-deep/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/55 via-banyan-deep/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-banyan-deep/35 to-transparent" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-          <p className="text-xs text-paper/70">
-            Chennai, Tamil Nadu — and every community we get to know after
-          </p>
           <Eyebrow tone="dark">Our Mission</Eyebrow>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.1] tracking-normal text-paper [text-shadow:0_2px_20px_rgb(0_0_0/0.55)] sm:text-5xl lg:text-6xl">
             We show up for people first, and let the outcomes follow.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-paper/80">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-paper/95 [text-shadow:0_1px_12px_rgb(0_0_0/0.6)] sm:text-lg">
             GSR unites people and organizations to protect the environment,
             expand education, and create opportunity for all — starting with
             the communities closest to us.
@@ -135,6 +133,9 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap gap-4">
             <ButtonPrimary href="/join" rounded>Join Our Journey</ButtonPrimary>
           </div>
+          <p className="mt-10 border-t border-paper/25 pt-4 text-xs tracking-wide text-paper/80">
+            Chennai, Tamil Nadu — and every community we get to know after
+          </p>
         </div>
       </section>
 
