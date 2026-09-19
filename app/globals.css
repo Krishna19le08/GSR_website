@@ -44,6 +44,21 @@ body {
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
 }
 
+/* Disable the text-selection caret site-wide (clicking/dragging over text
+   shouldn't highlight it or show a blinking `|`), but leave form fields
+   selectable so typing and editing still work normally. */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+input,
+textarea,
+select,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 /* Visible keyboard-focus ring, site-wide. Mouse/touch interaction is
    unaffected since :focus-visible only engages for keyboard/programmatic
    focus. Marigold on banyan keeps the ring legible on both light and dark

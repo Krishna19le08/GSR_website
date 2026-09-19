@@ -113,7 +113,7 @@ export default function Home() {
       <section className="relative isolate flex min-h-[calc(100svh-4rem)] items-end overflow-hidden bg-banyan-deep">
         <ImagePlaceholder
           label="A community meeting under a banyan tree"
-          src="/images/hero-community.jpg"
+          src="/hero_1.jpg"
           ratio=""
           tone="emerald"
           className="absolute inset-0 h-full w-full"
