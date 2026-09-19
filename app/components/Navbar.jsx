@@ -83,7 +83,7 @@ function DesktopDropdownItem({ item }) {
         <ChevronRight />
       </button>
       <div
-        className={`absolute left-full top-0 z-50 ml-0.5 min-w-56 border border-clay bg-paper py-2 shadow-lg transition duration-150 ${
+        className={`absolute left-full top-0 z-50 ml-0.5 min-w-56 border border-clay bg-white py-2 shadow-lg transition duration-150 ${
           open ? "visible translate-x-0 opacity-100" : "invisible -translate-x-1 opacity-0"
         }`}
         role="menu"
@@ -144,7 +144,7 @@ function DesktopNavItem({ item }) {
         <ChevronDown />
       </button>
       <div
-        className={`absolute left-0 top-full z-50 min-w-64 -translate-y-1 border border-clay bg-paper py-2 shadow-lg transition duration-150 ${
+        className={`absolute left-0 top-full z-50 min-w-64 -translate-y-1 border border-clay bg-white py-2 shadow-lg transition duration-150 ${
           open ? "visible translate-y-0 opacity-100" : "invisible opacity-0"
         }`}
         role="menu"
@@ -240,7 +240,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 select-none border-b border-clay bg-white backdrop-blur">
+    <header className="sticky top-0 z-50 select-none border-b border-clay bg-white">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center">
           <Image
@@ -299,7 +299,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-clay bg-paper px-4 pb-6 lg:hidden">
+        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-clay bg-white px-4 pb-6 lg:hidden">
           <nav aria-label="Primary mobile" className="divide-y divide-clay/60">
             {mainNav.map((item) => (
               <MobileNavItem
