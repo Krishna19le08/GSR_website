@@ -1,0 +1,3309 @@
+
+{
+  "data": {
+    "state_cmpnylst_data": [
+      {
+        "amnt_spent": "1.68E8",
+        "fncl_yr": "FY 2024-25",
+        "name": "K.P.R. Mill Limited",
+        "cin": "L17111TZ2003PLC010518",
+        "rn": "1"
+      },
+      {
+        "amnt_spent": "1.33198E8",
+        "fncl_yr": "FY 2024-25",
+        "name": "Steel Authority Of India Limited",
+        "cin": "L27109DL1973GOI006454",
+        "rn": "2"
+      },
+      {
+        "amnt_spent": "1.2670329E8",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cholamandalam Investment And Finance Company Limited",
+        "cin": "L65993TN1978PLC007576",
+        "rn": "3"
+      },
+      {
+        "amnt_spent": "1.14806603E8",
+        "fncl_yr": "FY 2024-25",
+        "name": "Infosys Limited",
+        "cin": "L85110KA1981PLC013115",
+        "rn": "4"
+      },
+      {
+        "amnt_spent": "7.38E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kotak Mahindra Bank Limited",
+        "cin": "L65110MH1985PLC038137",
+        "rn": "5"
+      },
+      {
+        "amnt_spent": "7.1092299E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lmw Limited",
+        "cin": "L29269TZ1962PLC000463",
+        "rn": "6"
+      },
+      {
+        "amnt_spent": "6.3825807E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Titan Company Limited",
+        "cin": "L74999TZ1984PLC001456",
+        "rn": "7"
+      },
+      {
+        "amnt_spent": "6.3561969E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bosch Global Software Technologies Private Limited",
+        "cin": "U72400KA1997PTC023164",
+        "rn": "8"
+      },
+      {
+        "amnt_spent": "6.0E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Tata Capital Limited",
+        "cin": "L65990MH1991PLC060670",
+        "rn": "9"
+      },
+      {
+        "amnt_spent": "4.5926202E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Craftsman Automation Limited",
+        "cin": "L28991TZ1986PLC001816",
+        "rn": "10"
+      },
+      {
+        "amnt_spent": "3.91E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "K.P.R. Sugar Mill Limited",
+        "cin": "U15421TZ2006PLC012633",
+        "rn": "11"
+      },
+      {
+        "amnt_spent": "3.5731507E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Milacron India Private Limited",
+        "cin": "U74999GJ1995FTC025783",
+        "rn": "12"
+      },
+      {
+        "amnt_spent": "2.9455356E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Zf Wind Power Coimbatore Private Limited",
+        "cin": "U28112TZ2006PTC013294",
+        "rn": "13"
+      },
+      {
+        "amnt_spent": "2.919975784E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Larsen And Toubro Limited",
+        "cin": "L99999MH1946PLC004768",
+        "rn": "14"
+      },
+      {
+        "amnt_spent": "2.72E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kpr Sugar And Apparels Limited",
+        "cin": "U18109TZ2020PLC034666",
+        "rn": "15"
+      },
+      {
+        "amnt_spent": "2.6E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Essa Garments Private Limited",
+        "cin": "U17111TZ2014PTC020400",
+        "rn": "16"
+      },
+      {
+        "amnt_spent": "2.5317537E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Emerald Jewel Industry India Limited",
+        "cin": "U03691TZ2004PLC011255",
+        "rn": "17"
+      },
+      {
+        "amnt_spent": "2.2444876E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "C R I Pumps Private Limited",
+        "cin": "U29120TZ1996PTC006902",
+        "rn": "18"
+      },
+      {
+        "amnt_spent": "2.1739971E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Propel Industries Private Limited",
+        "cin": "U29199TZ2009PTC015651",
+        "rn": "19"
+      },
+      {
+        "amnt_spent": "2.0E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Capri Global Ventures Private Limited",
+        "cin": "U74110MH1995PTC095112",
+        "rn": "20"
+      },
+      {
+        "amnt_spent": "1.737008E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hdb Financial Services Limited",
+        "cin": "L65993GJ2007PLC051028",
+        "rn": "21"
+      },
+      {
+        "amnt_spent": "1.6797471E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pricol Limited",
+        "cin": "L34200TZ2011PLC022194",
+        "rn": "22"
+      },
+      {
+        "amnt_spent": "1.6224695E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "S.P.Apparels Limited",
+        "cin": "L18101TZ2005PLC012295",
+        "rn": "23"
+      },
+      {
+        "amnt_spent": "1.56E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Tata Capital Housing Finance Limited",
+        "cin": "U67190MH2008PLC187552",
+        "rn": "24"
+      },
+      {
+        "amnt_spent": "1.5331176E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "L G Balakrishnan & Bros Limited",
+        "cin": "L29191TZ1956PLC000257",
+        "rn": "25"
+      },
+      {
+        "amnt_spent": "1.5E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hero Fincorp Limited",
+        "cin": "U74899DL1991PLC046774",
+        "rn": "26"
+      },
+      {
+        "amnt_spent": "1.3874278E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "L&T Mbda Missile Systems Limited",
+        "cin": "U29308MH2017PLC293402",
+        "rn": "27"
+      },
+      {
+        "amnt_spent": "1.283204211E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Asian Paints Limited",
+        "cin": "L24220MH1945PLC004598",
+        "rn": "28"
+      },
+      {
+        "amnt_spent": "1.2380926E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ambika Cotton Mills Limited",
+        "cin": "L17115TZ1988PLC002269",
+        "rn": "29"
+      },
+      {
+        "amnt_spent": "1.2230695E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Welspun Enterprises Limited",
+        "cin": "L45201GJ1994PLC023920",
+        "rn": "30"
+      },
+      {
+        "amnt_spent": "1.1515935E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Malabar Gold And Diamonds Limited",
+        "cin": "U52393KL2001PLC014804",
+        "rn": "31"
+      },
+      {
+        "amnt_spent": "1.1114E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Shanthi Feeds Private Limited",
+        "cin": "U01222TZ2006PTC012707",
+        "rn": "32"
+      },
+      {
+        "amnt_spent": "1.11E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Connected Services Corporation Wipro India Private Limited",
+        "cin": "U72200KA2002PTC030427",
+        "rn": "33"
+      },
+      {
+        "amnt_spent": "1.1014655E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hcl Technologies Limited",
+        "cin": "L74140DL1991PLC046369",
+        "rn": "34"
+      },
+      {
+        "amnt_spent": "1.0983E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Roots Multi Clean Limited",
+        "cin": "U36999TZ1992PLC003662",
+        "rn": "35"
+      },
+      {
+        "amnt_spent": "1.073948097E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Equitas Small Finance Bank Limited",
+        "cin": "L65191TN1993PLC025280",
+        "rn": "36"
+      },
+      {
+        "amnt_spent": "1.060254E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kcp Infra Limited",
+        "cin": "U45400TN2011PLC099511",
+        "rn": "37"
+      },
+      {
+        "amnt_spent": "1.0532427E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Gvg Paper Mills Private Limited",
+        "cin": "U02101TZ1985PTC006888",
+        "rn": "38"
+      },
+      {
+        "amnt_spent": "1.024E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Tractors And Farm Equipment Limited.",
+        "cin": "U29129TN1960PLC004337",
+        "rn": "39"
+      },
+      {
+        "amnt_spent": "1.0E7",
+        "fncl_yr": "FY 2024-25",
+        "name": "Harman International (India) Private Limited",
+        "cin": "U72200KA2009PTC048794",
+        "rn": "40"
+      },
+      {
+        "amnt_spent": "9968200",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ca (India) Technologies Private Limited",
+        "cin": "U72900KA1998PTC137825",
+        "rn": "41"
+      },
+      {
+        "amnt_spent": "9920087.85",
+        "fncl_yr": "FY 2024-25",
+        "name": "General Insurance Corporation Of India",
+        "cin": "L67200MH1972GOI016133",
+        "rn": "42"
+      },
+      {
+        "amnt_spent": "9622553",
+        "fncl_yr": "FY 2024-25",
+        "name": "Vmware Software India Private Limited",
+        "cin": "U72900KA2007PTC042047",
+        "rn": "43"
+      },
+      {
+        "amnt_spent": "9590000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hindustan Petroleum Corporation Limited",
+        "cin": "L23201MH1952GOI008858",
+        "rn": "44"
+      },
+      {
+        "amnt_spent": "9530580",
+        "fncl_yr": "FY 2024-25",
+        "name": "Niif Infrastructure Finance Limited",
+        "cin": "U67190MH2014PLC253944",
+        "rn": "45"
+      },
+      {
+        "amnt_spent": "9389569",
+        "fncl_yr": "FY 2024-25",
+        "name": "Premier Fine Linens Private Limited",
+        "cin": "U17111TZ1995PTC005901",
+        "rn": "46"
+      },
+      {
+        "amnt_spent": "9364717",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eppinger Tooling Asia Private Limited",
+        "cin": "U02922TZ2005PTC011780",
+        "rn": "47"
+      },
+      {
+        "amnt_spent": "9262715",
+        "fncl_yr": "FY 2024-25",
+        "name": "West Bengal Lottery Stockists Syndicate Private Limited",
+        "cin": "U51901WB2003PTC096997",
+        "rn": "48"
+      },
+      {
+        "amnt_spent": "9091197.44",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ganga Medical Centre And Hospitals Private Limited",
+        "cin": "U40108TZ1994PTC005600",
+        "rn": "49"
+      },
+      {
+        "amnt_spent": "8978187",
+        "fncl_yr": "FY 2024-25",
+        "name": "Atria Convergence Technologies Limited",
+        "cin": "U72900KA2000PLC027290",
+        "rn": "50"
+      },
+      {
+        "amnt_spent": "8900000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Isha Life Private Limited",
+        "cin": "U74993TZ2019PTC033222",
+        "rn": "51"
+      },
+      {
+        "amnt_spent": "8857095",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hirotec India Private Limited",
+        "cin": "U72200TZ2005PTC011837",
+        "rn": "52"
+      },
+      {
+        "amnt_spent": "8835000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Salzer Electronics Limited",
+        "cin": "L03210TZ1985PLC001535",
+        "rn": "53"
+      },
+      {
+        "amnt_spent": "8708536",
+        "fncl_yr": "FY 2024-25",
+        "name": "Brocade Communications Systems Private Limited",
+        "cin": "U72200KA2004PTC033931",
+        "rn": "54"
+      },
+      {
+        "amnt_spent": "8628000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Shanthi Gears Limited",
+        "cin": "L29130TZ1972PLC000649",
+        "rn": "55"
+      },
+      {
+        "amnt_spent": "8623025",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sumangali Jewellers Private Limited",
+        "cin": "U52609TZ2022PTC040110",
+        "rn": "56"
+      },
+      {
+        "amnt_spent": "8596000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Roots Industries India Private Limited",
+        "cin": "U02520TZ1990PTC002987",
+        "rn": "57"
+      },
+      {
+        "amnt_spent": "8437000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sandfits Foundries Private Limited",
+        "cin": "U27310TZ1993PTC004639",
+        "rn": "58"
+      },
+      {
+        "amnt_spent": "8193408",
+        "fncl_yr": "FY 2024-25",
+        "name": "Shiva Distilleries Private Limited",
+        "cin": "U01551TZ1982PTC001218",
+        "rn": "59"
+      },
+      {
+        "amnt_spent": "8180000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Royal Classic Mills Private Limited",
+        "cin": "U17111TZ1994PTC005325",
+        "rn": "60"
+      },
+      {
+        "amnt_spent": "8095000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Elgi Equipments Limited",
+        "cin": "L29120TZ1960PLC000351",
+        "rn": "61"
+      },
+      {
+        "amnt_spent": "8002500",
+        "fncl_yr": "FY 2024-25",
+        "name": "Flowserve India Controls Private Limited",
+        "cin": "U85110KA1996PTC021388",
+        "rn": "62"
+      },
+      {
+        "amnt_spent": "8000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Super Sales India Limited",
+        "cin": "L17111TZ1981PLC001109",
+        "rn": "63"
+      },
+      {
+        "amnt_spent": "7972248",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mankind Pharma Limited",
+        "cin": "L74899DL1991PLC044843",
+        "rn": "64"
+      },
+      {
+        "amnt_spent": "7718702",
+        "fncl_yr": "FY 2024-25",
+        "name": "Avaneetha Textiles Private Limited",
+        "cin": "U17111TZ2004PTC010978",
+        "rn": "65"
+      },
+      {
+        "amnt_spent": "7687397",
+        "fncl_yr": "FY 2024-25",
+        "name": "Walkaroo International Private Limited",
+        "cin": "U19200TZ2011PTC029228",
+        "rn": "66"
+      },
+      {
+        "amnt_spent": "7614006",
+        "fncl_yr": "FY 2024-25",
+        "name": "Circor Flow Technologies India Private Limited",
+        "cin": "U29120TZ2009PTC014991",
+        "rn": "67"
+      },
+      {
+        "amnt_spent": "7607991",
+        "fncl_yr": "FY 2024-25",
+        "name": "Arise Investments And Capital Private Limited",
+        "cin": "U67120TZ1994PTC005250",
+        "rn": "68"
+      },
+      {
+        "amnt_spent": "7563500",
+        "fncl_yr": "FY 2024-25",
+        "name": "Gilbarco Veeder Root India Private Limited",
+        "cin": "U46599TZ2009PTC027778",
+        "rn": "69"
+      },
+      {
+        "amnt_spent": "7526000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Asset Reconstruction Company (India) Limited",
+        "cin": "U65999MH2002PLC134884",
+        "rn": "70"
+      },
+      {
+        "amnt_spent": "7519842",
+        "fncl_yr": "FY 2024-25",
+        "name": "Brookefields Estates Private Limited",
+        "cin": "U70101TN2004PTC054946",
+        "rn": "71"
+      },
+      {
+        "amnt_spent": "7400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Selva Gold Covering Private Limited",
+        "cin": "U52110TZ1991PTC003181",
+        "rn": "72"
+      },
+      {
+        "amnt_spent": "7338263.81",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lakshmi Life Sciences Private Limited",
+        "cin": "U25111TZ2009PTC015340",
+        "rn": "73"
+      },
+      {
+        "amnt_spent": "7235000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Siemens Healthcare Private Limited",
+        "cin": "U74999MH2015PTC264859",
+        "rn": "74"
+      },
+      {
+        "amnt_spent": "7192463",
+        "fncl_yr": "FY 2024-25",
+        "name": "Velan Valves India Private Limited",
+        "cin": "U29220TZ2010FTC017876",
+        "rn": "75"
+      },
+      {
+        "amnt_spent": "7051786",
+        "fncl_yr": "FY 2024-25",
+        "name": "Five-Star Business Finance Limited",
+        "cin": "L65991TN1984PLC010844",
+        "rn": "76"
+      },
+      {
+        "amnt_spent": "7036952",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eye Foundation Limited",
+        "cin": "U03311TZ1997PLC011249",
+        "rn": "77"
+      },
+      {
+        "amnt_spent": "7026795",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rabwin Industries Private Limited",
+        "cin": "U72501TZ2000PTC009485",
+        "rn": "78"
+      },
+      {
+        "amnt_spent": "7000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kotak Mahindra Asset Management Company Limited",
+        "cin": "U65991MH1994PLC080009",
+        "rn": "79"
+      },
+      {
+        "amnt_spent": "7000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Quest Portfolio Services Private Limited",
+        "cin": "U67120MH2006PTC165943",
+        "rn": "80"
+      },
+      {
+        "amnt_spent": "6946543",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lsi India Research & Development Private Limited",
+        "cin": "U32105KA2005PTC046729",
+        "rn": "81"
+      },
+      {
+        "amnt_spent": "6783400",
+        "fncl_yr": "FY 2024-25",
+        "name": "Dxc Technology India Private Limited",
+        "cin": "U72900TN2015FTC102489",
+        "rn": "82"
+      },
+      {
+        "amnt_spent": "6694191",
+        "fncl_yr": "FY 2024-25",
+        "name": "Premier Mills Private Limited",
+        "cin": "U17111TZ1994PTC005511",
+        "rn": "83"
+      },
+      {
+        "amnt_spent": "6416658",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cameron Manufacturing (India) Private Limited",
+        "cin": "U29120TZ2001PTC009632",
+        "rn": "84"
+      },
+      {
+        "amnt_spent": "6390000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sakthi Auto Component Limited",
+        "cin": "U29199TZ1999PLC008751",
+        "rn": "85"
+      },
+      {
+        "amnt_spent": "6363264",
+        "fncl_yr": "FY 2024-25",
+        "name": "Itc Infotech India Limited",
+        "cin": "U65991WB1996PLC077341",
+        "rn": "86"
+      },
+      {
+        "amnt_spent": "6337000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mettler-Toledo India Private Limited",
+        "cin": "U51900MH1998PTC114109",
+        "rn": "87"
+      },
+      {
+        "amnt_spent": "6329400",
+        "fncl_yr": "FY 2024-25",
+        "name": "Applied Materials India Private Limited",
+        "cin": "U74140KA2003FTC032243",
+        "rn": "88"
+      },
+      {
+        "amnt_spent": "6300000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sri Krishna I-Tech And Management Solutions Private Limited",
+        "cin": "U80903TZ2011PTC017698",
+        "rn": "89"
+      },
+      {
+        "amnt_spent": "6079000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Trident Pneumatics Private Limited",
+        "cin": "U29120TZ1999PTC009014",
+        "rn": "90"
+      },
+      {
+        "amnt_spent": "6010000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Jos Alukkas India Private Limited",
+        "cin": "U36911KL2004PTC017440",
+        "rn": "91"
+      },
+      {
+        "amnt_spent": "5924000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kg Invicta Services Private Limited",
+        "cin": "U74999TZ2021PTC036907",
+        "rn": "92"
+      },
+      {
+        "amnt_spent": "5822911",
+        "fncl_yr": "FY 2024-25",
+        "name": "Jain Resource Recycling Limited",
+        "cin": "L27320TN2022PLC150206",
+        "rn": "93"
+      },
+      {
+        "amnt_spent": "5802544",
+        "fncl_yr": "FY 2024-25",
+        "name": "Fuji Electric India Private Limited",
+        "cin": "U31900TN1985PTC011866",
+        "rn": "94"
+      },
+      {
+        "amnt_spent": "5655706",
+        "fncl_yr": "FY 2024-25",
+        "name": "Orbinox India Private Limited",
+        "cin": "U29120TZ2003PTC010536",
+        "rn": "95"
+      },
+      {
+        "amnt_spent": "5625000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hi-Tech Systems & Services Ltd.",
+        "cin": "U74999WB1989PLC046263",
+        "rn": "96"
+      },
+      {
+        "amnt_spent": "5623501",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sree Narasimha Textiles Private Limited",
+        "cin": "U17111TZ1976PTC000755",
+        "rn": "97"
+      },
+      {
+        "amnt_spent": "5523834",
+        "fncl_yr": "FY 2024-25",
+        "name": "Precot Limited",
+        "cin": "L17111TZ1962PLC001183",
+        "rn": "98"
+      },
+      {
+        "amnt_spent": "5415073",
+        "fncl_yr": "FY 2024-25",
+        "name": "Virtusa Consulting Services Private Limited",
+        "cin": "U93000TN2008FTC128079",
+        "rn": "99"
+      },
+      {
+        "amnt_spent": "5302344.23",
+        "fncl_yr": "FY 2024-25",
+        "name": "Premier Evolvics Private Limited",
+        "cin": "U02520TZ1981PTC001107",
+        "rn": "100"
+      },
+      {
+        "amnt_spent": "5292466.64",
+        "fncl_yr": "FY 2024-25",
+        "name": "Schneider Electric Private Limited",
+        "cin": "U74999DL2018PTC332482",
+        "rn": "101"
+      },
+      {
+        "amnt_spent": "5288000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Chennai Petroleum Corporation Limited",
+        "cin": "L40101TN1965GOI005389",
+        "rn": "102"
+      },
+      {
+        "amnt_spent": "5267010",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sakthi Auto Ancillary Private Limited",
+        "cin": "U29199TZ1998PTC008320",
+        "rn": "103"
+      },
+      {
+        "amnt_spent": "5156900",
+        "fncl_yr": "FY 2024-25",
+        "name": "D P F Textiles Private Limited",
+        "cin": "U17115TZ1953PTC000048",
+        "rn": "104"
+      },
+      {
+        "amnt_spent": "5000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Linde India Limited",
+        "cin": "L40200WB1935PLC008184",
+        "rn": "105"
+      },
+      {
+        "amnt_spent": "5000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Aditya Birla Capital Limited",
+        "cin": "L64920GJ2007PLC058890",
+        "rn": "106"
+      },
+      {
+        "amnt_spent": "4846100",
+        "fncl_yr": "FY 2024-25",
+        "name": "Standard Chartered Global Business Services Private Limited",
+        "cin": "U67190TN2000PTC049177",
+        "rn": "107"
+      },
+      {
+        "amnt_spent": "4800000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Tamilnadu Transport Development Finance Corporation Limited",
+        "cin": "U65191TN1975SGC006887",
+        "rn": "108"
+      },
+      {
+        "amnt_spent": "4776000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sakthi Finance Limited",
+        "cin": "L65910TZ1955PLC000145",
+        "rn": "109"
+      },
+      {
+        "amnt_spent": "4602000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Core Carbons Private Limited",
+        "cin": "U23109TZ1998PTC008464",
+        "rn": "110"
+      },
+      {
+        "amnt_spent": "4569949",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pressmatic Engineers India Private Limited",
+        "cin": "U31900TZ2008PTC014347",
+        "rn": "111"
+      },
+      {
+        "amnt_spent": "4563000",
+        "fncl_yr": "FY 2024-25",
+        "name": "A B T Limited",
+        "cin": "U60231TZ1931PLC000006",
+        "rn": "112"
+      },
+      {
+        "amnt_spent": "4562132",
+        "fncl_yr": "FY 2024-25",
+        "name": "Flow Link Systems Private Limited",
+        "cin": "U29120TZ1992PTC003779",
+        "rn": "113"
+      },
+      {
+        "amnt_spent": "4466845",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rasi Seeds Private Limited",
+        "cin": "U01112TZ1986PTC001864",
+        "rn": "114"
+      },
+      {
+        "amnt_spent": "4400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bagrecha Enterprises Limited",
+        "cin": "U65921TZ1994PLC005522",
+        "rn": "115"
+      },
+      {
+        "amnt_spent": "4382851",
+        "fncl_yr": "FY 2024-25",
+        "name": "Jacobi Carbons India Private Limited",
+        "cin": "U74999TZ2008FTC014830",
+        "rn": "116"
+      },
+      {
+        "amnt_spent": "4382018",
+        "fncl_yr": "FY 2024-25",
+        "name": "Chakradhara Aerospace And Cargo Private Limited",
+        "cin": "U29308TZ2017PTC029321",
+        "rn": "117"
+      },
+      {
+        "amnt_spent": "4350000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Dutch Plantin Coir India Private Limited",
+        "cin": "U05190TZ2005PTC011946",
+        "rn": "118"
+      },
+      {
+        "amnt_spent": "4227605",
+        "fncl_yr": "FY 2024-25",
+        "name": "Messer Cutting Systems India Private Limited",
+        "cin": "U29220TZ2008FTC014203",
+        "rn": "119"
+      },
+      {
+        "amnt_spent": "4200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Jay Jay Mills India Private Limited",
+        "cin": "U17111TZ1999PTC009101",
+        "rn": "120"
+      },
+      {
+        "amnt_spent": "4174350",
+        "fncl_yr": "FY 2024-25",
+        "name": "Appviewx Private Limited",
+        "cin": "U72900TZ2016FTC027936",
+        "rn": "121"
+      },
+      {
+        "amnt_spent": "4162388",
+        "fncl_yr": "FY 2024-25",
+        "name": "Alaghu Buildmaart Private Limited",
+        "cin": "U26100TZ2019PTC031914",
+        "rn": "122"
+      },
+      {
+        "amnt_spent": "4079864",
+        "fncl_yr": "FY 2024-25",
+        "name": "Royalcare Super Speciality Hospital Limited",
+        "cin": "U85100TZ2012PLC018984",
+        "rn": "123"
+      },
+      {
+        "amnt_spent": "4000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Shapoorji Pallonji Energy Private Limited",
+        "cin": "U11100MH2012PTC234446",
+        "rn": "124"
+      },
+      {
+        "amnt_spent": "3987705",
+        "fncl_yr": "FY 2024-25",
+        "name": "Argo-Hytos Private Limited",
+        "cin": "U23300TZ2000PTC016464",
+        "rn": "125"
+      },
+      {
+        "amnt_spent": "3944871",
+        "fncl_yr": "FY 2024-25",
+        "name": "Coimbatore Anamallais Agencies Private Limited",
+        "cin": "U05110TZ1991PTC003138",
+        "rn": "126"
+      },
+      {
+        "amnt_spent": "3836140",
+        "fncl_yr": "FY 2024-25",
+        "name": "Prabu Soap Works Private Limited",
+        "cin": "U24290TZ2021PTC036574",
+        "rn": "127"
+      },
+      {
+        "amnt_spent": "3794504",
+        "fncl_yr": "FY 2024-25",
+        "name": "Visnukumar Traders Private Limited",
+        "cin": "U51229TN2001PTC046731",
+        "rn": "128"
+      },
+      {
+        "amnt_spent": "3751738",
+        "fncl_yr": "FY 2024-25",
+        "name": "Krishnaveni Carbon Products Private Limited",
+        "cin": "U00273TZ2003PTC010528",
+        "rn": "129"
+      },
+      {
+        "amnt_spent": "3742698",
+        "fncl_yr": "FY 2024-25",
+        "name": "Gem Hospital And Research Centre Private Limited",
+        "cin": "U85110TZ2000PTC009434",
+        "rn": "130"
+      },
+      {
+        "amnt_spent": "3700000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lakshmi Card Clothing Mfg. Company Private Limited",
+        "cin": "U17219TZ1960PTC000343",
+        "rn": "131"
+      },
+      {
+        "amnt_spent": "3675560",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ford Motor Private Limited",
+        "cin": "U74120TN1998PTC041070",
+        "rn": "132"
+      },
+      {
+        "amnt_spent": "3600000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Motilal Oswal Investment Advisors Limited",
+        "cin": "U67190MH2006PLC160583",
+        "rn": "133"
+      },
+      {
+        "amnt_spent": "3585061",
+        "fncl_yr": "FY 2024-25",
+        "name": "V Guard Industries Limited",
+        "cin": "L31200KL1996PLC010010",
+        "rn": "134"
+      },
+      {
+        "amnt_spent": "3500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "K.P.R. Developers Limited",
+        "cin": "U70200TZ2008PLC014490",
+        "rn": "135"
+      },
+      {
+        "amnt_spent": "3450000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rail Vikas Nigam Limited",
+        "cin": "L74999DL2003GOI118633",
+        "rn": "136"
+      },
+      {
+        "amnt_spent": "3350000",
+        "fncl_yr": "FY 2024-25",
+        "name": "My Healthskape Medicals Private Limited",
+        "cin": "U33100MH2003PTC139877",
+        "rn": "137"
+      },
+      {
+        "amnt_spent": "3350000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Young Brand Apparel Private Limited",
+        "cin": "U18101TN2006PTC081600",
+        "rn": "138"
+      },
+      {
+        "amnt_spent": "3171739",
+        "fncl_yr": "FY 2024-25",
+        "name": "Arche Global Private Limited",
+        "cin": "U72200TZ2007PTC013558",
+        "rn": "139"
+      },
+      {
+        "amnt_spent": "3160000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kpmg Global Services Private Limited",
+        "cin": "U74140HR2010PTC041413",
+        "rn": "140"
+      },
+      {
+        "amnt_spent": "3095438",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lakshmi Ring Travellers (Coimbatore) Private Limited",
+        "cin": "U17111TZ1974PTC000712",
+        "rn": "141"
+      },
+      {
+        "amnt_spent": "3091600",
+        "fncl_yr": "FY 2024-25",
+        "name": "Geojit Financial Services Limited",
+        "cin": "L67120KL1994PLC008403",
+        "rn": "142"
+      },
+      {
+        "amnt_spent": "3089625",
+        "fncl_yr": "FY 2024-25",
+        "name": "Praxair India Private Limited",
+        "cin": "U24111TN1996PTC180780",
+        "rn": "143"
+      },
+      {
+        "amnt_spent": "3077890",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lakshmi Electrical Control Systems Limited",
+        "cin": "L31200TZ1981PLC001124",
+        "rn": "144"
+      },
+      {
+        "amnt_spent": "3077000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Swathy Processors Limited",
+        "cin": "U17121TZ1981PLC001081",
+        "rn": "145"
+      },
+      {
+        "amnt_spent": "3031200",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bradken India Private Limited",
+        "cin": "U13203TZ2015FTC028156",
+        "rn": "146"
+      },
+      {
+        "amnt_spent": "3021723",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sree Daksha Property Developers (India) Private Limited",
+        "cin": "U45400TZ2010PTC016018",
+        "rn": "147"
+      },
+      {
+        "amnt_spent": "3011286",
+        "fncl_yr": "FY 2024-25",
+        "name": "The Ktm Jewellery Limited",
+        "cin": "U52393TZ2000PLC009431",
+        "rn": "148"
+      },
+      {
+        "amnt_spent": "3009240",
+        "fncl_yr": "FY 2024-25",
+        "name": "J S Auto Cast Foundry India Private Limited",
+        "cin": "U27310TZ2004PTC011284",
+        "rn": "149"
+      },
+      {
+        "amnt_spent": "3000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Tidel Park Coimbatore Limited",
+        "cin": "U45209TZ2007PLC029653",
+        "rn": "150"
+      },
+      {
+        "amnt_spent": "3000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bajaj Finance Limited",
+        "cin": "L65910MH1987PLC042961",
+        "rn": "151"
+      },
+      {
+        "amnt_spent": "3000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Centaur Pharmaceuticals Private Limited",
+        "cin": "U24230MH1980PTC023291",
+        "rn": "152"
+      },
+      {
+        "amnt_spent": "2988000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Gohinoor Pipes Private Limited",
+        "cin": "U51909TZ2019PTC031713",
+        "rn": "153"
+      },
+      {
+        "amnt_spent": "2959129",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ujjivan Small Finance Bank Limited",
+        "cin": "L65110KA2016PLC142162",
+        "rn": "154"
+      },
+      {
+        "amnt_spent": "2922027.08",
+        "fncl_yr": "FY 2024-25",
+        "name": "Euphoric Innovations Private Limited",
+        "cin": "U15209TZ2012PTC039668",
+        "rn": "155"
+      },
+      {
+        "amnt_spent": "2892000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sri Kannapiran Mills Limited",
+        "cin": "U17111TZ1946PLC000188",
+        "rn": "156"
+      },
+      {
+        "amnt_spent": "2891000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Indian Oil Corporation Limited",
+        "cin": "L23201MH1959GOI011388",
+        "rn": "157"
+      },
+      {
+        "amnt_spent": "2855525",
+        "fncl_yr": "FY 2024-25",
+        "name": "Stalwart People Services India Limited",
+        "cin": "U74920TN2003PLC158097",
+        "rn": "158"
+      },
+      {
+        "amnt_spent": "2820000",
+        "fncl_yr": "FY 2024-25",
+        "name": "T & I Projects Private Ltd",
+        "cin": "U29130WB1984PTC038232",
+        "rn": "159"
+      },
+      {
+        "amnt_spent": "2775000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eswari Global Metal Industries Limited",
+        "cin": "U24203TZ2013PLC037046",
+        "rn": "160"
+      },
+      {
+        "amnt_spent": "2719032.23",
+        "fncl_yr": "FY 2024-25",
+        "name": "Encee Aromatics Private Limited",
+        "cin": "U01122TZ1978PTC000805",
+        "rn": "161"
+      },
+      {
+        "amnt_spent": "2690132",
+        "fncl_yr": "FY 2024-25",
+        "name": "Vitae International Accounting Services Private Limited",
+        "cin": "U72900MH2003PTC142040",
+        "rn": "162"
+      },
+      {
+        "amnt_spent": "2650700",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ntt Data Information Processing Services Private Limited",
+        "cin": "U72900KA2011PTC060769",
+        "rn": "163"
+      },
+      {
+        "amnt_spent": "2641000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Dover India Private Limited",
+        "cin": "U29141KA1994PTC054955",
+        "rn": "164"
+      },
+      {
+        "amnt_spent": "2636000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cg Vak Software And Exports Limited",
+        "cin": "L30009TZ1994PLC005568",
+        "rn": "165"
+      },
+      {
+        "amnt_spent": "2635485",
+        "fncl_yr": "FY 2024-25",
+        "name": "Fortune Wealth Management Company India Private Limited",
+        "cin": "U06599TZ2003PTC010836",
+        "rn": "166"
+      },
+      {
+        "amnt_spent": "2634000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Purani Hospital Supplies Private Limited",
+        "cin": "U33119TZ2000PTC009344",
+        "rn": "167"
+      },
+      {
+        "amnt_spent": "2614490",
+        "fncl_yr": "FY 2024-25",
+        "name": "Srilakosha Polymer Private Limited",
+        "cin": "U02520TZ1998PTC008631",
+        "rn": "168"
+      },
+      {
+        "amnt_spent": "2600000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Wipro Ge Healthcare Private Limited",
+        "cin": "U33111KA1990PTC016063",
+        "rn": "169"
+      },
+      {
+        "amnt_spent": "2584690",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sri Mahalakshmi Dairy Private Limited",
+        "cin": "U15100TZ2019PTC032325",
+        "rn": "170"
+      },
+      {
+        "amnt_spent": "2577725",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ananya Shelters Private Limited",
+        "cin": "U45201TZ2009PTC015649",
+        "rn": "171"
+      },
+      {
+        "amnt_spent": "2576578",
+        "fncl_yr": "FY 2024-25",
+        "name": "Anugraha Valve Castings Limited",
+        "cin": "U27109TZ1992PLC003873",
+        "rn": "172"
+      },
+      {
+        "amnt_spent": "2571812",
+        "fncl_yr": "FY 2024-25",
+        "name": "Exterro R&D Private Limited",
+        "cin": "U72200TZ2012PTC018627",
+        "rn": "173"
+      },
+      {
+        "amnt_spent": "2500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Indian Immunologicals Limited",
+        "cin": "U72200TG1999PLC032666",
+        "rn": "174"
+      },
+      {
+        "amnt_spent": "2500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "A V Thomas And Co Ltd",
+        "cin": "U51109KL1935PLC000024",
+        "rn": "175"
+      },
+      {
+        "amnt_spent": "2495057.39",
+        "fncl_yr": "FY 2024-25",
+        "name": "Simta Clear Coats Private Limited",
+        "cin": "U29268TZ2006PTC012708",
+        "rn": "176"
+      },
+      {
+        "amnt_spent": "2353839",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lion Dates Impex Private Limited",
+        "cin": "U15131TN2000PTC044086",
+        "rn": "177"
+      },
+      {
+        "amnt_spent": "2351950",
+        "fncl_yr": "FY 2024-25",
+        "name": "Veeyes Alloys Private Limited",
+        "cin": "U27101TZ1990PTC002809",
+        "rn": "178"
+      },
+      {
+        "amnt_spent": "2331000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rathan Dia Jewels India Private Limited",
+        "cin": "U27205TZ2013PTC019633",
+        "rn": "179"
+      },
+      {
+        "amnt_spent": "2300000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Solar Energy Corporation Of India Limited",
+        "cin": "U40106DL2011GOI225263",
+        "rn": "180"
+      },
+      {
+        "amnt_spent": "2265413.33",
+        "fncl_yr": "FY 2024-25",
+        "name": "Souriau India Private Limited",
+        "cin": "U29299TZ1996PTC038197",
+        "rn": "181"
+      },
+      {
+        "amnt_spent": "2259716",
+        "fncl_yr": "FY 2024-25",
+        "name": "Deffree Engineering Private Limited",
+        "cin": "U02720TZ1995PTC005847",
+        "rn": "182"
+      },
+      {
+        "amnt_spent": "2208775",
+        "fncl_yr": "FY 2024-25",
+        "name": "Prithvi Inner Wears Private Limited",
+        "cin": "U18109TZ2022PTC038580",
+        "rn": "183"
+      },
+      {
+        "amnt_spent": "2200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ahill Apparel Exports Private Limited",
+        "cin": "U14101TZ2010PTC015962",
+        "rn": "184"
+      },
+      {
+        "amnt_spent": "2192745",
+        "fncl_yr": "FY 2024-25",
+        "name": "Janatics India Private Limited",
+        "cin": "U31103TZ1991PTC003409",
+        "rn": "185"
+      },
+      {
+        "amnt_spent": "2189355",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sri Ramkarthic Polymers Private Limited",
+        "cin": "U25200TZ2011PTC017475",
+        "rn": "186"
+      },
+      {
+        "amnt_spent": "2187600",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hapag-Lloyd Global Services Private Limited",
+        "cin": "U35111MH2003PTC140166",
+        "rn": "187"
+      },
+      {
+        "amnt_spent": "2174000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Joyalukkas India Limited",
+        "cin": "U51398KL2002PLC015372",
+        "rn": "188"
+      },
+      {
+        "amnt_spent": "2172300",
+        "fncl_yr": "FY 2024-25",
+        "name": "Clifton Export Private Limited",
+        "cin": "U18101TZ2007PTC014023",
+        "rn": "189"
+      },
+      {
+        "amnt_spent": "2148490",
+        "fncl_yr": "FY 2024-25",
+        "name": "Autotex Private Limited",
+        "cin": "U29199TZ1992PTC003836",
+        "rn": "190"
+      },
+      {
+        "amnt_spent": "2144550",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mak Controls And Systems Private Limited",
+        "cin": "U29199TZ1994PTC008827",
+        "rn": "191"
+      },
+      {
+        "amnt_spent": "2123450",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lupin Limited",
+        "cin": "L24100MH1983PLC029442",
+        "rn": "192"
+      },
+      {
+        "amnt_spent": "2100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Adani Enterprises Limited",
+        "cin": "L51100GJ1993PLC019067",
+        "rn": "193"
+      },
+      {
+        "amnt_spent": "2092061",
+        "fncl_yr": "FY 2024-25",
+        "name": "Magna Electro Castings Limited",
+        "cin": "L31103TZ1990PLC002836",
+        "rn": "194"
+      },
+      {
+        "amnt_spent": "2079313",
+        "fncl_yr": "FY 2024-25",
+        "name": "Schuf Speciality Valves India Private Limited",
+        "cin": "U29194TZ2000PTC009423",
+        "rn": "195"
+      },
+      {
+        "amnt_spent": "2009767",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bannari Amman Sugars Limited",
+        "cin": "L15421TZ1983PLC001358",
+        "rn": "196"
+      },
+      {
+        "amnt_spent": "2000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Penshibao Wang Private Limited",
+        "cin": "U24119KA1998PTC023888",
+        "rn": "197"
+      },
+      {
+        "amnt_spent": "2000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Star Global Multi Ventures Private Limited",
+        "cin": "U63020DL2012PTC242523",
+        "rn": "198"
+      },
+      {
+        "amnt_spent": "2000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mother Land Textile India Private Limited",
+        "cin": "U17111TZ2005PTC011541",
+        "rn": "199"
+      },
+      {
+        "amnt_spent": "2000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Precision Wires India Limited",
+        "cin": "L31300MH1989PLC054356",
+        "rn": "200"
+      },
+      {
+        "amnt_spent": "1980000",
+        "fncl_yr": "FY 2024-25",
+        "name": "G.Plast Private Limited",
+        "cin": "U02922TZ1985PTC021658",
+        "rn": "201"
+      },
+      {
+        "amnt_spent": "1979925",
+        "fncl_yr": "FY 2024-25",
+        "name": "Interglobe Aviation Limited",
+        "cin": "L62100DL2004PLC129768",
+        "rn": "202"
+      },
+      {
+        "amnt_spent": "1959272",
+        "fncl_yr": "FY 2024-25",
+        "name": "Toyota Material Handling India Private Limited",
+        "cin": "U29253HR2010FTC048762",
+        "rn": "203"
+      },
+      {
+        "amnt_spent": "1922000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sulochana Cotton Spinning Mills Private Limited",
+        "cin": "U17111TZ1990PTC002580",
+        "rn": "204"
+      },
+      {
+        "amnt_spent": "1917455",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sri Ranganathar Valves Private Limited",
+        "cin": "U29120TZ2008PTC014166",
+        "rn": "205"
+      },
+      {
+        "amnt_spent": "1890000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bakgiyam Engineering Private Limited",
+        "cin": "U27310TZ2005PTC011706",
+        "rn": "206"
+      },
+      {
+        "amnt_spent": "1872585",
+        "fncl_yr": "FY 2024-25",
+        "name": "Oriental Plants And Equipments Private Limited",
+        "cin": "U31103TZ1991PTC003579",
+        "rn": "207"
+      },
+      {
+        "amnt_spent": "1854209",
+        "fncl_yr": "FY 2024-25",
+        "name": "Jacquard Fabrics (India) Private Limited",
+        "cin": "U18101TZ2007PTC013595",
+        "rn": "208"
+      },
+      {
+        "amnt_spent": "1850000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Nandi Roller Flour Mills Private Limited",
+        "cin": "U01531KA1987PTC008762",
+        "rn": "209"
+      },
+      {
+        "amnt_spent": "1820000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lucid Imaging Private Limited",
+        "cin": "U51399KA2005PTC036560",
+        "rn": "210"
+      },
+      {
+        "amnt_spent": "1765550",
+        "fncl_yr": "FY 2024-25",
+        "name": "K G Information Systems Private Limited",
+        "cin": "U72200TZ1994PTC005317",
+        "rn": "211"
+      },
+      {
+        "amnt_spent": "1765140",
+        "fncl_yr": "FY 2024-25",
+        "name": "Elmeasure India Private Limited",
+        "cin": "U68100KA2007PTC042474",
+        "rn": "212"
+      },
+      {
+        "amnt_spent": "1754994",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sri Ranganathar Industries Private Limited",
+        "cin": "U29199TZ1997PTC008193",
+        "rn": "213"
+      },
+      {
+        "amnt_spent": "1750000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cotton City Developers Private Limited",
+        "cin": "U04520TZ1993PTC004636",
+        "rn": "214"
+      },
+      {
+        "amnt_spent": "1743977",
+        "fncl_yr": "FY 2024-25",
+        "name": "Roots Cast Private Limited",
+        "cin": "U27310TZ1999PTC008854",
+        "rn": "215"
+      },
+      {
+        "amnt_spent": "1725000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cemindia Projects Limited",
+        "cin": "L61000MH1978PLC020435",
+        "rn": "216"
+      },
+      {
+        "amnt_spent": "1720000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Swelect Energy Systems Limited",
+        "cin": "L93090TN1994PLC028578",
+        "rn": "217"
+      },
+      {
+        "amnt_spent": "1717500",
+        "fncl_yr": "FY 2024-25",
+        "name": "Velatal Industries Private Limited",
+        "cin": "U17111TZ1981PTC001053",
+        "rn": "218"
+      },
+      {
+        "amnt_spent": "1684922",
+        "fncl_yr": "FY 2024-25",
+        "name": "Can Fin Homes Limited",
+        "cin": "L85110KA1987PLC008699",
+        "rn": "219"
+      },
+      {
+        "amnt_spent": "1671821.29",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mac Solutions Private Limited",
+        "cin": "U72900MH2005PTC154979",
+        "rn": "220"
+      },
+      {
+        "amnt_spent": "1650000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Secan Invescast India Private Limited",
+        "cin": "U27310TZ2005PTC011522",
+        "rn": "221"
+      },
+      {
+        "amnt_spent": "1650000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cholamandalam Ms General Insurance Company Limited",
+        "cin": "U66030TN2001PLC047977",
+        "rn": "222"
+      },
+      {
+        "amnt_spent": "1628560",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ambertex Universal Export Private Limited",
+        "cin": "U18209TZ2022PTC040146",
+        "rn": "223"
+      },
+      {
+        "amnt_spent": "1624500",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bloom Electronics Private Limited",
+        "cin": "U51100TZ1999PTC008841",
+        "rn": "224"
+      },
+      {
+        "amnt_spent": "1622036.07",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sa Developers Private Limited",
+        "cin": "U74899DL2001PTC109708",
+        "rn": "225"
+      },
+      {
+        "amnt_spent": "1600000",
+        "fncl_yr": "FY 2024-25",
+        "name": "K P Textiles Coimbatore Private Limited",
+        "cin": "U17111TZ2000PTC009130",
+        "rn": "226"
+      },
+      {
+        "amnt_spent": "1595275",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sterna Security Devices Private Limited",
+        "cin": "U74999TZ2013PTC020084",
+        "rn": "227"
+      },
+      {
+        "amnt_spent": "1576700",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bicelli Geco Hydraulics India Private Limited",
+        "cin": "U28999TZ2015PTC021598",
+        "rn": "228"
+      },
+      {
+        "amnt_spent": "1525000",
+        "fncl_yr": "FY 2024-25",
+        "name": "C R I Amalgamations Private Limited",
+        "cin": "U70101TZ2005PTC011989",
+        "rn": "229"
+      },
+      {
+        "amnt_spent": "1512485",
+        "fncl_yr": "FY 2024-25",
+        "name": "Dsv Air & Sea International Private Limited",
+        "cin": "U63030MH2018FTC318340",
+        "rn": "230"
+      },
+      {
+        "amnt_spent": "1501500",
+        "fncl_yr": "FY 2024-25",
+        "name": "Watertec (India) Private Limited",
+        "cin": "U45301TZ1995PTC006237",
+        "rn": "231"
+      },
+      {
+        "amnt_spent": "1500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Metal Forms Private Limited",
+        "cin": "U27209TN1965PTC005329",
+        "rn": "232"
+      },
+      {
+        "amnt_spent": "1500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Soliton Technologies Private Limited",
+        "cin": "U07010KA1997PTC036849",
+        "rn": "233"
+      },
+      {
+        "amnt_spent": "1500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lenzing Fibers India Private Limited",
+        "cin": "U74999TZ2019FTC032934",
+        "rn": "234"
+      },
+      {
+        "amnt_spent": "1479130",
+        "fncl_yr": "FY 2024-25",
+        "name": "Liugong India Private Limited",
+        "cin": "U31908DL2007FTC167005",
+        "rn": "235"
+      },
+      {
+        "amnt_spent": "1462364",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ampo Valves India Private Limited",
+        "cin": "U29120TZ2009PTC015363",
+        "rn": "236"
+      },
+      {
+        "amnt_spent": "1460000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Gem Equipments Private Limited",
+        "cin": "U29269TZ2006PTC012694",
+        "rn": "237"
+      },
+      {
+        "amnt_spent": "1459660",
+        "fncl_yr": "FY 2024-25",
+        "name": "Edcil (India) Limited",
+        "cin": "U74899DL1981GOI011882",
+        "rn": "238"
+      },
+      {
+        "amnt_spent": "1454496",
+        "fncl_yr": "FY 2024-25",
+        "name": "Uster Technologies (India) Private Limited",
+        "cin": "U29263TZ1996PTC030147",
+        "rn": "239"
+      },
+      {
+        "amnt_spent": "1445000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Finolex Industries Limited",
+        "cin": "L40108PN1981PLC024153",
+        "rn": "240"
+      },
+      {
+        "amnt_spent": "1443000",
+        "fncl_yr": "FY 2024-25",
+        "name": "K G Healthcare Private Limited",
+        "cin": "U85110TZ1995PTC006402",
+        "rn": "241"
+      },
+      {
+        "amnt_spent": "1417000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Stonera Systems Private Limited",
+        "cin": "U85110KA1993PTC014222",
+        "rn": "242"
+      },
+      {
+        "amnt_spent": "1408324.31",
+        "fncl_yr": "FY 2024-25",
+        "name": "Revantha Services Private Limited",
+        "cin": "U45201TZ2007PTC013634",
+        "rn": "243"
+      },
+      {
+        "amnt_spent": "1400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Repose Mattress Private Limited",
+        "cin": "U36104TZ2013PTC019447",
+        "rn": "244"
+      },
+      {
+        "amnt_spent": "1400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "R.R.Thulasi Builders (India) Private Limited",
+        "cin": "U45201TZ2006PTC012574",
+        "rn": "245"
+      },
+      {
+        "amnt_spent": "1400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pricol Engineering Industries Private Limited",
+        "cin": "U05150TZ1995PTC005694",
+        "rn": "246"
+      },
+      {
+        "amnt_spent": "1387773",
+        "fncl_yr": "FY 2024-25",
+        "name": "Koyas Fasteners Private Limited",
+        "cin": "U28991TZ2006PTC012994",
+        "rn": "247"
+      },
+      {
+        "amnt_spent": "1378558.53",
+        "fncl_yr": "FY 2024-25",
+        "name": "Varnalaya Clothings Private Limited",
+        "cin": "U51909TZ2018PTC030180",
+        "rn": "248"
+      },
+      {
+        "amnt_spent": "1364000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Us Technology International Private Limited",
+        "cin": "U72200KL1999PTC013385",
+        "rn": "249"
+      },
+      {
+        "amnt_spent": "1350000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Next Information Systems Private Limited",
+        "cin": "U72900TN2020PTC133773",
+        "rn": "250"
+      },
+      {
+        "amnt_spent": "1340000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Asteroids Trading And Investments Private Limited",
+        "cin": "U65990MH1979PTC021040",
+        "rn": "251"
+      },
+      {
+        "amnt_spent": "1340000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kpmg Global Services Management Private Limited",
+        "cin": "U93000HR2012PTC047387",
+        "rn": "252"
+      },
+      {
+        "amnt_spent": "1329378",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eagle Fleet Services Private Limited",
+        "cin": "U63030TZ2019PTC033085",
+        "rn": "253"
+      },
+      {
+        "amnt_spent": "1290732",
+        "fncl_yr": "FY 2024-25",
+        "name": "App Innovation Technologies Private Limited",
+        "cin": "U72900TZ2019PTC033195",
+        "rn": "254"
+      },
+      {
+        "amnt_spent": "1280000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Isha Business Private Limited",
+        "cin": "U62090TZ2006PTC012571",
+        "rn": "255"
+      },
+      {
+        "amnt_spent": "1253000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Payoda Technologies Private Limited",
+        "cin": "U62011TZ2005PTC012269",
+        "rn": "256"
+      },
+      {
+        "amnt_spent": "1243486",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kovai Medical Center And Hospital Limited",
+        "cin": "L85110TZ1985PLC001659",
+        "rn": "257"
+      },
+      {
+        "amnt_spent": "1203104",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mantra Industries Limited",
+        "cin": "U74990MH2009PLC192833",
+        "rn": "258"
+      },
+      {
+        "amnt_spent": "1200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sri Krishna Pharmaceuticals Limited",
+        "cin": "U24230TG1974PLC001790",
+        "rn": "259"
+      },
+      {
+        "amnt_spent": "1156000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ag Resources (India) Private Limited",
+        "cin": "U72900MH2009PTC191216",
+        "rn": "260"
+      },
+      {
+        "amnt_spent": "1140106",
+        "fncl_yr": "FY 2024-25",
+        "name": "Zimson Times Private Limited",
+        "cin": "U52391TZ1997PTC007796",
+        "rn": "261"
+      },
+      {
+        "amnt_spent": "1135000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Gokir Jewels Creators Private Limited",
+        "cin": "U36990TZ2020PTC034866",
+        "rn": "262"
+      },
+      {
+        "amnt_spent": "1126500",
+        "fncl_yr": "FY 2024-25",
+        "name": "Psr Silk Sarees India Private Limited",
+        "cin": "U17116TZ2008PTC014636",
+        "rn": "263"
+      },
+      {
+        "amnt_spent": "1100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kothari Metals Ltd",
+        "cin": "U28113WB1977PLC031033",
+        "rn": "264"
+      },
+      {
+        "amnt_spent": "1100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Naargo Industries Private Limited",
+        "cin": "U29120TZ2005PTC012020",
+        "rn": "265"
+      },
+      {
+        "amnt_spent": "1100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kipra Electricals Private Limited",
+        "cin": "U31900GJ2014PTC093584",
+        "rn": "266"
+      },
+      {
+        "amnt_spent": "1100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Whale Enterprise Private Limited",
+        "cin": "U34203TZ2011PTC016775",
+        "rn": "267"
+      },
+      {
+        "amnt_spent": "1100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Om Pharmaceuticals Limited",
+        "cin": "U24230MH1994PLC082689",
+        "rn": "268"
+      },
+      {
+        "amnt_spent": "1093000",
+        "fncl_yr": "FY 2024-25",
+        "name": "National Fittings Limited",
+        "cin": "L29199GJ1993PLC177328",
+        "rn": "269"
+      },
+      {
+        "amnt_spent": "1092430",
+        "fncl_yr": "FY 2024-25",
+        "name": "Unique Shell Mould India Private Limited",
+        "cin": "U27320TZ2001PTC009677",
+        "rn": "270"
+      },
+      {
+        "amnt_spent": "1088945.31",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pressana Automobiles Private Limited",
+        "cin": "U74999TZ2018PTC030611",
+        "rn": "271"
+      },
+      {
+        "amnt_spent": "1075280",
+        "fncl_yr": "FY 2024-25",
+        "name": "Koco & Koir Exports Private Limited",
+        "cin": "U74999TZ2017PTC028531",
+        "rn": "272"
+      },
+      {
+        "amnt_spent": "1071000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Vonage Business Communications Private Limited",
+        "cin": "U72900KA2021FTC152217",
+        "rn": "273"
+      },
+      {
+        "amnt_spent": "1071000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Alcon Laboratories (India) Private Limited",
+        "cin": "U33119KA1999FTC025496",
+        "rn": "274"
+      },
+      {
+        "amnt_spent": "1068740",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kgisl Technologies Private Limited",
+        "cin": "U72200TZ2021PTC036903",
+        "rn": "275"
+      },
+      {
+        "amnt_spent": "1065392",
+        "fncl_yr": "FY 2024-25",
+        "name": "Elgi Rubber Company Limited",
+        "cin": "L25119TZ2006PLC013144",
+        "rn": "276"
+      },
+      {
+        "amnt_spent": "1064000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Wavicle Data Solutions India Private Limited",
+        "cin": "U72200TZ2021PTC037500",
+        "rn": "277"
+      },
+      {
+        "amnt_spent": "1043385",
+        "fncl_yr": "FY 2024-25",
+        "name": "The Federal Bank Ltd",
+        "cin": "L65191KL1931PLC000368",
+        "rn": "278"
+      },
+      {
+        "amnt_spent": "1042100",
+        "fncl_yr": "FY 2024-25",
+        "name": "Apex Roller Flour Mills Private Limited",
+        "cin": "U15311TZ1975PTC028413",
+        "rn": "279"
+      },
+      {
+        "amnt_spent": "1040000",
+        "fncl_yr": "FY 2024-25",
+        "name": "M N Auto Products Private Limited",
+        "cin": "U50300TZ2004PTC011066",
+        "rn": "280"
+      },
+      {
+        "amnt_spent": "1020820",
+        "fncl_yr": "FY 2024-25",
+        "name": "A P Properties Private Limited",
+        "cin": "U74899DL1995PTC065176",
+        "rn": "281"
+      },
+      {
+        "amnt_spent": "1008194",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hh Iron And Steel Private Limited",
+        "cin": "U52609TZ2018PTC030302",
+        "rn": "282"
+      },
+      {
+        "amnt_spent": "1000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Gedee Weiler Private Limited",
+        "cin": "U29191TZ1966PTC000564",
+        "rn": "283"
+      },
+      {
+        "amnt_spent": "1000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Chakiat Agencies Private Limited",
+        "cin": "U51102TN1983PTC010224",
+        "rn": "284"
+      },
+      {
+        "amnt_spent": "1000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rcl Agencies East India Private Limited",
+        "cin": "U63030TN2019PTC127499",
+        "rn": "285"
+      },
+      {
+        "amnt_spent": "1000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Padget Electronics Private Limited",
+        "cin": "U31908UP2013PTC057573",
+        "rn": "286"
+      },
+      {
+        "amnt_spent": "1000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Fanuc India Private Limited",
+        "cin": "U29221KA1991PTC015413",
+        "rn": "287"
+      },
+      {
+        "amnt_spent": "1000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Adf Foods Limited",
+        "cin": "L15400GJ1990PLC014265",
+        "rn": "288"
+      },
+      {
+        "amnt_spent": "1000000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Western Andhra Tollways Private Limited",
+        "cin": "U45203TN2005PTC057931",
+        "rn": "289"
+      },
+      {
+        "amnt_spent": "997500",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mitsubishi Elevator India Private Limited",
+        "cin": "U29300KA2012PTC107614",
+        "rn": "290"
+      },
+      {
+        "amnt_spent": "987790",
+        "fncl_yr": "FY 2024-25",
+        "name": "United Bleachers Private Limited",
+        "cin": "U18201TZ1949PTC000236",
+        "rn": "291"
+      },
+      {
+        "amnt_spent": "980000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Standard Fireworks Private Limited",
+        "cin": "U24292TN1977PTC007319",
+        "rn": "292"
+      },
+      {
+        "amnt_spent": "961610",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kavin Engineering And Services Private Limited",
+        "cin": "U74210TZ2004PTC020612",
+        "rn": "293"
+      },
+      {
+        "amnt_spent": "957173",
+        "fncl_yr": "FY 2024-25",
+        "name": "Trichy Anamallais Agencies Private Limited",
+        "cin": "U50101TZ2005PTC011552",
+        "rn": "294"
+      },
+      {
+        "amnt_spent": "955000.12",
+        "fncl_yr": "FY 2024-25",
+        "name": "Aalam Gold And Diamonds Private Limited",
+        "cin": "U74999TN2018PTC122669",
+        "rn": "295"
+      },
+      {
+        "amnt_spent": "950000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Progen Renewables Limited",
+        "cin": "U31909TZ2017PLC029803",
+        "rn": "296"
+      },
+      {
+        "amnt_spent": "950000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Isha Institute Of Inner Sciences",
+        "cin": "U85100TZ2008NPL014894",
+        "rn": "297"
+      },
+      {
+        "amnt_spent": "914073.33",
+        "fncl_yr": "FY 2024-25",
+        "name": "Aalayam Foundation Private Limited",
+        "cin": "U45400TZ2012PTC038958",
+        "rn": "298"
+      },
+      {
+        "amnt_spent": "908301",
+        "fncl_yr": "FY 2024-25",
+        "name": "Indo Shell Cast Private Limited",
+        "cin": "U27310TZ1987PTC002013",
+        "rn": "299"
+      },
+      {
+        "amnt_spent": "906528",
+        "fncl_yr": "FY 2024-25",
+        "name": "Carbure Activated Carbon Private Limited",
+        "cin": "U36990TZ2020PTC033630",
+        "rn": "300"
+      },
+      {
+        "amnt_spent": "900000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Presidio Solutions Private Limited",
+        "cin": "U74999TN2015PTC103124",
+        "rn": "301"
+      },
+      {
+        "amnt_spent": "900000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Vedanayagam Hospital Private Limited",
+        "cin": "U85110TZ1985PTC001577",
+        "rn": "302"
+      },
+      {
+        "amnt_spent": "892263",
+        "fncl_yr": "FY 2024-25",
+        "name": "Iffco-Nanoventions Private Limited",
+        "cin": "U73100TZ2021PTC036398",
+        "rn": "303"
+      },
+      {
+        "amnt_spent": "880000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Anamallais Agencies Madurai Private Limited",
+        "cin": "U50101TN2004PTC183174",
+        "rn": "304"
+      },
+      {
+        "amnt_spent": "879539",
+        "fncl_yr": "FY 2024-25",
+        "name": "Dormakaba India Private Limited",
+        "cin": "U93090TN1998PTC040720",
+        "rn": "305"
+      },
+      {
+        "amnt_spent": "873000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Acsen Agriscience Private Limited",
+        "cin": "U01407TZ2009PTC028336",
+        "rn": "306"
+      },
+      {
+        "amnt_spent": "871750",
+        "fncl_yr": "FY 2024-25",
+        "name": "The South Indian Bank Limited",
+        "cin": "L65191KL1929PLC001017",
+        "rn": "307"
+      },
+      {
+        "amnt_spent": "871000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eclerx Services Limited",
+        "cin": "L72200MH2000PLC125319",
+        "rn": "308"
+      },
+      {
+        "amnt_spent": "870420",
+        "fncl_yr": "FY 2024-25",
+        "name": "The Karur Vysya Bank Limited",
+        "cin": "L65110TN1916PLC001295",
+        "rn": "309"
+      },
+      {
+        "amnt_spent": "850000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hi-Tech Resource Management Limited",
+        "cin": "U31200WB2001PLC137884",
+        "rn": "310"
+      },
+      {
+        "amnt_spent": "848460",
+        "fncl_yr": "FY 2024-25",
+        "name": "Poppys Knitwear Private Limited",
+        "cin": "U17100TZ2003PTC010632",
+        "rn": "311"
+      },
+      {
+        "amnt_spent": "844550",
+        "fncl_yr": "FY 2024-25",
+        "name": "Logixhealth Solutions Private Limited",
+        "cin": "U85100KA2013FTC072715",
+        "rn": "312"
+      },
+      {
+        "amnt_spent": "836000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sri Ramakrishna Mills (Coimbatore) Limited",
+        "cin": "L17111TZ1946PLC000175",
+        "rn": "313"
+      },
+      {
+        "amnt_spent": "801000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sahyadri Industries Limited.",
+        "cin": "L26956PN1994PLC078941",
+        "rn": "314"
+      },
+      {
+        "amnt_spent": "800000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rbm Realty Private Limited",
+        "cin": "U70101MH2007PTC391824",
+        "rn": "315"
+      },
+      {
+        "amnt_spent": "800000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Maha Hydraulics Private Limited",
+        "cin": "U74140TN1999PTC043606",
+        "rn": "316"
+      },
+      {
+        "amnt_spent": "800000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pricol Experia Private Limited",
+        "cin": "U63040TZ2002PTC010019",
+        "rn": "317"
+      },
+      {
+        "amnt_spent": "800000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kovai Systems India Private Limited",
+        "cin": "U72200TZ2014PTC020279",
+        "rn": "318"
+      },
+      {
+        "amnt_spent": "793000",
+        "fncl_yr": "FY 2024-25",
+        "name": "V C Green Energy Private Limited",
+        "cin": "U35106TZ2021PTC036676",
+        "rn": "319"
+      },
+      {
+        "amnt_spent": "780000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Readylink Internet Services Limited",
+        "cin": "U72200TZ2002PLC010376",
+        "rn": "320"
+      },
+      {
+        "amnt_spent": "753060",
+        "fncl_yr": "FY 2024-25",
+        "name": "Elite Carbon Creations Private Limited",
+        "cin": "U24290TZ2015PTC021863",
+        "rn": "321"
+      },
+      {
+        "amnt_spent": "750000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Moldwell Products India Private Limited",
+        "cin": "U25209TZ2008PTC014276",
+        "rn": "322"
+      },
+      {
+        "amnt_spent": "733164.07",
+        "fncl_yr": "FY 2024-25",
+        "name": "Everest Industries Limited",
+        "cin": "L74999MH1934PLC002093",
+        "rn": "323"
+      },
+      {
+        "amnt_spent": "725000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Infocus Marketing And Services Private Limited",
+        "cin": "U05110TZ1995PTC006251",
+        "rn": "324"
+      },
+      {
+        "amnt_spent": "720000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Wysetek Systems Technologists Private Limited",
+        "cin": "U72900MH1996PTC102214",
+        "rn": "325"
+      },
+      {
+        "amnt_spent": "700000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hitachi Systems India Private Limited",
+        "cin": "U74899DL1993PTC056168",
+        "rn": "326"
+      },
+      {
+        "amnt_spent": "700000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Precision Equipments (Chennai) Private Limited",
+        "cin": "U29309TN1998PTC040651",
+        "rn": "327"
+      },
+      {
+        "amnt_spent": "700000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mo Alternate Investment Advisors Private Limited",
+        "cin": "U65100MH2007PTC170211",
+        "rn": "328"
+      },
+      {
+        "amnt_spent": "681325",
+        "fncl_yr": "FY 2024-25",
+        "name": "E-Star Foods Private Limited",
+        "cin": "U15490TZ2021PTC037871",
+        "rn": "329"
+      },
+      {
+        "amnt_spent": "680000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kanini Software Solutions India Private Limited",
+        "cin": "U72200TN2005PTC057039",
+        "rn": "330"
+      },
+      {
+        "amnt_spent": "674062",
+        "fncl_yr": "FY 2024-25",
+        "name": "Jandia Engineering Private Limited",
+        "cin": "U29199TZ2005PTC011582",
+        "rn": "331"
+      },
+      {
+        "amnt_spent": "667000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Guardian India Operations Private Limited",
+        "cin": "U72200TN2003PTC051154",
+        "rn": "332"
+      },
+      {
+        "amnt_spent": "650000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Power Link System Private Limited",
+        "cin": "U74140TZ1992PTC004172",
+        "rn": "333"
+      },
+      {
+        "amnt_spent": "650000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lavendel Consulting Private Limited",
+        "cin": "U72200TZ2018PTC031261",
+        "rn": "334"
+      },
+      {
+        "amnt_spent": "650000",
+        "fncl_yr": "FY 2024-25",
+        "name": "European Flavours And Fragrances Private Limited",
+        "cin": "U51391TN2006PTC060510",
+        "rn": "335"
+      },
+      {
+        "amnt_spent": "602000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Krj Realtors Private Limited",
+        "cin": "U70109TZ2022PTC039317",
+        "rn": "336"
+      },
+      {
+        "amnt_spent": "600000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Vst Tillers Tractors Limited",
+        "cin": "L34101KA1967PLC001706",
+        "rn": "337"
+      },
+      {
+        "amnt_spent": "590000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Network Clothing Company Private Limited",
+        "cin": "U18101TZ1999PTC009010",
+        "rn": "338"
+      },
+      {
+        "amnt_spent": "575000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hll Lifecare Limited",
+        "cin": "U25193KL1966GOI002621",
+        "rn": "339"
+      },
+      {
+        "amnt_spent": "567766.87",
+        "fncl_yr": "FY 2024-25",
+        "name": "Yugal Chit Fund And Trading Co Private Limited",
+        "cin": "U74899DL1982PTC014497",
+        "rn": "340"
+      },
+      {
+        "amnt_spent": "546280",
+        "fncl_yr": "FY 2024-25",
+        "name": "Suhasini Spinners Limited........",
+        "cin": "U18100TZ1981PLC021003",
+        "rn": "341"
+      },
+      {
+        "amnt_spent": "525000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Natrinai Ventures Limited",
+        "cin": "U40100TZ2015PLC021605",
+        "rn": "342"
+      },
+      {
+        "amnt_spent": "521000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ttk Prestige Limited",
+        "cin": "L85110TZ1955PLC015049",
+        "rn": "343"
+      },
+      {
+        "amnt_spent": "517171",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eit Services India Private Limited",
+        "cin": "U72300KA2000PTC026968",
+        "rn": "344"
+      },
+      {
+        "amnt_spent": "513413",
+        "fncl_yr": "FY 2024-25",
+        "name": "Csg Systems International (India) Private Limited",
+        "cin": "U72200KA2004PTC068374",
+        "rn": "345"
+      },
+      {
+        "amnt_spent": "504000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Optiva India Technologies Private Limited",
+        "cin": "U72200PN2004PTC019026",
+        "rn": "346"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Centillion Solutions And Services Private Limited",
+        "cin": "U72400KA2006PTC039877",
+        "rn": "347"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cav Cements India Private Limited",
+        "cin": "U74999TZ2022PTC039372",
+        "rn": "348"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ttk Healthcare Limited",
+        "cin": "L24231TN1958PLC003647",
+        "rn": "349"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "India Motor Parts & Accessories Limited",
+        "cin": "L65991TN1954PLC000958",
+        "rn": "350"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Iris Ecopower Venture Private Limited",
+        "cin": "U40108TZ2012PTC018861",
+        "rn": "351"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mehra Eyetech Private Limited",
+        "cin": "U33110MH1996PTC104500",
+        "rn": "352"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Optum Health & Technology (India) Private Limited",
+        "cin": "U74910KA2005PTC036515",
+        "rn": "353"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Augustan Knitwear Private Limited",
+        "cin": "U18101TZ1996PTC007218",
+        "rn": "354"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Elgi Sauer Compressors Limited",
+        "cin": "U29120TZ2008PLC014639",
+        "rn": "355"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pmc Hydraulics Private Limited",
+        "cin": "U29211KA2004PTC034010",
+        "rn": "356"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cirel Systems Private Limited",
+        "cin": "U74999KA2013PTC067530",
+        "rn": "357"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Anamallais Motors Private Limited",
+        "cin": "U50101TZ2010PTC016138",
+        "rn": "358"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eastman Exports Global Clothing Private Limited",
+        "cin": "U18101TZ2003PTC010525",
+        "rn": "359"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Abhinandan Leasing And Finance Private Limited",
+        "cin": "U65910MH1986PTC039460",
+        "rn": "360"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sundaram Finance Limited",
+        "cin": "L65191TN1954PLC002429",
+        "rn": "361"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Fino Payments Bank Limited",
+        "cin": "L65100MH2007PLC171959",
+        "rn": "362"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Satvik Enterprises Limited",
+        "cin": "U60221WB1997PLC084226",
+        "rn": "363"
+      },
+      {
+        "amnt_spent": "500000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Twi (India) Private Limited",
+        "cin": "U74900TN2009FTC072828",
+        "rn": "364"
+      },
+      {
+        "amnt_spent": "480000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Quin Bay Technologies Private Limited",
+        "cin": "U72900KA2020FTC134333",
+        "rn": "365"
+      },
+      {
+        "amnt_spent": "475000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Voya Global Services Private Limited",
+        "cin": "U74999KA2019PTC123879",
+        "rn": "366"
+      },
+      {
+        "amnt_spent": "472903",
+        "fncl_yr": "FY 2024-25",
+        "name": "Space Textiles Private Limited",
+        "cin": "U17111TZ2006PTC012949",
+        "rn": "367"
+      },
+      {
+        "amnt_spent": "451000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sharadha Terry Products Private Limited",
+        "cin": "U17115TZ1992PTC003799",
+        "rn": "368"
+      },
+      {
+        "amnt_spent": "445840",
+        "fncl_yr": "FY 2024-25",
+        "name": "Dynamic Techno Medicals Private Limited",
+        "cin": "U33115KL1988PTC004982",
+        "rn": "369"
+      },
+      {
+        "amnt_spent": "424000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Raja Explosives Private Limited",
+        "cin": "U24292TZ1996PTC007607",
+        "rn": "370"
+      },
+      {
+        "amnt_spent": "422000",
+        "fncl_yr": "FY 2024-25",
+        "name": "The Highland Produce Co Ltd",
+        "cin": "U01119KL1925PLC000416",
+        "rn": "371"
+      },
+      {
+        "amnt_spent": "414537",
+        "fncl_yr": "FY 2024-25",
+        "name": "Schutte Meyer Ashwath Alloys Private Limited",
+        "cin": "U05150TZ1995PTC005693",
+        "rn": "372"
+      },
+      {
+        "amnt_spent": "400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Superflo Pvt Ltd",
+        "cin": "U36990TG1986PTC006160",
+        "rn": "373"
+      },
+      {
+        "amnt_spent": "400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Agrasen Iron And Steels Private Limited",
+        "cin": "U27100CT2010PTC021804",
+        "rn": "374"
+      },
+      {
+        "amnt_spent": "400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Naval Group India Private Limited",
+        "cin": "U74900MH2008FTC186874",
+        "rn": "375"
+      },
+      {
+        "amnt_spent": "400000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Indra Hotels (Mysore) Private Limited",
+        "cin": "U55101KA1976PTC003085",
+        "rn": "376"
+      },
+      {
+        "amnt_spent": "385000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rsm Autokast Private Limited",
+        "cin": "U02899TZ1996PTC006844",
+        "rn": "377"
+      },
+      {
+        "amnt_spent": "350000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kob Medical Textiles Private Limited",
+        "cin": "U17219TZ2001PTC009618",
+        "rn": "378"
+      },
+      {
+        "amnt_spent": "341829",
+        "fncl_yr": "FY 2024-25",
+        "name": "Idfc First Bharat Limited",
+        "cin": "U65929TN2003PLC050856",
+        "rn": "379"
+      },
+      {
+        "amnt_spent": "341000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pulz Electronics Limited",
+        "cin": "L32109MH2005PLC427634",
+        "rn": "380"
+      },
+      {
+        "amnt_spent": "335000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Chennai Radha Engineering Works Private Limited",
+        "cin": "U28113TN2005PTC056452",
+        "rn": "381"
+      },
+      {
+        "amnt_spent": "300000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Velocis Systems Private Limited",
+        "cin": "U74899DL1995PTC069887",
+        "rn": "382"
+      },
+      {
+        "amnt_spent": "300000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hydac (India) Private Limited",
+        "cin": "U33100MH1988PTC049084",
+        "rn": "383"
+      },
+      {
+        "amnt_spent": "300000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Archean Chemical Industries Limited",
+        "cin": "L24298TN2009PLC072270",
+        "rn": "384"
+      },
+      {
+        "amnt_spent": "300000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bimetal Bearings Limited",
+        "cin": "L29130TN1961PLC004466",
+        "rn": "385"
+      },
+      {
+        "amnt_spent": "300000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Go Fashion (India) Limited",
+        "cin": "L17291TN2010PLC077303",
+        "rn": "386"
+      },
+      {
+        "amnt_spent": "300000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sony India Private Limited",
+        "cin": "U74899DL1994PTC062781",
+        "rn": "387"
+      },
+      {
+        "amnt_spent": "297256",
+        "fncl_yr": "FY 2024-25",
+        "name": "Congruent Info-Tech Private Limited",
+        "cin": "U72900TN2000PTC045256",
+        "rn": "388"
+      },
+      {
+        "amnt_spent": "295000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Astral Limited",
+        "cin": "L25200GJ1996PLC029134",
+        "rn": "389"
+      },
+      {
+        "amnt_spent": "290000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rbl Finserve Limited",
+        "cin": "U74110MH2007PLC175181",
+        "rn": "390"
+      },
+      {
+        "amnt_spent": "275000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Clubmillionaire Financial Services Private Limited",
+        "cin": "U67120KL2007PTC021484",
+        "rn": "391"
+      },
+      {
+        "amnt_spent": "260000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ador Digatron Private Limited",
+        "cin": "U31908PN2013PTC147707",
+        "rn": "392"
+      },
+      {
+        "amnt_spent": "250001",
+        "fncl_yr": "FY 2024-25",
+        "name": "Prakar Automotive India Private Limited",
+        "cin": "U50402TN2020PTC171630",
+        "rn": "393"
+      },
+      {
+        "amnt_spent": "250000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pwds Extrusions Private Limited",
+        "cin": "U36995TZ2021PTC036723",
+        "rn": "394"
+      },
+      {
+        "amnt_spent": "250000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cadence Design Sales (India) Private Limited",
+        "cin": "U72200KA2012PTC065455",
+        "rn": "395"
+      },
+      {
+        "amnt_spent": "230358",
+        "fncl_yr": "FY 2024-25",
+        "name": "Pongalur Pioneer Textiles Private Limited",
+        "cin": "U17115TZ1990PTC002663",
+        "rn": "396"
+      },
+      {
+        "amnt_spent": "230100",
+        "fncl_yr": "FY 2024-25",
+        "name": "Nichino India Private Limited",
+        "cin": "U24100TG2013PTC091502",
+        "rn": "397"
+      },
+      {
+        "amnt_spent": "222800",
+        "fncl_yr": "FY 2024-25",
+        "name": "Protiviti India Member Private Limited",
+        "cin": "U93000HR2009PTC057389",
+        "rn": "398"
+      },
+      {
+        "amnt_spent": "220000",
+        "fncl_yr": "FY 2024-25",
+        "name": "The Ramco Cements Limited",
+        "cin": "L26941TN1957PLC003566",
+        "rn": "399"
+      },
+      {
+        "amnt_spent": "216000",
+        "fncl_yr": "FY 2024-25",
+        "name": "V.K.A. Polymers Private Limited",
+        "cin": "U25209TN1997PTC039175",
+        "rn": "400"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "G. R. Engineering Private Limited",
+        "cin": "U65990MH1990PTC058602",
+        "rn": "401"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Texport Overseas Private Limited",
+        "cin": "U70200KA1995PTC016861",
+        "rn": "402"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mss India Private Limited",
+        "cin": "U27200MH1998PTC114831",
+        "rn": "403"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "T Stanes And Company Limited",
+        "cin": "U02421TZ1910PLC000221",
+        "rn": "404"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Grt Jewellers (India) Private Limited",
+        "cin": "U27310TN1992PTC023070",
+        "rn": "405"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lekha Wireless Solutions Private Limited",
+        "cin": "U72200KA2010PTC055891",
+        "rn": "406"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Hmsu Rollers (India) Private Limited",
+        "cin": "U29130GJ2012PTC068828",
+        "rn": "407"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "K.T.V. Health Food Private Limited",
+        "cin": "U15143TN2002PTC049397",
+        "rn": "408"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ultramarine & Pigments Limited",
+        "cin": "L24224MH1960PLC011856",
+        "rn": "409"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Gbr Freight Forwarders Private Limited",
+        "cin": "U63011TG1991PTC012864",
+        "rn": "410"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Grauer And Weil (India) Limited",
+        "cin": "L74999MH1957PLC010975",
+        "rn": "411"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mohanlal Jewellers Private Limited",
+        "cin": "U28999TN2009PTC071334",
+        "rn": "412"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kovilpatti Lakshmi Roller Flour Mills Limited",
+        "cin": "L15314TN1961PLC004674",
+        "rn": "413"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Thirumalai Chemicals Limited",
+        "cin": "L24100MH1972PLC016149",
+        "rn": "414"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Privilege Biksons Boilers Private Limited",
+        "cin": "U29299PN2011PTC141806",
+        "rn": "415"
+      },
+      {
+        "amnt_spent": "200000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Revathi Equipment India Limited",
+        "cin": "L74999TZ2020PLC033369",
+        "rn": "416"
+      },
+      {
+        "amnt_spent": "184375",
+        "fncl_yr": "FY 2024-25",
+        "name": "Frq Bro Private Limited",
+        "cin": "U74999TZ2017PTC029582",
+        "rn": "417"
+      },
+      {
+        "amnt_spent": "182712",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sree Annapoorna Sree Gowrishankar Hotels Private Limited",
+        "cin": "U55101TZ1997PTC007871",
+        "rn": "418"
+      },
+      {
+        "amnt_spent": "177805",
+        "fncl_yr": "FY 2024-25",
+        "name": "Viking Textiles Private Limited",
+        "cin": "U17111TZ1993PTC004323",
+        "rn": "419"
+      },
+      {
+        "amnt_spent": "175000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Saravana Poly Threads Private Limited",
+        "cin": "U17299TZ2001PTC009603",
+        "rn": "420"
+      },
+      {
+        "amnt_spent": "167100",
+        "fncl_yr": "FY 2024-25",
+        "name": "Virbac Animal Health India Private Limited",
+        "cin": "U24235MH2006PTC160701",
+        "rn": "421"
+      },
+      {
+        "amnt_spent": "150000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lucky Weavess India Private Limited",
+        "cin": "U17100TZ2015PTC021886",
+        "rn": "422"
+      },
+      {
+        "amnt_spent": "150000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Jpa Motors Private Limited",
+        "cin": "U50400PB2020PTC050551",
+        "rn": "423"
+      },
+      {
+        "amnt_spent": "144000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Acheron Software Consultancy Private Limited",
+        "cin": "U72200KA2013PTC068759",
+        "rn": "424"
+      },
+      {
+        "amnt_spent": "140000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Navis Software India Private Limited",
+        "cin": "U74999TN2021FTC155189",
+        "rn": "425"
+      },
+      {
+        "amnt_spent": "131000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ust Global Information Technology Parks Private Limited",
+        "cin": "U72200KL2008PTC022985",
+        "rn": "426"
+      },
+      {
+        "amnt_spent": "127000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Atlas Copco (India) Private Limited",
+        "cin": "U27106PN1960PTC020566",
+        "rn": "427"
+      },
+      {
+        "amnt_spent": "125000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eastern International Hotels Limited",
+        "cin": "U99999MH1969PLC014275",
+        "rn": "428"
+      },
+      {
+        "amnt_spent": "125000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Multicoreware India Private Limited",
+        "cin": "U72900TN2012PTC088169",
+        "rn": "429"
+      },
+      {
+        "amnt_spent": "121315",
+        "fncl_yr": "FY 2024-25",
+        "name": "Vaf Aero Systems Private Limited",
+        "cin": "U26999TZ2002PTC010140",
+        "rn": "430"
+      },
+      {
+        "amnt_spent": "115820",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cegeka India Private Limited",
+        "cin": "U72900TN2021PTC145468",
+        "rn": "431"
+      },
+      {
+        "amnt_spent": "115766",
+        "fncl_yr": "FY 2024-25",
+        "name": "Techno Sportswear Private Limited",
+        "cin": "U13999TZ2015PTC021900",
+        "rn": "432"
+      },
+      {
+        "amnt_spent": "114000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Sva Syntex Private Limited",
+        "cin": "U17119TZ1990PTC002779",
+        "rn": "433"
+      },
+      {
+        "amnt_spent": "110000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Bhairav Knitting Private Limited",
+        "cin": "U17100TZ2015PTC021994",
+        "rn": "434"
+      },
+      {
+        "amnt_spent": "103514",
+        "fncl_yr": "FY 2024-25",
+        "name": "Igus (India) Private Limited",
+        "cin": "U29130KA2000PTC036289",
+        "rn": "435"
+      },
+      {
+        "amnt_spent": "102130",
+        "fncl_yr": "FY 2024-25",
+        "name": "Keyaram Developers & Hotels Private Limited",
+        "cin": "U55101TN1975PTC006899",
+        "rn": "436"
+      },
+      {
+        "amnt_spent": "100800",
+        "fncl_yr": "FY 2024-25",
+        "name": "Nova Carbons India Private Limited",
+        "cin": "U24100TN2010PTC076798",
+        "rn": "437"
+      },
+      {
+        "amnt_spent": "100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "F. C. Sondhi & Co. (India) Private Limited",
+        "cin": "U36939PB1961PTC002402",
+        "rn": "438"
+      },
+      {
+        "amnt_spent": "100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Synamedia India Private Limited",
+        "cin": "U74999KA2005PTC036412",
+        "rn": "439"
+      },
+      {
+        "amnt_spent": "100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Lighthouse Info Systems Private Limited",
+        "cin": "U72900MH2009PTC194276",
+        "rn": "440"
+      },
+      {
+        "amnt_spent": "100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Super Auto Forge Private Limited",
+        "cin": "U35920TN1974PTC006818",
+        "rn": "441"
+      },
+      {
+        "amnt_spent": "100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Navio Shipping Private Limited",
+        "cin": "U61100MH2014PTC287146",
+        "rn": "442"
+      },
+      {
+        "amnt_spent": "100000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Vsm Weavess India Private Limited",
+        "cin": "U17111TZ2002PTC010398",
+        "rn": "443"
+      },
+      {
+        "amnt_spent": "91280",
+        "fncl_yr": "FY 2024-25",
+        "name": "La Renon Healthcare Private Limited",
+        "cin": "U24233GJ2007PTC051467",
+        "rn": "444"
+      },
+      {
+        "amnt_spent": "91000",
+        "fncl_yr": "FY 2024-25",
+        "name": "K.T.V. Oil Mills Private Limited",
+        "cin": "U40300TN2012PTC085926",
+        "rn": "445"
+      },
+      {
+        "amnt_spent": "82930",
+        "fncl_yr": "FY 2024-25",
+        "name": "Unitop Aquacare Limited",
+        "cin": "U74999MH2018PLC308510",
+        "rn": "446"
+      },
+      {
+        "amnt_spent": "71000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Modenik Lifestyle Private Limited",
+        "cin": "U17111KA2004PTC133522",
+        "rn": "447"
+      },
+      {
+        "amnt_spent": "52800",
+        "fncl_yr": "FY 2024-25",
+        "name": "Krishi Nutrition Company Private Limited",
+        "cin": "U15200TZ2013PTC019958",
+        "rn": "448"
+      },
+      {
+        "amnt_spent": "50000",
+        "fncl_yr": "FY 2024-25",
+        "name": "P K P N Spinning Mills Private Limited",
+        "cin": "U17111TZ1981PTC001034",
+        "rn": "449"
+      },
+      {
+        "amnt_spent": "50000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Cochin Minerals And Rutile Ltd",
+        "cin": "L24299KL1989PLC005452",
+        "rn": "450"
+      },
+      {
+        "amnt_spent": "45000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rossari Biotech Limited",
+        "cin": "L24100MH2009PLC194818",
+        "rn": "451"
+      },
+      {
+        "amnt_spent": "25000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Inarco Private Limited",
+        "cin": "U74999MH1958PTC011233",
+        "rn": "452"
+      },
+      {
+        "amnt_spent": "25000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Fabtech International Hosieries Private Limited",
+        "cin": "U18101TZ2005PTC012382",
+        "rn": "453"
+      },
+      {
+        "amnt_spent": "25000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kkv Agro Powers Limited",
+        "cin": "L40108TZ2012PLC018332",
+        "rn": "454"
+      },
+      {
+        "amnt_spent": "25000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Interlace India Private Limited",
+        "cin": "U72200TN2007PTC064965",
+        "rn": "455"
+      },
+      {
+        "amnt_spent": "25000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rccl Srikanche Expressway Private Limited",
+        "cin": "U45400TZ2021PTC037141",
+        "rn": "456"
+      },
+      {
+        "amnt_spent": "20000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Kikani Exports Private Limited",
+        "cin": "U05110TZ2000PTC009278",
+        "rn": "457"
+      },
+      {
+        "amnt_spent": "17635",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ilensys Technologies Private Limited",
+        "cin": "U72200TG2012PTC084563",
+        "rn": "458"
+      },
+      {
+        "amnt_spent": "15871",
+        "fncl_yr": "FY 2024-25",
+        "name": "Maruti Suzuki India Limited",
+        "cin": "L34103DL1981PLC011375",
+        "rn": "459"
+      },
+      {
+        "amnt_spent": "9600",
+        "fncl_yr": "FY 2024-25",
+        "name": "Vanchinad Finance Private Limited",
+        "cin": "U65910KL1987PTC004722",
+        "rn": "460"
+      },
+      {
+        "amnt_spent": "3294",
+        "fncl_yr": "FY 2024-25",
+        "name": "Avery Dennison (India) Private Limited",
+        "cin": "U74899DL1995PTC074475",
+        "rn": "461"
+      },
+      {
+        "amnt_spent": "2000",
+        "fncl_yr": "FY 2024-25",
+        "name": "Rajiraj Minerals Private Limited",
+        "cin": "U26994TN2018PTC122429",
+        "rn": "462"
+      },
+      {
+        "amnt_spent": "10.39",
+        "fncl_yr": "FY 2024-25",
+        "name": "Salona Cotspin Limited",
+        "cin": "L17111TZ1994PLC004797",
+        "rn": "463"
+      },
+      {
+        "amnt_spent": "6.05",
+        "fncl_yr": "FY 2024-25",
+        "name": "New Opportunity Consultancy Private Limited",
+        "cin": "U93030MH2014PTC252078",
+        "rn": "464"
+      },
+      {
+        "amnt_spent": "0",
+        "fncl_yr": "FY 2024-25",
+        "name": "Apex Laboratories Private Limited",
+        "cin": "U85195TN1978PTC007554",
+        "rn": "465"
+      },
+      {
+        "amnt_spent": "0",
+        "fncl_yr": "FY 2024-25",
+        "name": "The Karnataka Bank Limited",
+        "cin": "L85110KA1924PLC001128",
+        "rn": "466"
+      },
+      {
+        "amnt_spent": "0",
+        "fncl_yr": "FY 2024-25",
+        "name": "Eurofins Consumer Product Testing India Private Limited",
+        "cin": "U93030TZ2006PTC013140",
+        "rn": "467"
+      },
+      {
+        "amnt_spent": "0",
+        "fncl_yr": "FY 2024-25",
+        "name": "Ats Elgi Limited",
+        "cin": "U34300TZ2007PLC014125",
+        "rn": "468"
+      },
+      {
+        "amnt_spent": "0",
+        "fncl_yr": "FY 2024-25",
+        "name": "Mayflower Enterprises Private Limited",
+        "cin": "U45201TZ1997PTC007984",
+        "rn": "469"
+      },
+      {
+        "amnt_spent": "0",
+        "fncl_yr": "FY 2024-25",
+        "name": "Elgi Electric And Industries Limited",
+        "cin": "U31200TZ1963PLC000487",
+        "rn": "470"
+      },
+      {
+        "amnt_spent": "0",
+        "fncl_yr": "FY 2024-25",
+        "name": "S And T Welcare Equipments Private Limited",
+        "cin": "U05110TZ1998PTC008600",
+        "rn": "471"
+      }
+    ],
+    "module": "CSR",
+    "count": 471,
+    "qryType": "state_cmpnylst"
+  },
+  "error": "",
+  "message": "Data fetched Successfully"
+}

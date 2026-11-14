@@ -7,13 +7,21 @@
 // downstream only depends on the shape below, not on where the array comes
 // from.
 //
-// Most figures below are deterministically generated placeholder data — NOT
-// real government statistics. The exceptions are csrFundTotalCr (via
-// CSR_FUND_HISTORY_CR), annualIncomeGrowthPct, scoreTrend and
-// departmentFundsCr (via CSR_SECTOR_SPEND_CR), which are now backed by the
-// Ministry of Corporate Affairs' real state-wise CSR spend reports. The rest
-// exist so the dashboard layout, filters and rating engine can be built and
-// demoed end to end until GSR connects a live source for them too.
+// population, gsdpCr and gsdpGrowthPct are real published figures (Census/
+// NSO population projections and MOSPI/RBI GSDP-at-current-prices data,
+// FY2023-24), and csrFundTotalCr (via CSR_FUND_HISTORY_CR),
+// annualIncomeGrowthPct, scoreTrend and departmentFundsCr (via
+// CSR_SECTOR_SPEND_CR) are backed by the Ministry of Corporate Affairs' real
+// state-wise CSR spend reports. csrIntensityPct is a real derived ratio too
+// — see CSR_INTENSITY_RAW below.
+//
+// pillars and the grantee agency/project text are still deterministically
+// generated placeholders: the six pillars (Economic Growth, Fiscal Strength,
+// Monetary Stability, ...) are GSR's own scoring rubric with no published
+// per-state government index behind them, and there is no public database of
+// GSR's actual grantee organizations. They exist so the rating engine and
+// grantee list can be built and demoed end to end until GSR supplies real
+// inputs for them.
 //
 // State shape:
 //   id                        string   unique slug
@@ -23,7 +31,7 @@
 //   population                number
 //   gsdpCr                    number   gross state domestic product, ₹ crore
 //   gsdpGrowthPct             number   year-on-year GSDP growth, %
-//   csrFundUtilizationPct     number   share of allocated CSR funds actually deployed, %
+//   csrIntensityPct           number   real: latest-year CSR spend as a % of GSDP
 //   annualIncomeGrowthPct     number   real year-on-year growth in CSR fund spend, % (FY2023-24 → FY2024-25)
 //   pillars                   object   see PILLARS in ../lib/rating.js — one score per key
 //   scoreTrend                number[] composite score for each year, 2020-2026 (2025-26 projected), driven by real YoY growth
@@ -145,6 +153,138 @@ const CSR_SECTOR_SPEND_CR = {
   "West Bengal": [430.47, 20.12, 81.3, 38.01, 394.02, 53.52, 0.47, 56.98, 0.43],
 };
 
+// Real population figures (latest NSO/Census-based projections, ~2024),
+// sourced from the Registrar General's projected-population series as
+// tabulated on Wikipedia's "List of states and union territories of India by
+// population". Union territories reported jointly keep their combined
+// figure.
+const POPULATION = {
+  "Andhra Pradesh": 53_340_000,
+  "Arunachal Pradesh": 1_576_000,
+  "Assam": 36_047_000,
+  "Bihar": 128_592_000,
+  "Chhattisgarh": 30_524_000,
+  "Goa": 1_583_000,
+  "Gujarat": 72_367_000,
+  "Haryana": 30_573_000,
+  "Himachal Pradesh": 7_505_000,
+  "Jharkhand": 39_963_000,
+  "Karnataka": 68_115_000,
+  "Kerala": 35_920_000,
+  "Madhya Pradesh": 87_610_000,
+  "Maharashtra": 127_528_000,
+  "Manipur": 3_253_000,
+  "Meghalaya": 3_379_000,
+  "Mizoram": 1_250_000,
+  "Nagaland": 2_253_000,
+  "Odisha": 46_566_000,
+  "Punjab": 30_926_000,
+  "Rajasthan": 81_897_000,
+  "Sikkim": 695_000,
+  "Tamil Nadu": 77_089_000,
+  "Telangana": 38_272_000,
+  "Tripura": 4_184_000,
+  "Uttar Pradesh": 241_066_874,
+  "Uttarakhand": 11_755_000,
+  "West Bengal": 99_563_000,
+  "Andaman and Nicobar Islands": 404_000,
+  "Chandigarh": 1_243_000,
+  "Dadra and Nagar Haveli and Daman and Diu": 657_587,
+  "Delhi": 21_752_000,
+  "Jammu and Kashmir": 13_701_000,
+  "Ladakh": 302_000,
+  "Lakshadweep": 69_000,
+  "Puducherry": 1_391_163,
+};
+
+// Real GSDP at current prices, FY2023-24 (₹ crore), sourced from
+// MOSPI/StatisticsTimes' compilation of the Central Statistics Office's
+// state GSDP series. Lakshadweep and Dadra and Nagar Haveli and Daman and
+// Diu are not published separately in that series (both are very small UT
+// economies); they're carried at their last RBI Handbook of Statistics
+// figure, marked below, rather than left as an unrelated placeholder.
+const GSDP_CR = {
+  "Andhra Pradesh": 1_422_094,
+  "Arunachal Pradesh": 38_565,
+  "Assam": 569_287,
+  "Bihar": 877_197,
+  "Chhattisgarh": 512_107,
+  "Goa": 106_533,
+  "Gujarat": 2_425_804,
+  "Haryana": 1_085_510,
+  "Himachal Pradesh": 212_169,
+  "Jharkhand": 465_638,
+  "Karnataka": 2_557_241,
+  "Kerala": 1_135_372,
+  "Madhya Pradesh": 1_353_809,
+  "Maharashtra": 4_055_847,
+  "Manipur": 43_414,
+  "Meghalaya": 53_223,
+  "Mizoram": 33_277,
+  "Nagaland": 39_809,
+  "Odisha": 798_969,
+  "Punjab": 771_744,
+  "Rajasthan": 1_521_510,
+  "Sikkim": 48_937,
+  "Tamil Nadu": 2_688_963,
+  "Telangana": 1_461_836,
+  "Tripura": 79_434,
+  "Uttar Pradesh": 2_642_877,
+  "Uttarakhand": 332_998,
+  "West Bengal": 1_651_374,
+  "Andaman and Nicobar Islands": 12_499,
+  "Chandigarh": 62_536,
+  "Dadra and Nagar Haveli and Daman and Diu": 34_000, // RBI Handbook, last published year — not in the FY2023-24 CSO series
+  "Delhi": 1_112_905,
+  "Jammu and Kashmir": 236_059,
+  "Ladakh": 8_304,
+  "Lakshadweep": 1_700, // RBI Handbook, last published year — not in the FY2023-24 CSO series
+  "Puducherry": 46_945,
+};
+
+// Real GSDP growth, FY2023-24 (%, at constant 2011-12 prices), sourced from
+// MOSPI/StatisticsTimes. Ladakh and Lakshadweep don't publish a growth
+// figure in that series; they fall back to the all-India aggregate growth
+// rate (9.19%) rather than an unrelated placeholder.
+const GSDP_GROWTH_PCT = {
+  "Andhra Pradesh": 6.19,
+  "Arunachal Pradesh": 5.95,
+  "Assam": 12.0,
+  "Bihar": 11.95,
+  "Chhattisgarh": 7.31,
+  "Goa": 7.13,
+  "Gujarat": 8.94,
+  "Haryana": 7.76,
+  "Himachal Pradesh": 6.31,
+  "Jharkhand": 7.5,
+  "Karnataka": 5.98,
+  "Kerala": 6.73,
+  "Madhya Pradesh": 6.9,
+  "Maharashtra": 7.96,
+  "Manipur": 7.91,
+  "Meghalaya": 10.64,
+  "Mizoram": 10.18,
+  "Nagaland": 10.21,
+  "Odisha": 7.02,
+  "Punjab": 6.27,
+  "Rajasthan": 7.88,
+  "Sikkim": 8.52,
+  "Tamil Nadu": 9.26,
+  "Telangana": 7.51,
+  "Tripura": 8.43,
+  "Uttar Pradesh": 8.92,
+  "Uttarakhand": 7.83,
+  "West Bengal": 6.09,
+  "Andaman and Nicobar Islands": 4.39,
+  "Chandigarh": 9.52,
+  "Dadra and Nagar Haveli and Daman and Diu": 5.67,
+  "Delhi": 9.16,
+  "Jammu and Kashmir": 8.79,
+  "Ladakh": 9.19, // not published separately — all-India aggregate used as fallback
+  "Lakshadweep": 9.19, // not published separately — all-India aggregate used as fallback
+  "Puducherry": 7.93,
+};
+
 function yoyGrowthPct(curr, prev) {
   if (prev <= 0) return curr > 0 ? 100 : 0;
   return Math.round(((curr - prev) / prev) * 1000) / 10;
@@ -211,14 +351,40 @@ function hashString(str) {
   return hash;
 }
 
+// Real derived "CSR intensity" — latest-year CSR spend as a share of GSDP,
+// per state (CSR_FUND_HISTORY_CR and GSDP_CR are both real published
+// figures). This replaces the old fictional "fund utilization %" (there is
+// no such thing as an "allocated CSR budget per state" to measure
+// utilization against — CSR is company spend, not a state grant). The raw
+// ratio is tiny (well under 1% almost everywhere), so it's also min-max
+// normalized to a 0-100 relative score for the composite rating formula,
+// which expects that scale.
+const CSR_INTENSITY_RAW = Object.fromEntries(
+  STATE_LIST.map(([name]) => {
+    const history = CSR_FUND_HISTORY_CR[name];
+    const latestSpend = history[history.length - 1];
+    return [name, (latestSpend / GSDP_CR[name]) * 100];
+  }),
+);
+const CSR_INTENSITY_VALUES = Object.values(CSR_INTENSITY_RAW);
+const CSR_INTENSITY_MIN = Math.min(...CSR_INTENSITY_VALUES);
+const CSR_INTENSITY_MAX = Math.max(...CSR_INTENSITY_VALUES);
+
+function normalizeCsrIntensity(raw) {
+  if (CSR_INTENSITY_MAX === CSR_INTENSITY_MIN) return 50;
+  return Math.round(((raw - CSR_INTENSITY_MIN) / (CSR_INTENSITY_MAX - CSR_INTENSITY_MIN)) * 1000) / 10;
+}
+
 function buildState([name, type, region, abbr], index) {
   const rand = seededRandom(hashString(name) + index);
   const id = name.toLowerCase().replace(/[^a-z]+/g, "-").replace(/(^-|-$)/g, "");
 
-  const population = Math.round(1_200_000 + rand() * 220_000_000);
-  const gsdpCr = Math.round(8_000 + rand() * 2_800_000);
-  const gsdpGrowthPct = Math.round((3 + rand() * 9) * 10) / 10;
-  const csrFundUtilizationPct = Math.round(35 + rand() * 60);
+  const population = POPULATION[name];
+  const gsdpCr = GSDP_CR[name];
+  const gsdpGrowthPct = GSDP_GROWTH_PCT[name];
+  const csrIntensityRaw = CSR_INTENSITY_RAW[name];
+  const csrIntensityPct = Math.round(csrIntensityRaw * 1000) / 1000;
+  const csrIntensityScore = normalizeCsrIntensity(csrIntensityRaw);
 
   const history = CSR_FUND_HISTORY_CR[name];
   const annualIncomeGrowthPct = Math.min(
@@ -230,11 +396,11 @@ function buildState([name, type, region, abbr], index) {
     PILLARS.map((pillar) => [pillar.key, Math.round(pillar.max * (0.4 + rand() * 0.6))]),
   );
 
-  const finalScore = compositeScore({ csrFundUtilizationPct, annualIncomeGrowthPct });
+  const finalScore = compositeScore({ csrIntensityScore, annualIncomeGrowthPct });
   const scoreTrend = TREND_YEARS.map((year, i) => {
     if (i === TREND_YEARS.length - 1) return finalScore; // 2026 not yet reported — carries the latest score
     const yearGrowthPct = Math.min(100, Math.max(0, yoyGrowthPct(history[i + 1], history[i])));
-    return compositeScore({ csrFundUtilizationPct, annualIncomeGrowthPct: yearGrowthPct });
+    return compositeScore({ csrIntensityScore, annualIncomeGrowthPct: yearGrowthPct });
   });
 
   const csrFundTotalCr = history[history.length - 1];
@@ -260,7 +426,7 @@ function buildState([name, type, region, abbr], index) {
     population,
     gsdpCr,
     gsdpGrowthPct,
-    csrFundUtilizationPct,
+    csrIntensityPct,
     annualIncomeGrowthPct,
     pillars,
     scoreTrend,

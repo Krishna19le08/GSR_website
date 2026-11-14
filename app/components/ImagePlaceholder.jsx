@@ -24,6 +24,9 @@ export default function ImagePlaceholder({
   src,
   alt,
   rounded = "",
+  position = "object-center",
+  sizes = "100vw",
+  priority = false,
 }) {
   const hasPosition = /\b(absolute|fixed|sticky|static)\b/.test(className);
   const isDark = tone === "emerald";
@@ -40,8 +43,9 @@ export default function ImagePlaceholder({
             src={src}
             alt={alt || cleanLabel(label)}
             fill
-            sizes="100vw"
-            className="object-cover"
+            sizes={sizes}
+            priority={priority}
+            className={`object-cover ${position}`}
           />
         ) : (
           <>

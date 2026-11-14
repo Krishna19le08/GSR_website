@@ -6,8 +6,14 @@ import LiveCounter from "../components/dashboard/LiveCounter";
 import InstructorDirectory from "../components/dashboard/InstructorDirectory";
 import IndiaStateMapSection from "../components/dashboard/IndiaStateMapSection";
 import StateRatingExplorer from "../components/dashboard/StateRatingExplorer";
+import CompanyAnalytics from "../components/dashboard/CompanyAnalytics";
+import CsrSpendMapSection from "../components/dashboard/CsrSpendMapSection";
 import { getStates, DEPARTMENTS } from "../data/states-data";
 import { getInstructors } from "../data/instructors-data";
+import { getCsrCompanyAnalytics } from "../lib/csr-company-analytics";
+import { getCsrStateSpend } from "../lib/csr-state-spend";
+import { SPEND_FINANCIAL_YEAR } from "../lib/csr-state-spend";
+import { getCsrStateProjects } from "../lib/csr-state-projects";
 
 const DEPT_COLORS = [
   "#1f4a44", "#c98a11", "#5b7b74", "#a8710b", "#8a8371",
@@ -15,7 +21,7 @@ const DEPT_COLORS = [
 ];
 
 export const metadata = {
-  title: "CSR Tracker & State Rating — GSR",
+  title: "CSR Tracker & State Rating | GSR",
   description:
     "Live GSDP and CSR fund tracking, plus the State Rating Protocol scores, across 36 Indian states and union territories.",
 };
@@ -24,11 +30,14 @@ export default function CsrTracker() {
   const states = getStates();
   const instructors = getInstructors();
   const statesById = new Map(states.map((s) => [s.id, s]));
+  const companyData = getCsrCompanyAnalytics();
+  const stateSpend = getCsrStateSpend();
+  const stateProjects = getCsrStateProjects();
 
   const totalGsdpCr = states.reduce((sum, s) => sum + s.gsdpCr, 0);
   const totalPopulation = states.reduce((sum, s) => sum + s.population, 0);
-  const avgUtilization =
-    Math.round((states.reduce((sum, s) => sum + s.csrFundUtilizationPct, 0) / states.length) * 10) / 10;
+  const avgCsrIntensity =
+    Math.round((states.reduce((sum, s) => sum + s.csrIntensityPct, 0) / states.length) * 1000) / 1000;
 
   const deptTotals = DEPARTMENTS.map((dept) => ({
     ...dept,
@@ -77,7 +86,10 @@ export default function CsrTracker() {
       {/* DISCLAIMER */}
       <div className="flex items-center justify-center gap-2 border-b border-clay bg-paper-deep px-4 py-2.5 text-center text-xs text-ink-soft sm:px-6 lg:px-8">
         <span className="inline-flex size-1.5 shrink-0 rounded-full bg-marigold-deep" aria-hidden="true" />
-        Demo dataset — illustrative figures generated for this preview, not official government statistics.
+        Population, GSDP and CSR spend are real published figures (Census/MOSPI/MCA). State Rating Protocol scores, grantee names and instructor roster are illustrative placeholders, not official data.
+        <Link href="#company-analytics" className="font-semibold text-banyan underline underline-offset-2 hover:text-marigold-deep">
+          See real company data →
+        </Link>
       </div>
 
       {/* LIVE COUNTERS */}
@@ -103,11 +115,11 @@ export default function CsrTracker() {
               note="Combined population across all tracked states and union territories."
             />
             <LiveCounter
-              label="Avg. CSR fund utilization"
-              startValue={avgUtilization}
-              decimals={1}
+              label="Avg. CSR spend vs GSDP"
+              startValue={avgCsrIntensity}
+              decimals={3}
               suffix="%"
-              note="Share of allocated CSR funds deployed, averaged across states."
+              note="CSR spend as a share of GSDP, averaged across states."
             />
             <LiveCounter
               label="Instructors on the ground"
@@ -179,6 +191,25 @@ export default function CsrTracker() {
             <IndiaStateMapSection states={states} />
           </div>
         </div>
+      </section>
+
+      {/* REAL COMPANY DATA */}
+      <section id="company-analytics" className="scroll-mt-24 bg-paper py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Eyebrow>Real company data</Eyebrow>
+          <h2 className="mt-4 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            Who spends the CSR rupee, and how concentrated is it
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-ink-soft">
+            {companyData.kpis.count} companies ranked by reported CSR spend over {companyData.financialYear} (past project records), sourced from CSR.gov.in. The state map below shows current {SPEND_FINANCIAL_YEAR} spend.
+          </p>
+        </div>
+        <CompanyAnalytics
+          data={companyData}
+          mapSection={
+            <CsrSpendMapSection data={stateSpend} financialYear={SPEND_FINANCIAL_YEAR} projects={stateProjects} />
+          }
+        />
       </section>
 
       {/* EXPLORER */}

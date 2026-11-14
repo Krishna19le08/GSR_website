@@ -116,9 +116,8 @@ export default function StateRatingExplorer({ states }) {
               View full fund grantee details →
             </Link>
 
-            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <Stat label="TRP Score" value={`${selected.score}/100`} />
-              <Stat label="Fund Utilization" value={`${selected.csrFundUtilizationPct}%`} />
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+              <Stat label="CSR vs GSDP" value={`${selected.csrIntensityPct.toFixed(2)}%`} />
               <Stat label="Income Growth" value={`${selected.annualIncomeGrowthPct}%`} />
               <Stat
                 label="Pillar Total"

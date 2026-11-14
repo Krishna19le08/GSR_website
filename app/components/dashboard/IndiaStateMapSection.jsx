@@ -131,10 +131,10 @@ export default function IndiaStateMapSection({ states, basePath = "/csr-tracker"
               </div>
               <div>
                 <dt className="text-[11px] uppercase tracking-[0.1em] text-ink-soft/60">
-                  Fund utilization
+                  CSR spend vs GSDP
                 </dt>
                 <dd className="mt-1 font-mono text-sm font-semibold text-ink">
-                  {previewState.csrFundUtilizationPct}%
+                  {previewState.csrIntensityPct.toFixed(2)}%
                 </dd>
               </div>
             </dl>

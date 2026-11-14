@@ -4,21 +4,46 @@
    letting it follow the OS theme, since the design is white-background only. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ------------------------------------------------------------------
+   GSR design tokens (v2, 2026-11). Palette is taken from the logo:
+   forest green globe, deep teal banner, antique-gold ring.
+   Legacy token NAMES are kept so existing pages keep working; only the
+   values changed:
+     banyan        -> forest green (logo globe)
+     banyan-deep   -> deep forest (dark bands)
+     marigold      -> antique gold (fills: Donate / primary pill)
+     marigold-deep -> dark gold (gold TEXT on light, AA on paper/white)
+   See scratchpad design/design-system.md for the rules.
+   ------------------------------------------------------------------ */
 :root {
-  /* Warm, place-rooted palette — sand paper, deep banyan teal, marigold accent.
-     Deliberately not the cream/terracotta or emerald-startup defaults. */
-  --background: #f4efe4;
-  --foreground: #262117;
+  --background: #f6f0e2;
+  --foreground: #17201b;
 
-  --color-ink: #262117;
-  --color-ink-soft: #55503f;
-  --color-paper: #f4efe4;
-  --color-paper-deep: #e9e0cb;
-  --color-banyan: #1f4a44;
-  --color-banyan-deep: #12312c;
-  --color-marigold: #c98a11;
-  --color-marigold-deep: #a8710b;
-  --color-clay: #c7b89a;
+  /* text */
+  --color-ink: #17201b;
+  --color-ink-soft: #46524a; /* 7.2:1 on paper, 6.4:1 on sand */
+  --color-ink-muted: #566159; /* small meta text, still >= 5:1 on sand */
+
+  /* surfaces (light) */
+  --color-surface: #ffffff;
+  --color-paper: #f6f0e2; /* warm cream */
+  --color-paper-deep: #ece3cf; /* sand */
+  --color-clay: #d3c5a6; /* hairlines + borders on light */
+
+  /* brand greens */
+  --color-banyan: #1d5434; /* forest (logo globe) */
+  --color-banyan-deep: #123d27; /* deep forest, dark bands */
+  --color-forest-950: #0e3020; /* footer */
+  --color-teal: #1e5c5b; /* logo banner; eyebrows + links on light */
+
+  /* gold accent */
+  --color-marigold: #c9a24a; /* gold fill (ink text on it: 6.9:1) */
+  --color-marigold-deep: #7d5e1e; /* gold text on light; paper on it: 5.5:1 */
+  --color-gold-hover: #b8913a; /* gold fill hover (ink on it: 5.7:1) */
+  --color-gold-soft: #c5a67f; /* logo ring; decorative rules and borders */
+  --color-gold-light: #dcc59a; /* gold TEXT on any dark green (>= 5.2:1) */
+
+  --color-focus: #1e5c5b;
 }
 
 @theme inline {
@@ -26,46 +51,109 @@
   --color-foreground: var(--foreground);
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-surface: var(--color-surface);
   --color-paper: var(--color-paper);
   --color-paper-deep: var(--color-paper-deep);
+  --color-sand: var(--color-paper-deep);
   --color-banyan: var(--color-banyan);
   --color-banyan-deep: var(--color-banyan-deep);
+  --color-forest: var(--color-banyan);
+  --color-forest-deep: var(--color-banyan-deep);
+  --color-forest-950: var(--color-forest-950);
+  --color-teal: var(--color-teal);
   --color-marigold: var(--color-marigold);
   --color-marigold-deep: var(--color-marigold-deep);
+  --color-gold: var(--color-marigold);
+  --color-gold-deep: var(--color-marigold-deep);
+  --color-gold-hover: var(--color-gold-hover);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-gold-light: var(--color-gold-light);
   --color-clay: var(--color-clay);
   --font-display: var(--font-display);
   --font-sans: var(--font-body);
   --font-mono: var(--font-geist-mono);
 }
 
+/* Type scale. Fluid between 390px and 1440px viewports.
+   Utilities: text-hero, text-h1, text-h2, text-h3, text-lede, text-body,
+   text-eyebrow (each sets its own line-height). */
+@theme {
+  --text-hero: clamp(2.5rem, 1.55rem + 3.9vw, 4.5rem); /* 40 -> 72 */
+  --text-hero--line-height: 1.04;
+  --text-hero--letter-spacing: -0.02em;
+  --text-h1: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem); /* 36 -> 60 */
+  --text-h1--line-height: 1.06;
+  --text-h1--letter-spacing: -0.015em;
+  --text-h2: clamp(2rem, 1.55rem + 1.6vw, 3rem); /* 32 -> 48 */
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h3: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem); /* 22 -> 28 */
+  --text-h3--line-height: 1.2;
+  --text-lede: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem); /* 18 -> 21 */
+  --text-lede--line-height: 1.6;
+  --text-body: 1.0625rem; /* 17 */
+  --text-body--line-height: 1.7;
+  --text-eyebrow: 0.75rem; /* 12 */
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.16em;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
 }
 
-/* Disable the text-selection caret site-wide (clicking/dragging over text
-   shouldn't highlight it or show a blinking `|`), but leave form fields
-   selectable so typing and editing still work normally. */
-body {
-  -webkit-user-select: none;
-  user-select: none;
-}
-input,
-textarea,
-select,
-[contenteditable="true"] {
-  -webkit-user-select: text;
-  user-select: text;
+/* Long <option> labels (e.g. the CSR tracker's sector filter) must not
+   stretch a select past its container on phones. */
+select {
+  max-width: 100%;
 }
 
-/* Visible keyboard-focus ring, site-wide. Mouse/touch interaction is
-   unaffected since :focus-visible only engages for keyboard/programmatic
-   focus. Marigold on banyan keeps the ring legible on both light and dark
-   section backgrounds. */
+/* Display headings use the optical-size axis of the display face. */
+.font-display {
+  font-optical-sizing: auto;
+}
+
+/* Legacy-class contrast safety net. Older components use translucent
+   ink-soft / paper text for small labels, which fails WCAG AA. Plain
+   (unlayered) rules override the Tailwind utilities so those labels
+   meet 4.5:1 without editing every component. Don't add new usages:
+   use text-ink-muted (light) or text-paper/80 (dark) instead. */
+.text-ink-soft\/50,
+.text-ink-soft\/60,
+.text-ink-soft\/70,
+.text-ink-soft\/80 {
+  color: var(--color-ink-muted);
+}
+.text-paper\/40,
+.text-paper\/50,
+.text-paper\/60 {
+  color: color-mix(in oklab, var(--color-paper) 78%, transparent);
+}
+
+/* Visible keyboard focus. Teal on light surfaces; inside any dark
+   surface (.surface-dark or the footer) it switches to gold. */
 :focus-visible {
-  outline: 2px solid var(--color-marigold);
-  outline-offset: 2px;
+  outline: 2.5px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.surface-dark :focus-visible,
+footer :focus-visible {
+  outline-color: var(--color-marigold);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-marigold) 45%, transparent);
+  color: var(--color-ink);
 }
 
 .gsr-skip-link {
@@ -73,9 +161,10 @@ select,
   left: 1rem;
   top: -3rem;
   z-index: 100;
-  background: var(--color-paper);
+  background: var(--color-surface);
   color: var(--color-ink);
   border: 1px solid var(--color-clay);
+  border-radius: 9999px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -83,6 +172,14 @@ select,
 }
 .gsr-skip-link:focus {
   top: 1rem;
+}
+
+/* Horizontal scroll-snap rows (PhotoCardRow on mobile): hide the bar. */
+.gsr-snap-row {
+  scrollbar-width: none;
+}
+.gsr-snap-row::-webkit-scrollbar {
+  display: none;
 }
 
 /* Respect the OS-level reduced-motion preference across every transition

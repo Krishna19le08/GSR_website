@@ -1,691 +1,404 @@
-import Link from "next/link";
-import ImagePlaceholder from "../components/ImagePlaceholder";
+import FounderProfile from "../components/FounderProfile";
 import Icon from "../components/icons";
-import Reveal from "../components/Reveal";
 import {
+  ActionTiles,
   Eyebrow,
-  ButtonSecondary,
+  IconBadge,
+  MediaSplit,
+  PageHero,
+  PhotoCard,
+  PhotoCardRow,
+  Section,
+  SectionHeader,
+  SmartLink,
+  ArrowIcon,
   TextLink,
-  StatCardRounded,
-  Quote,
-  Card,
-  iconToneAt,
 } from "../components/ui";
 
-const coreValues = [
-  {
-    icon: "leaf",
-    title: "Environmental Responsibility",
-    description:
-      "The Earth is not ours to own, but our responsibility to protect. We promote conservation, sustainability, and responsible use of natural resources.",
-  },
-  {
-    icon: "book",
-    title: "Education & Knowledge",
-    description:
-      "Education is the foundation for progress. We promote access to knowledge, environmental awareness, and lifelong learning.",
-  },
-  {
-    icon: "sprout",
-    title: "Empowerment & Opportunity",
-    description:
-      "We create opportunities for individuals and communities to develop their potential, build confidence, and become active contributors to society.",
-  },
-  {
-    icon: "scale",
-    title: "Equality & Inclusion",
-    description:
-      "We respect every individual and strive to ensure everyone has the opportunity to live with dignity, regardless of background or circumstances.",
-  },
-  {
-    icon: "heart",
-    title: "Compassion & Service",
-    description:
-      "We serve with empathy, respect, and a genuine commitment to improving human well-being and supporting those in need.",
-  },
-  {
-    icon: "sparkles",
-    title: "Future Generations",
-    description:
-      "We work to create a better future where the next generation is strong enough to face challenges, live with dignity, and thrive.",
-  },
-];
-
-const focusAreas = [
-  {
-    icon: "leaf",
-    title: "Environmental Protection & Sustainability",
-    description:
-      "Protecting nature, biodiversity, oceans, birds, animals, and natural resources while promoting sustainable living and responsible environmental practices.",
-  },
-  {
-    icon: "book",
-    title: "Education & Environmental Awareness",
-    description:
-      "Expanding access to education, knowledge, and environmental learning to help people understand today's challenges and prepare for tomorrow.",
-  },
-  {
-    icon: "sprout",
-    title: "Empowerment & Opportunities",
-    description:
-      "Creating opportunities for individuals and communities through skills, capacity building, volunteering, internships, livelihoods, and social development.",
-  },
-  {
-    icon: "scale",
-    title: "Social Equality, Justice & Welfare For All",
-    description:
-      "Promoting dignity, equality, inclusion, justice, and welfare so that everyone has the opportunity to live a safe, meaningful, and dignified life.",
-  },
-  {
-    icon: "network",
-    title: "Uniting for a Sustainable Network",
-    description:
-      "Connecting communities, NGOs, educational institutions, businesses, governments, and volunteers to develop practical solutions and create lasting social and environmental impact.",
-  },
-];
-
-const foundingInitiatives = [
-  { name: "GSR Tech", icon: "laptop", desc: "Our AI-powered platform giving every NGO a verified digital identity." },
-  { name: "Break The Silence — Rally", icon: "megaphone", desc: "A youth-led movement raising its voice against injustice and silence." },
-  { name: "GSR Academy", icon: "graduate", desc: "Learning programmes built around real skills and real opportunity." },
-  { name: "Tribal 2 Technology", icon: "network", desc: "Bringing digital access and opportunity to tribal communities." },
-  { name: "Connect Nature", icon: "leaf", desc: "Community-led conservation, one habitat and one river at a time." },
-];
-
-const currentInitiatives = [
-  {
-    name: "Digital Trib",
-    area: "Education & Empowerment",
-    location: "Tamil Nadu",
-    beneficiaries: "Tribal Communities",
-    status: "In Progress",
-  },
-  {
-    name: "Break The Silence — Rally",
-    area: "Education",
-    location: "Pan-India",
-    beneficiaries: "Students",
-    status: "Ongoing",
-  },
-  {
-    name: "Smart Seed Feed",
-    area: "Environmental",
-    location: "Pan-India",
-    beneficiaries: "General Public",
-    status: "In Progress",
-  },
-  {
-    name: "Tribal Hub Care",
-    area: "Environmental",
-    location: "Tamil Nadu",
-    beneficiaries: "Tribal Communities",
-    status: "In Progress",
-  },
-  {
-    name: "Plastic-Free Communities",
-    area: "Environmental",
-    location: "Tamil Nadu",
-    beneficiaries: "General Public",
-    status: "In Progress",
-  },
-  {
-    name: "Farm Care",
-    area: "Empowerment",
-    location: "Tamil Nadu",
-    beneficiaries: "Farmers",
-    status: "In Progress",
-  },
-];
-
 export const metadata = {
-  title: "About Us — GSR",
+  title: "About Us | GSR",
   description:
     "Founded in 2026, Global Social Responsibility Welfare Foundation (GSR) connects people and organizations to protect the environment, advance education, and empower communities across India.",
   openGraph: {
-    title: "About Us — GSR",
+    title: "About Us | GSR",
     description:
       "Founded in 2026, GSR connects people and organizations to protect the environment, advance education, and empower communities across India.",
   },
 };
 
-const futureInitiatives = [
+const mission = [
   {
-    name: "Rehabilitation",
-    area: "Mental Health",
-    location: "Tamil Nadu",
-    timeline: "Expected 2027",
+    icon: "target",
+    title: "Our mission",
+    text: "To connect people, knowledge, opportunities and environmental responsibility to empower communities, protect our planet, and build a more sustainable, equitable and inclusive world.",
+  },
+  {
+    icon: "eye",
+    title: "Our vision",
+    text: "A world where individuals, communities and organizations work together to protect the planet, promote equality and expand opportunity, so every generation can live with dignity and thrive.",
   },
 ];
 
+// The three focus areas that have their own cause page get a photo card.
+// Photos show the kind of setting; alt text describes only what is in them.
+const causeCards = [
+  {
+    title: "Environmental protection",
+    tag: "Environment",
+    description: "Protecting nature, wildlife, oceans and natural resources.",
+    href: "/social-responsibility/environmental",
+    src: "/images/landscape-guardians.jpg",
+    alt: "Tall trees on a forested hillside",
+    position: "object-center",
+  },
+  {
+    title: "Education and awareness",
+    tag: "Education",
+    description: "Wider access to education, including environmental learning.",
+    href: "/social-responsibility/education",
+    src: "/images/youth-learning.jpg",
+    alt: "Children sitting at desks in a decorated village classroom",
+    position: "object-[center_70%]",
+  },
+  {
+    title: "Empowerment and livelihoods",
+    tag: "Empowerment",
+    description: "Skills training, internships and livelihood programmes.",
+    href: "/social-responsibility/empowerment",
+    src: "/images/empowerment-sewing.jpg",
+    alt: "A smiling woman standing beside a sewing machine in a small shop",
+    position: "object-center",
+  },
+];
+
+const otherFocus = [
+  {
+    icon: "scale",
+    title: "Equality, justice and welfare",
+    text: "Supporting dignity, inclusion and access to justice and welfare for everyone.",
+  },
+  {
+    icon: "network",
+    title: "A network for sustainability",
+    text: "Bringing together communities, NGOs, schools and colleges, businesses, government and volunteers to work on shared problems.",
+    link: { href: "/gsr-tech/network-hub", label: "Visit the Network Hub" },
+  },
+];
+
+const coreValues = [
+  { icon: "leaf", title: "Environmental responsibility", text: "We promote conservation, sustainability and careful use of natural resources." },
+  { icon: "book", title: "Education and knowledge", text: "We work to widen access to education, environmental awareness and lifelong learning." },
+  { icon: "sprout", title: "Empowerment and opportunity", text: "We help people build skills and confidence so they can take part fully in society." },
+  { icon: "scale", title: "Equality and inclusion", text: "We treat everyone with respect, whatever their background or circumstances." },
+  { icon: "heart", title: "Compassion and service", text: "We serve with empathy and respect, and we put the people we support first." },
+  { icon: "seedling", title: "Future generations", text: "We want the next generation to be able to face hard challenges and live with dignity." },
+];
+
+const foundingInitiatives = [
+  { icon: "laptop", name: "GSR Tech", desc: "A platform that gives NGOs a verified digital identity.", href: "/gsr-tech" },
+  { icon: "megaphone", name: "Break the Silence Rally", desc: "A youth-led campaign speaking out against injustice.", href: "/social-responsibility/empowerment" },
+  { icon: "graduate", name: "GSR Academy", desc: "Learning programmes focused on practical, job-ready skills.", href: "/social-responsibility/education" },
+  { icon: "network", name: "Tribal 2 Technology", desc: "Digital access and training for tribal communities.", href: "/social-responsibility/empowerment" },
+  { icon: "leaf", name: "Connect Nature", desc: "Community-led conservation of local habitats and rivers.", href: "/social-responsibility/environmental" },
+];
+
+const currentInitiatives = [
+  { name: "Digital Trib", area: "Education & Empowerment", location: "Tamil Nadu", beneficiaries: "Tribal communities", status: "In progress" },
+  { name: "Break the Silence Rally", area: "Education", location: "Pan-India", beneficiaries: "Students", status: "Ongoing" },
+  { name: "Smart Seed Feed", area: "Environmental", location: "Pan-India", beneficiaries: "General public", status: "In progress" },
+  { name: "Tribal Hub Care", area: "Environmental", location: "Tamil Nadu", beneficiaries: "Tribal communities", status: "In progress" },
+  { name: "Plastic-Free Communities", area: "Environmental", location: "Tamil Nadu", beneficiaries: "General public", status: "In progress" },
+  { name: "Farm Care", area: "Empowerment", location: "Tamil Nadu", beneficiaries: "Farmers", status: "In progress" },
+];
+
+const futureInitiatives = [
+  { name: "Rehabilitation", area: "Mental health", location: "Tamil Nadu", timeline: "Expected 2027" },
+];
+
+const structure = [
+  { figure: "6", title: "Board of Trustees", desc: "Six members. Set long-term direction." },
+  { figure: "12", title: "Core Committee", desc: "Twelve members. Oversee governance and the sub-committees." },
+  { figure: "7", title: "Sub-committees", desc: "From child protection to audit and procurement." },
+  { icon: "users", title: "Executive team", desc: "A CEO, a Project Director and six managers run the daily work." },
+];
+
+const actions = [
+  { icon: "users", label: "Volunteer", body: "Help on a project on the ground.", href: "/join" },
+  { icon: "graduate", label: "Internship", body: "Work alongside our team and learn.", href: "/join" },
+  { icon: "flag", label: "Membership", body: "Have a say in what GSR does next.", href: "/join" },
+  { icon: "handshake", label: "Partner with us", body: "Bring your organization into the network.", href: "/partner" },
+  { icon: "heart", label: "Donate", body: "Fund our work in Tamil Nadu.", href: "/donate", accent: "gold" },
+  { icon: "mail", label: "Contact us", body: "Write, call or visit us in Chennai.", href: "/contact" },
+];
+
+function StatusChip({ children }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-banyan/10 px-3 py-1 text-sm font-medium text-banyan">
+      <span className="size-1.5 rounded-full bg-banyan" aria-hidden="true" />
+      {children}
+    </span>
+  );
+}
+
 export default function About() {
   return (
-    <main className="flex flex-1 flex-col bg-paper">
-      {/* 01 — HERO */}
-      <section className="relative isolate flex min-h-[50vh] items-end overflow-hidden bg-banyan-deep">
-        <ImagePlaceholder
-          label="Community members reviewing a distribution ledger together"
-          src="/images/community-planning.jpg"
-          ratio=""
-          tone="emerald"
-          className="absolute inset-0 h-full w-full"
+    <main className="flex flex-1 flex-col">
+      <PageHero
+        image="/images/youth-learning.jpg"
+        imageAlt="Children sitting at desks in a decorated village classroom"
+        imagePosition="object-[center_62%]"
+        breadcrumbs={[{ label: "About us" }]}
+        eyebrow="About GSR"
+        title="A Chennai welfare foundation, started in 2026"
+        lede="We work on environmental protection, education and community empowerment, and we connect the people and organizations who want to help."
+        actions={[
+          { label: "Read the founder's story", href: "#founder" },
+          { label: "See how GSR is run", href: "/about/team" },
+        ]}
+      />
+
+      {/* STORY + MISSION + VISION */}
+      <Section tone="white" labelledBy="story-heading">
+        <MediaSplit
+          image="/images/community-planning.jpg"
+          imageAlt="Women at a village meeting, one of them writing notes"
+          imagePosition="object-[30%_center]"
+          ratio="4/5"
+          className="lg:grid-cols-[5fr_7fr]"
+          sizes="(min-width: 1024px) 40vw, 100vw"
+        >
+          <Eyebrow>Our story</Eyebrow>
+          <h2 id="story-heading" className="mt-4 text-balance font-display text-h2 font-medium text-ink">
+            Why GSR exists
+          </h2>
+          <div className="mt-6 max-w-2xl space-y-4 text-lede leading-relaxed text-ink-soft">
+            <p>
+              Many communities have people ready to make change happen, but they lack the knowledge,
+              resources, guidance or contacts to do it. Meanwhile, plenty of people and organizations
+              want to help but don&rsquo;t know where to start.
+            </p>
+            <p>
+              GSR connects the two. We bring together volunteers, NGOs, schools and colleges,
+              businesses and government to protect the environment, improve education, reduce poverty
+              and create opportunity, for everyone regardless of age, gender, religion, nationality or
+              background.
+            </p>
+          </div>
+        </MediaSplit>
+
+        <ul className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:mt-20 lg:gap-6">
+          {mission.map((m) => (
+            <li key={m.title} className="rounded-2xl bg-paper p-7 lg:p-10">
+              <IconBadge icon={m.icon} tone="solid" />
+              <h3 className="mt-6 font-display text-h3 font-medium text-ink">{m.title}</h3>
+              <p className="mt-3 text-pretty text-lede text-ink-soft">{m.text}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* FOCUS AREAS */}
+      <Section tone="sand" labelledBy="focus-heading">
+        <SectionHeader
+          id="focus-heading"
+          eyebrow="What we work on"
+          title="Five areas of work"
+          lede="Three of them have their own page with the projects running under them."
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/90 via-banyan-deep/40 to-banyan-deep/10" />
-        <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-          <Eyebrow tone="dark">About GSR</Eyebrow>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl">
-            Building a World Where Compassion, Equality, and Sustainability
-            Are a Way of Life
-          </h1>
-        </div>
-      </section>
+        <PhotoCardRow label="Focus areas with their own page" className="mt-12">
+          {causeCards.map((c) => (
+            <PhotoCard
+              key={c.title}
+              href={c.href}
+              src={c.src}
+              alt={c.alt}
+              tag={c.tag}
+              title={c.title}
+              description={c.description}
+              imagePosition={c.position}
+              ratio="4/5"
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 80vw"
+            />
+          ))}
+        </PhotoCardRow>
+        <ul className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
+          {otherFocus.map((f) => (
+            <li key={f.title} className="flex flex-col gap-5 rounded-2xl border border-clay bg-surface p-6 sm:flex-row lg:p-8">
+              <IconBadge icon={f.icon} />
+              <div>
+                <h3 className="font-display text-2xl font-medium text-ink">{f.title}</h3>
+                <p className="mt-2 leading-7 text-ink-soft">{f.text}</p>
+                {f.link && (
+                  <div className="mt-2">
+                    <TextLink href={f.link.href}>{f.link.label}</TextLink>
+                  </div>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-      {/* 02 — OUR STORY */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
-          <Reveal>
-            <ImagePlaceholder label="[ IMAGE HOLDER ]" ratio="aspect-[4/3]" />
-          </Reveal>
-          <Reveal delay={120}>
-            <Eyebrow>Our Story</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Founded in 2026, Built on Belief in People
-            </h2>
-            <p className="mt-6 max-w-lg text-base leading-7 text-ink-soft">
-              At Global Social Responsibility Welfare Foundation (GSR), we
-              believe that every individual has the power to make a
-              difference. By bringing together people, communities,
-              organizations, volunteers, institutions, and leaders, we work
-              toward a world where compassion, equality, and sustainability
-              become a way of life.
-            </p>
-            <p className="mt-4 max-w-lg text-base leading-7 text-ink-soft">
-              We are committed to protecting the environment, advancing
-              education, empowering communities, reducing poverty, and
-              creating opportunities for all — regardless of age, gender,
-              religion, nationality, or background.
-            </p>
-            <p className="mt-4 max-w-lg text-base leading-7 text-ink-soft">
-              GSR was started from a simple observation: many communities and
-              individuals have the potential to create positive change but
-              lack access to the knowledge, resources, guidance, networks,
-              and opportunities needed to do so. GSR exists to connect
-              people and organizations to address these challenges together —
-              through environmental protection, education for all, community
-              empowerment, justice and welfare, and sustainable
-              opportunities.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      {/* VALUES */}
+      <Section tone="white" labelledBy="values-heading">
+        <SectionHeader
+          id="values-heading"
+          eyebrow="Our values"
+          title="Six values behind every project"
+        />
+        <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {coreValues.map((v) => (
+            <li key={v.title} className="rounded-2xl bg-paper p-6 lg:p-7">
+              <IconBadge icon={v.icon} />
+              <h3 className="mt-5 font-display text-xl font-medium text-ink">{v.title}</h3>
+              <p className="mt-2 text-[0.96875rem] leading-7 text-ink-soft">{v.text}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-      {/* 03 — MISSION & VISION */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-            <Reveal className="border border-clay bg-paper p-10">
-              <Eyebrow>Our Mission</Eyebrow>
-              <p className="mt-6 text-base leading-7 text-ink-soft">
-                To connect people, knowledge, opportunities, and
-                environmental responsibility to empower communities, protect
-                our planet, and build a more sustainable, equitable, and
-                inclusive world.
-              </p>
-            </Reveal>
-            <Reveal delay={120} className="border border-clay bg-paper p-10">
-              <Eyebrow>Our Vision</Eyebrow>
-              <p className="mt-6 text-base leading-7 text-ink-soft">
-                To inspire and unite individuals, communities, and
-                organizations to protect our planet, promote social equality,
-                expand opportunities, and create a sustainable future where
-                every generation can live with dignity, face challenges with
-                strength, and thrive.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      {/* FOUNDER: sand spotlight, dark record band, paper journey */}
+      <FounderProfile />
 
-      {/* 04 — CORE VALUES */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Our Core Values</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              What We Stand For
-            </h2>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {coreValues.map((value, i) => {
-              const tone = iconToneAt(i);
-              const toneClasses = {
-                banyan: "bg-banyan/10 text-banyan",
-                marigold: "bg-marigold/15 text-marigold-deep",
-                ink: "bg-ink/10 text-ink-soft",
-              };
-              return (
-                <Card key={value.title} className="flex items-start gap-4">
-                  <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                      toneClasses[tone] || toneClasses.banyan
-                    }`}
-                  >
-                    <Icon name={value.icon} className="size-5" />
+      {/* PROGRAMMES */}
+      <Section tone="white" labelledBy="programmes-heading">
+        <SectionHeader
+          id="programmes-heading"
+          eyebrow="Programmes"
+          title="Five founding programmes"
+          lede="The programmes GSR was set up to run. Each links to the page where it is described."
+        />
+        <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {foundingInitiatives.map((p) => (
+            <li key={p.name}>
+              <SmartLink
+                href={p.href}
+                className="group flex h-full flex-col rounded-2xl bg-paper p-6 transition-colors duration-200 hover:bg-banyan"
+              >
+                <IconBadge icon={p.icon} className="group-hover:bg-white/15 group-hover:text-gold-light" />
+                <h3 className="mt-5 font-display text-xl font-medium text-ink group-hover:text-white">{p.name}</h3>
+                <p className="mt-2 flex-1 text-[0.9375rem] leading-6 text-ink-soft group-hover:text-white/90">{p.desc}</p>
+                <ArrowIcon className="mt-5 size-5 text-banyan transition-transform group-hover:text-gold-light motion-safe:group-hover:translate-x-1" />
+              </SmartLink>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-20 lg:mt-24">
+          <h3 id="current-heading" className="font-display text-h3 font-medium text-ink">
+            Current initiatives
+          </h3>
+          <p className="mt-3 max-w-2xl leading-7 text-ink-soft">
+            These projects are in their first cycle. We will publish verified numbers on who they
+            reached once the first results are in.
+          </p>
+
+          {/* Phones: one card per initiative */}
+          <ul className="mt-8 grid grid-cols-1 gap-3 md:hidden" aria-labelledby="current-heading">
+            {currentInitiatives.map((p) => (
+              <li key={p.name} className="rounded-2xl border border-clay bg-surface p-5">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <p className="font-display text-xl font-medium text-ink">{p.name}</p>
+                  <StatusChip>{p.status}</StatusChip>
+                </div>
+                <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                  <div>
+                    <dt className="text-ink-muted">Focus area</dt>
+                    <dd className="mt-0.5 font-medium text-ink">{p.area}</dd>
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-semibold text-ink">
-                      {value.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-ink-soft">
-                      {value.description}
-                    </p>
+                    <dt className="text-ink-muted">Location</dt>
+                    <dd className="mt-0.5 font-medium text-ink">{p.location}</dd>
                   </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                  <div className="col-span-2">
+                    <dt className="text-ink-muted">Who it serves</dt>
+                    <dd className="mt-0.5 font-medium text-ink">{p.beneficiaries}</dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
 
-      {/* 05 — OUR FOCUS AREAS */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Our Focus</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              What We Want You to Know First
-            </h2>
-            <p className="mt-4 text-sm font-medium uppercase tracking-wider text-marigold-deep">
-              Protect Our Planet · Educate &amp; Create Awareness · Empower
-              People · Promote Justice &amp; Welfare · Build Sustainable
-              Communities
-            </p>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {focusAreas.map((area, i) => {
-              const tone = iconToneAt(i);
-              const toneClasses = {
-                banyan: "bg-banyan/10 text-banyan",
-                marigold: "bg-marigold/15 text-marigold-deep",
-                ink: "bg-ink/10 text-ink-soft",
-              };
-              return (
-                <Card key={area.title} className="flex items-start gap-4">
-                  <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                      toneClasses[tone] || toneClasses.banyan
-                    }`}
-                  >
-                    <Icon name={area.icon} className="size-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-lg font-semibold text-ink">
-                      {area.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-ink-soft">
-                      {area.description}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 06 — LEADERSHIP SPOTLIGHT */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
-          <Reveal>
-            <Eyebrow>Leadership</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Zehra Fathima
-            </h2>
-            <p className="mt-1 text-sm font-medium uppercase tracking-wider text-ink-soft/70">
-              Founder &amp; Managing Trustee
-            </p>
-            <p className="mt-6 max-w-lg text-base leading-7 text-ink-soft">
-              Zehra Fathima is the Founder of Global Social Responsibility
-              Welfare Foundation (GSR) and CEO of Iraivi LGBT Charitable
-              Trust. A professional hotelier and social activist, she
-              advocates for Justice &amp; Welfare for All, environmental
-              protection, education, empowerment, and inclusion.
-            </p>
-            <p className="mt-4 max-w-lg text-base leading-7 text-ink-soft">
-              Her vision is to give back to the next generation by building a
-              stronger, more compassionate, and sustainable future — and to
-              make sure young people face the future with resilience,
-              purpose, and humanity, rather than growing up disconnected from
-              the people and planet around them.
-            </p>
-            <div className="mt-6 max-w-lg">
-              <Quote cite="Zehra Fathima, Founder & Managing Trustee">
-                The Earth does not belong to us; we are its guardians for
-                generations to come.
-              </Quote>
-            </div>
-            <div className="mt-8">
-              <TextLink href="/about/team">Meet the Full Team →</TextLink>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <ImagePlaceholder label="[ FOUNDER PHOTOGRAPH ]" ratio="aspect-[4/5]" />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* 07 — WHERE IT BEGAN */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Where It Began</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Our Founding Initiatives
-            </h2>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {foundingInitiatives.map((item, i) => {
-              const tone = iconToneAt(i);
-              const toneClasses = {
-                banyan: "bg-banyan/10 text-banyan",
-                marigold: "bg-marigold/15 text-marigold-deep",
-                ink: "bg-ink/10 text-ink-soft",
-              };
-              return (
-                <Card key={item.name} className="flex items-start gap-4">
-                  <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                      toneClasses[tone] || toneClasses.banyan
-                    }`}
-                  >
-                    <Icon name={item.icon} className="size-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-base font-semibold text-ink">
-                      {item.name}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-ink-soft">
-                      {item.desc}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 08 — CURRENT INITIATIVES */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Current Initiatives</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              What We&rsquo;re Working On Right Now
-            </h2>
-          </div>
-          <Reveal className="mt-14 overflow-x-auto">
-            <table className="w-full min-w-[640px] table-auto border-collapse text-left text-sm">
-              <thead>
-                <tr className="border-b border-clay">
-                  <th className="py-3 pr-4 font-semibold text-ink">
-                    Initiative
-                  </th>
-                  <th className="py-3 pr-4 font-semibold text-ink">
-                    Focus Area
-                  </th>
-                  <th className="py-3 pr-4 font-semibold text-ink">
-                    Location
-                  </th>
-                  <th className="py-3 pr-4 font-semibold text-ink">
-                    Beneficiaries
-                  </th>
-                  <th className="py-3 font-semibold text-ink">
-                    Status
-                  </th>
+          {/* Tablet and up: table */}
+          <div className="mt-8 hidden overflow-hidden rounded-2xl border border-clay md:block">
+            <table className="w-full table-auto border-collapse text-left">
+              <caption className="sr-only">Current GSR initiatives</caption>
+              <thead className="bg-paper text-sm">
+                <tr>
+                  <th scope="col" className="px-6 py-4 font-semibold text-ink">Initiative</th>
+                  <th scope="col" className="px-6 py-4 font-semibold text-ink">Focus area</th>
+                  <th scope="col" className="px-6 py-4 font-semibold text-ink">Location</th>
+                  <th scope="col" className="px-6 py-4 font-semibold text-ink">Who it serves</th>
+                  <th scope="col" className="px-6 py-4 font-semibold text-ink">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-clay">
-                {currentInitiatives.map((project) => (
-                  <tr key={project.name}>
-                    <td className="py-4 pr-4 font-medium text-ink">
-                      {project.name}
-                    </td>
-                    <td className="py-4 pr-4 text-ink-soft">
-                      {project.area}
-                    </td>
-                    <td className="py-4 pr-4 text-ink-soft">
-                      {project.location}
-                    </td>
-                    <td className="py-4 pr-4 text-ink-soft">
-                      {project.beneficiaries}
-                    </td>
-                    <td className="py-4">
-                      <span className="inline-flex items-center rounded-full bg-marigold/15 px-3 py-1 text-xs font-medium text-marigold-deep">
-                        {project.status}
-                      </span>
-                    </td>
+              <tbody className="divide-y divide-clay bg-surface">
+                {currentInitiatives.map((p) => (
+                  <tr key={p.name}>
+                    <th scope="row" className="px-6 py-4 font-display text-lg font-medium text-ink">{p.name}</th>
+                    <td className="px-6 py-4 text-ink-soft">{p.area}</td>
+                    <td className="px-6 py-4 text-ink-soft">{p.location}</td>
+                    <td className="px-6 py-4 text-ink-soft">{p.beneficiaries}</td>
+                    <td className="px-6 py-4"><StatusChip>{p.status}</StatusChip></td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          </Reveal>
-        </div>
-      </section>
+          </div>
 
-      {/* 09 — FUTURE INITIATIVES */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Looking Ahead</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Future Initiatives
-            </h2>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {futureInitiatives.map((project, i) => (
-              <Reveal key={project.name} delay={i * 100}>
-                <ImagePlaceholder
-                  label={`[ ${project.name.toUpperCase()} ]`}
-                  ratio="aspect-[4/3]"
-                />
-                <h3 className="mt-4 font-display text-base font-semibold text-ink">
-                  {project.name}
-                </h3>
-                <p className="mt-1 text-sm text-ink-soft/70">
-                  {project.area} · {project.location} · {project.timeline}
-                </p>
-              </Reveal>
-            ))}
-          </div>
+          {futureInitiatives.map((p) => (
+            <div
+              key={p.name}
+              className="mt-6 flex flex-col gap-4 rounded-2xl border-2 border-dashed border-clay p-6 sm:flex-row sm:items-center"
+            >
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-marigold/20 text-marigold-deep">
+                <Icon name="clock" className="size-6" />
+              </span>
+              <p className="leading-7 text-ink-soft">
+                <span className="font-semibold text-ink">Planned: {p.name}.</span> {p.area}, {p.location}.{" "}
+                {p.timeline}.
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      {/* 10 — TEAM PREVIEW */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Our Team</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              The People Behind GSR
-            </h2>
-            <p className="mt-4 text-base leading-7 text-ink-soft">
-              We&rsquo;d rather introduce our team properly, with real names
-              and real faces, than fill this space with stand-ins. Here&rsquo;s
-              how we&rsquo;re structured while that page comes together.
-            </p>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: "shield", title: "Board of Trustees", desc: "6 members setting the long-term direction." },
-              { icon: "building", title: "Management Core Committee", desc: "12 members overseeing day-to-day governance." },
-              { icon: "users", title: "Functional Committees", desc: "15 committees, 5 members each, driving the work." },
-              { icon: "heart", title: "Volunteers & Interns", desc: "Growing every month — perhaps including you next." },
-            ].map((item, i) => {
-              const tone = iconToneAt(i);
-              const toneClasses = {
-                banyan: "bg-banyan/10 text-banyan",
-                marigold: "bg-marigold/15 text-marigold-deep",
-                ink: "bg-ink/10 text-ink-soft",
-              };
-              return (
-                <Card key={item.title} className="flex items-start gap-4">
-                  <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                      toneClasses[tone] || toneClasses.banyan
-                    }`}
-                  >
-                    <Icon name={item.icon} className="size-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-base font-semibold text-ink">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-sm leading-6 text-ink-soft/70">
-                      {item.desc}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-          <div className="mt-14 flex justify-center">
-            <ButtonSecondary href="/about/team">View Full Governance Structure</ButtonSecondary>
-          </div>
-        </div>
-      </section>
+      {/* GOVERNANCE SUMMARY */}
+      <Section tone="paper" labelledBy="run-heading">
+        <SectionHeader
+          id="run-heading"
+          eyebrow="Governance"
+          title="How GSR is run"
+          lede="A Board of Trustees, a Core Committee with seven sub-committees, and an executive team led by the CEO."
+          action={<TextLink href="/about/team">See the full structure</TextLink>}
+        />
+        <ol className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {structure.map((s) => (
+            <li key={s.title} className="flex flex-col rounded-2xl border border-clay bg-surface p-6 lg:p-7">
+              {s.figure ? (
+                <span className="font-display text-5xl font-medium text-marigold-deep" aria-hidden="true">
+                  {s.figure}
+                </span>
+              ) : (
+                <IconBadge icon={s.icon} />
+              )}
+              <h3 className="mt-4 font-display text-xl font-medium text-ink">{s.title}</h3>
+              <p className="mt-2 text-[0.9375rem] leading-6 text-ink-soft">{s.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
-      {/* 11 — IMPACT PREVIEW */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Our Impact</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              A First Year in Motion
-            </h2>
-            <p className="mt-4 text-base leading-7 text-ink-soft">
-              Founded in 2026, GSR&rsquo;s initiatives are in their first
-              active cycle. Verified beneficiary and impact numbers will be
-              published here as our projects report their first results.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
-            {[
-              { label: "Beneficiaries Supported — counting starts this cycle" },
-              { label: "Communities Reached — our first sites are underway" },
-              { label: "Volunteers Engaged — we're recruiting now" },
-              { label: "Partner Organizations — talk to us, be the first" },
-            ].map((stat) => (
-              <StatCardRounded key={stat.label} value="Year One" label={stat.label} />
-            ))}
-          </div>
-          <div className="mt-14 flex justify-center">
-            <ButtonSecondary href="/about/impact">See Our Full Impact</ButtonSecondary>
-          </div>
-        </div>
-      </section>
-
-      {/* 12 — GET INVOLVED */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Get Involved</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              There Are Many Ways to Join Us
-            </h2>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { title: "Volunteer", href: "/join", icon: "heart", desc: "Give your time to a cause on the ground." },
-              { title: "Internship", href: "/join", icon: "graduate", desc: "Learn by doing, alongside our team." },
-              { title: "Membership", href: "/join", icon: "users", desc: "Help shape where GSR goes next." },
-              { title: "Partner With Us", href: "/partner", icon: "handshake", desc: "Bring your organization into the network." },
-            ].map((item, i) => {
-              const tone = iconToneAt(i);
-              const toneClasses = {
-                banyan: "bg-banyan/10 text-banyan",
-                marigold: "bg-marigold/15 text-marigold-deep",
-                ink: "bg-ink/10 text-ink-soft",
-              };
-              return (
-                <Card key={item.title} className="flex items-start gap-4">
-                  <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                      toneClasses[tone] || toneClasses.banyan
-                    }`}
-                  >
-                    <Icon name={item.icon} className="size-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-base font-semibold text-ink">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-sm leading-6 text-ink-soft/70">
-                      {item.desc}
-                    </p>
-                    <div className="mt-3">
-                      <TextLink href={item.href}>Learn More →</TextLink>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 13 — CONTACT */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <Eyebrow>Contact</Eyebrow>
-          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Get in Touch
-          </h2>
-          <div className="mt-8 space-y-2 text-base leading-7 text-ink-soft">
-            <p>
-              No 15, Ponnappa Lane, Triplicane, Chennai – 600005, Tamil Nadu,
-              India
-            </p>
-            <p>+91 87545 63555 &middot; +91 94441 79215</p>
-            <p>info.gsrwf@gmail.com &middot; www.gsrwf.com</p>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* 14 — FINAL CALL TO ACTION */}
-      <section className="bg-paper px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 rounded-3xl bg-banyan-deep px-6 py-16 shadow-[0_24px_60px_rgba(18,49,44,0.35)] sm:px-10 lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-16 lg:px-16">
-          <div>
-            <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-              Be Part of the Change
-            </h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-paper/70">
-              Every action counts. Join GSR in protecting our planet,
-              expanding education, and empowering communities — together, we
-              can build a more equitable future for generations to come.
-            </p>
-          </div>
-          <ul className="divide-y divide-paper/15 border-t border-paper/15">
-            {[
-              { label: "Join Our Journey", detail: "Become a member and shape where we go next.", href: "/join" },
-              { label: "Donate", detail: "Fund the work directly, no middle layer.", href: "/donate" },
-              { label: "Partner With Us", detail: "Bring your organization into the network.", href: "/partner" },
-              { label: "Get in Touch", detail: "Reach our team directly with questions.", href: "/about#contact" },
-            ].map((action) => (
-              <li key={action.label}>
-                <Link
-                  href={action.href}
-                  className="group flex items-baseline justify-between gap-4 py-4 text-paper transition-colors hover:text-marigold"
-                >
-                  <span className="font-display text-lg font-semibold">{action.label}</span>
-                  <span className="hidden text-right text-sm text-paper/50 sm:block">
-                    {action.detail}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* GET INVOLVED (id kept for older /about#contact links) */}
+      <Section tone="sand" id="contact" labelledBy="involved-heading">
+        <SectionHeader
+          id="involved-heading"
+          eyebrow="Get involved"
+          title="Ways to work with GSR"
+          lede="Volunteer, intern, become a member or bring your organization into the network."
+        />
+        <ActionTiles items={actions} className="mt-12" />
+      </Section>
     </main>
   );
 }

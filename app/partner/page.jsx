@@ -1,317 +1,267 @@
-import Link from "next/link";
-import ImagePlaceholder from "../components/ImagePlaceholder";
-import Icon from "../components/icons";
-import Reveal from "../components/Reveal";
 import {
-  Eyebrow,
-  Pill,
+  ActionTiles,
+  Button,
+  DarkBand,
+  IconBadge,
+  NumberedSteps,
+  PageHero,
+  PhotoCard,
+  PhotoCardRow,
+  Section,
+  SectionHeader,
   TextLink,
-  Card,
-  iconToneAt,
 } from "../components/ui";
+import Icon from "../components/icons";
+import { mailto, org } from "../components/org-info";
 
 export const metadata = {
-  title: "Partner With Us — GSR",
+  title: "Partner With Us | GSR",
   description:
-    "GSR gives CSR teams, corporate foundations, government agencies and institutions a documented, governed, technology-tracked way to fund environmental, education and empowerment work in India.",
+    "How CSR teams, corporate foundations, government agencies and institutions can fund environment, education and empowerment projects through GSR.",
   openGraph: {
-    title: "Partner With Us — GSR",
+    title: "Partner With Us | GSR",
     description:
-      "A documented, governed, technology-tracked way to fund environmental, education and empowerment work in India.",
+      "How CSR teams, foundations and institutions can fund environment, education and empowerment projects through GSR.",
   },
 };
 
-const focusAreas = [
+const csrMail = mailto(
+  "CSR partnership enquiry",
+  "Hello GSR,\n\nWe'd like to discuss a CSR partnership.\n\nOrganisation:\nContact person and role:\nPhone:\nFocus area (environment / education / empowerment / health):\nRegion:\nBudget range:\nTimeline:\n\nThank you.",
+);
+
+const areas = [
   {
-    icon: "shield",
-    category: "Governance",
-    title: "A Named, Structured Board",
-    lede: "Not a single founder making unilateral decisions.",
-    bullets: [
-      "6-member Board of Trustees",
-      "12-member Management Core Committee",
-      "Dedicated CSR Committee",
-      "Dedicated FCRA Committee",
-      "15 functional committees in total",
-    ],
-    linkHref: "/about/team",
-    linkLabel: "See the Full Governance Structure →",
+    title: "Environment",
+    description: "Native tree planting and land restoration, run with the people who live on that land.",
+    href: "/social-responsibility/environmental",
+    src: "/images/landscape-guardians.jpg",
+    alt: "Tall trees on a forested hillside",
+    position: "object-center",
   },
   {
-    icon: "checkCircle",
-    category: "Transparency",
-    title: "Documentation, Not Just Promises",
-    lede: "We publish what we have — and are direct about what's still in progress.",
-    bullets: [
-      "Registered Non-Profit · Reg. No. B-4/105/2026",
-      "Governance charter available on request",
-      "Annual report & audited statement from FY 2026–27",
-      "Project monitoring & impact reporting",
-    ],
+    title: "Education",
+    description: "After-school learning and digital skills for children and young people.",
+    href: "/social-responsibility/education",
+    src: "/images/youth-learning.jpg",
+    alt: "Children sitting at desks in a decorated village classroom",
+    position: "object-[center_70%]",
   },
   {
-    icon: "laptop",
-    category: "Technology",
-    title: "GSR Tech Tracks What You Fund",
-    lede: "Every project logged, every rupee documented, every report generated from the same system.",
-    bullets: [
-      "Project & budget-utilization analytics",
-      "Interactive reports built for CSR partners",
-      "Donor & CSR dashboards",
-      "Compliance & governance tracking",
-    ],
-    linkHref: "/gsr-tech",
-    linkLabel: "Explore GSR Tech →",
+    title: "Empowerment and livelihoods",
+    description: "Practical training that leads to work and income.",
+    href: "/social-responsibility/empowerment",
+    src: "/images/empowerment-sewing.jpg",
+    alt: "A woman smiling beside a sewing machine in a small shop",
+    position: "object-[70%_center]",
   },
-  {
-    icon: "target",
-    category: "Focus Areas",
-    title: "Fund a Pillar, Not a Guess",
-    lede: "Choose where your funding goes.",
-    bullets: [
-      "Environmental Protection",
-      "Education for All",
-      "Empowerment & Opportunity",
-      "Community Health & Well-being",
-    ],
-    linkHref: "/#mission",
-    linkLabel: "See Our Three Pillars →",
-  },
+];
+
+const partnerTypes = [
+  { icon: "building", label: "Corporate CSR teams" },
+  { icon: "wallet", label: "Corporate foundations" },
+  { icon: "flag", label: "Government agencies" },
+  { icon: "graduate", label: "Educational institutions" },
+  { icon: "globe", label: "International development organisations" },
+  { icon: "heart", label: "Philanthropic trusts" },
+  { icon: "handshake", label: "Other NGOs and NPOs" },
+  { icon: "users", label: "Individual donors" },
+];
+
+const governance = [
+  { fig: "6", label: "member Board of Trustees" },
+  { fig: "12", label: "member Core Committee" },
+  { fig: "7", label: "sub-committees, including Audit & Finance and Procurement" },
+];
+
+const documentation = [
+  <>
+    Registered non-profit, <span className="whitespace-nowrap">{org.registration}</span>
+  </>,
+  "Governance charter available on request",
+  "Annual report and audited statement from FY 2026–27",
+  "Project monitoring and impact reports",
+];
+
+const tracking = [
+  "Project and budget-use reports from GSR Tech",
+  "Dashboards for donors and CSR partners",
+  "Compliance and governance records",
 ];
 
 const steps = [
-  { step: "Step 1", title: "We talk about fit", desc: "Which pillar, which region, what scale of funding — a short call or written brief." },
-  { step: "Step 2", title: "We scope a project together", desc: "A concrete project concept, budget and logical framework, built with your CSR objectives in mind." },
-  { step: "Step 3", title: "You fund it", desc: "Formalized through an MoU or partnership agreement, with a clear disbursement and reporting schedule." },
-  { step: "Step 4", title: "We report back through GSR Tech", desc: "Project progress, budget utilization and beneficiary impact — documented, not just described." },
+  { title: "Initial call", body: "We discuss focus area, region and budget, by phone or a short written brief." },
+  { title: "Project scoping", body: "We draft a project plan and budget around your CSR objectives." },
+  { title: "Agreement", body: "An MoU or partnership agreement with a set disbursement and reporting schedule." },
+  { title: "Reporting", body: "Progress, spending and people reached, reported through GSR Tech." },
 ];
 
-const partners = [
-  "Corporate CSR Teams",
-  "Corporate Foundations",
-  "Government Agencies",
-  "Educational Institutions",
-  "International Development Organisations",
-  "Philanthropic Trusts",
-  "Other NGOs & NPOs",
-  "Individual Major Donors",
+const more = [
+  { icon: "users", label: "See who governs GSR", body: "Trustees and committees.", href: "/about/team" },
+  { icon: "laptop", label: "How projects are tracked", body: "The GSR Tech platform.", href: "/gsr-tech" },
+  { icon: "chart", label: "Open the CSR Tracker", body: "CSR spending by state and company.", href: "/csr-tracker" },
 ];
 
-const related = [
-  { title: "Who We Are", href: "/about/team" },
-  { title: "GSR Tech Platform", href: "/gsr-tech" },
-  { title: "Other Ways to Get Involved", href: "/join" },
-];
+function CheckList({ items }) {
+  return (
+    <ul className="mt-6 space-y-3.5">
+      {items.map((item, i) => (
+        <li key={i} className="flex gap-3 leading-7 text-paper/90">
+          <Icon name="checkCircle" className="mt-0.5 size-6 shrink-0 text-gold-light" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function TrustPanel({ icon, title, children }) {
+  return (
+    <div className="flex flex-col rounded-2xl border border-white/15 bg-white/[0.05] p-6 lg:p-8">
+      <div className="flex items-center gap-4">
+        <IconBadge icon={icon} tone="dark" />
+        <h3 className="font-display text-h3 font-medium text-paper">{title}</h3>
+      </div>
+      {children}
+    </div>
+  );
+}
 
 export default function Partner() {
   return (
-    <main className="flex flex-1 flex-col bg-paper">
-      {/* HERO */}
-      <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden bg-banyan-deep">
-        <ImagePlaceholder
-          label="[ PARTNER HERO IMAGE HOLDER ]"
-          ratio=""
-          tone="emerald"
-          className="absolute inset-0 h-full w-full"
+    <main className="flex flex-1 flex-col">
+      <PageHero
+        image="/images/community-planning.jpg"
+        imageAlt="Women at a village meeting, one of them writing notes"
+        imagePosition="object-[center_40%]"
+        breadcrumbs={[{ label: "Partner with us" }]}
+        eyebrow="For CSR teams, foundations and institutions"
+        title="Partner with GSR"
+        lede="Fund environment, education and empowerment projects in India, with clear governance and regular reports on how the money is used."
+        actions={[
+          { label: "Email us about CSR", href: csrMail },
+          { label: `Call ${org.phones[0].display}`, href: `tel:${org.phones[0].tel}` },
+        ]}
+      />
+
+      {/* AREAS */}
+      <Section tone="white" labelledBy="areas-heading">
+        <SectionHeader
+          id="areas-heading"
+          eyebrow="What you can fund"
+          title="Projects in three areas, plus community health"
+          lede="GSR was registered in 2026. Every partnership runs through a Board of Trustees, a Core Committee and an Audit & Finance Committee, and is tracked on GSR Tech."
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/90 via-banyan-deep/40 to-banyan-deep/10" />
-        <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-          <Eyebrow tone="dark">For CSR Teams, Foundations &amp; Institutions</Eyebrow>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl">
-            Fund Work You Can Actually See
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-paper/80">
-            GSR gives CSR teams, corporate foundations, government agencies and
-            institutions a documented, governed, technology-tracked way to put
-            funds behind environmental, education and empowerment work in India.
-          </p>
-        </div>
-      </section>
+        <PhotoCardRow label="Areas partners can fund" className="mt-12">
+          {areas.map((a) => (
+            <PhotoCard
+              key={a.title}
+              href={a.href}
+              src={a.src}
+              alt={a.alt}
+              tag="Fund"
+              title={a.title}
+              description={a.description}
+              imagePosition={a.position}
+            />
+          ))}
+        </PhotoCardRow>
+        <p className="mt-8 flex items-start gap-3 text-ink-soft">
+          <Icon name="heart" className="mt-0.5 size-6 shrink-0 text-banyan" />
+          <span>We also take on community health and well-being projects. Tell us what you have in mind.</span>
+        </p>
+      </Section>
 
-      {/* WHY PARTNER */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Eyebrow>Why Fund Through GSR</Eyebrow>
-          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Three Things CSR Teams Ask For — Built In From Day One
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-ink-soft">
-            Governance you can verify. Documentation you can audit. A platform that
-            reports back to you.
-          </p>
-          <p className="mt-4 text-base leading-7 text-ink-soft">
-            We are a newly registered foundation, and we are upfront about that.
-            What we can offer from day one is structure: a named Board of
-            Trustees, a Management Core Committee, a dedicated CSR Committee and
-            FCRA Committee, and a technology platform — GSR Tech — built
-            specifically to track where funds go and what they achieve.
-          </p>
-        </div>
-      </section>
+      {/* WHO */}
+      <Section tone="sand" labelledBy="who-heading">
+        <SectionHeader
+          id="who-heading"
+          eyebrow="Who we work with"
+          title="Partners of every size"
+          lede="We work with organisations and individuals who want to fund or co-run projects."
+        />
+        <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {partnerTypes.map((p) => (
+            <li key={p.label} className="flex items-center gap-4 rounded-2xl border border-clay bg-surface p-5">
+              <IconBadge icon={p.icon} />
+              <span className="font-semibold leading-snug text-ink">{p.label}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-      {/* FOCUS GRID */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {focusAreas.map((area, i) => {
-              const tone = iconToneAt(i);
-              const toneClasses = {
-                banyan: "bg-banyan/10 text-banyan",
-                marigold: "bg-marigold/15 text-marigold-deep",
-                ink: "bg-ink/10 text-ink-soft",
-              };
-              return (
-                <Card key={area.title} className="flex items-start gap-4">
-                  <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                      toneClasses[tone] || toneClasses.banyan
-                    }`}
-                  >
-                    <Icon name={area.icon} className="size-5" />
-                  </div>
-                  <div>
-                    <Eyebrow>{area.category}</Eyebrow>
-                    <h3 className="mt-3 font-display text-lg font-semibold text-ink">
-                      {area.title}
-                    </h3>
-                    {area.lede && (
-                      <p className="mt-2 text-sm leading-6 text-ink-soft">{area.lede}</p>
-                    )}
-                    {area.bullets?.length > 0 && (
-                      <ul className="mt-4 space-y-1.5 text-sm leading-6 text-ink-soft">
-                        {area.bullets.map((item) => (
-                          <li key={item} className="flex gap-2">
-                            <span aria-hidden="true" className="text-banyan">
-                              &#10003;
-                            </span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {area.linkHref && (
-                      <div className="mt-5">
-                        <TextLink href={area.linkHref}>{area.linkLabel || "Learn more"}</TextLink>
-                      </div>
-                    )}
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
+      {/* TRUST */}
+      <DarkBand image="/images/landscape-guardians.jpg" imagePosition="object-[center_30%]" labelledBy="trust-heading">
+        <SectionHeader
+          id="trust-heading"
+          tone="dark"
+          eyebrow="Governance and reporting"
+          title="How your funds are overseen"
+          lede="Three things every partner can check: who makes decisions, what we put in writing, and how spending is tracked."
+        />
+        <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-3">
+          <TrustPanel icon="scale" title="Governance">
+            <dl className="mt-6 space-y-5">
+              {governance.map((g) => (
+                <div key={g.fig} className="flex items-baseline gap-4 border-t border-white/15 pt-4">
+                  <dt className="w-12 shrink-0 font-display text-4xl font-medium text-gold-light">{g.fig}</dt>
+                  <dd className="leading-7 text-paper/90">{g.label}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="mt-auto pt-6">
+              <TextLink href="/about/team" tone="dark">
+                Full governance structure
+              </TextLink>
+            </div>
+          </TrustPanel>
+          <TrustPanel icon="receipt" title="Documentation">
+            <CheckList items={documentation} />
+          </TrustPanel>
+          <TrustPanel icon="chart" title="Tracking">
+            <CheckList items={tracking} />
+            <div className="mt-auto pt-6">
+              <TextLink href="/gsr-tech" tone="dark">
+                About GSR Tech
+              </TextLink>
+            </div>
+          </TrustPanel>
         </div>
-      </section>
+      </DarkBand>
 
       {/* HOW IT WORKS */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>How a Partnership Works</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              From first conversation to a funded, reported project
-            </h2>
-          </div>
-          <div className="mt-14 divide-y divide-clay">
-            {steps.map((s, i) => (
-              <Reveal
-                key={s.step}
-                delay={i * 100}
-                className="flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
-              >
-                <div className="sm:w-1/3">
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-marigold-deep">
-                    {s.step}
-                  </span>
-                  <h4 className="mt-1 font-display text-base font-semibold text-ink">
-                    {s.title}
-                  </h4>
-                </div>
-                <p className="text-sm leading-6 text-ink-soft sm:w-2/3">
-                  {s.desc}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Section tone="paper" labelledBy="steps-heading">
+        <SectionHeader
+          id="steps-heading"
+          eyebrow="How a partnership works"
+          title="Four steps from first call to reports"
+          lede="You agree the plan, budget and reporting schedule before any money moves."
+        />
+        <NumberedSteps items={steps} className="mt-12" />
+      </Section>
 
-      {/* WHO WE WORK WITH */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Who We Partner With</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Built for the whole ecosystem around CSR giving
-            </h2>
-          </div>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {partners.map((p) => (
-              <Pill key={p}>{p}</Pill>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* RELATED */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Related</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Before You Reach Out
-            </h2>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3">
-            {related.map((item) => (
-              <a
-                key={item.title}
-                href={item.href}
-                className="group flex items-center gap-4 border border-clay p-5 transition-colors hover:border-banyan"
-              >
-                <span className="text-marigold-deep" aria-hidden="true">→</span>
-                <h4 className="font-display text-base font-semibold text-ink group-hover:text-banyan">
-                  {item.title}
-                </h4>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-paper px-4 py-20 sm:px-6 md:py-28 lg:px-8" id="cta">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 rounded-3xl bg-banyan-deep px-6 py-16 shadow-[0_24px_60px_rgba(18,49,44,0.35)] sm:px-10 lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-16 lg:px-16">
+      {/* TALK TO US */}
+      <Section tone="sand" labelledBy="talk-heading">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[7fr_5fr] lg:items-center lg:gap-20">
           <div>
-            <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-              Start a Partnership Conversation
-            </h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-paper/70">
-              Tell us your CSR focus area and budget range — we&apos;ll come
-              back with a project concept that fits, not a generic pitch.
-            </p>
+            <SectionHeader
+              id="talk-heading"
+              eyebrow="Talk to us"
+              title="Tell us your focus area and budget"
+              lede="We will send you a project proposal built around them. Please ask us about tax-exemption status."
+            />
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Button href={csrMail} variant="primary" size="lg" arrow>
+                Email us about CSR
+              </Button>
+              <Button href={`tel:${org.phones[0].tel}`} variant="secondary" size="lg">
+                Call {org.phones[0].display}
+              </Button>
+            </div>
           </div>
-          <ul className="divide-y divide-paper/15 border-t border-paper/15">
-            {[
-              { label: "Email Our Partnerships Team", detail: "Start the conversation over email.", href: "mailto:info.gsrwf@gmail.com?subject=CSR%20Partnership%20Inquiry" },
-              { label: "Call Us", detail: "+91 87545 63555", href: "tel:+918754563555" },
-              { label: "See Our Governance", detail: "Review the structure behind every partnership.", href: "/about/team" },
-              { label: "Explore GSR Tech", detail: "The platform that tracks what you fund.", href: "/gsr-tech" },
-            ].map((action) => (
-              <li key={action.label}>
-                <Link
-                  href={action.href}
-                  className="group flex items-baseline justify-between gap-4 py-4 text-paper transition-colors hover:text-marigold"
-                >
-                  <span className="font-display text-lg font-semibold">{action.label}</span>
-                  <span className="hidden text-right text-sm text-paper/50 sm:block">
-                    {action.detail}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ActionTiles columns={2} items={more} className="lg:grid-cols-1" />
         </div>
-      </section>
+      </Section>
     </main>
   );
 }

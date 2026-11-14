@@ -1,218 +1,242 @@
-import Link from "next/link";
-import ImagePlaceholder from "../components/ImagePlaceholder";
-import Icon from "../components/icons";
 import {
+  ActionTiles,
+  Button,
+  DarkBand,
   Eyebrow,
+  MediaSplit,
+  NumberedSteps,
+  PageHero,
+  PhotoCard,
+  PhotoCardRow,
+  Section,
+  SectionHeader,
   TextLink,
-  Pill,
-  Card,
-  iconToneAt,
 } from "../components/ui";
+import Icon from "../components/icons";
+import { mailto, org } from "../components/org-info";
 
 export const metadata = {
-  title: "Join Our Journey — GSR",
+  title: "Get Involved | GSR",
   description:
-    "Become a member, volunteer, intern, partner or beneficiary of GSR — six ways to become part of the Global Social Responsibility Welfare Foundation.",
+    "Join GSR as a volunteer, intern, member or partner, register for our programmes, or list your organisation in the GSR Network.",
   openGraph: {
-    title: "Join Our Journey — GSR",
-    description:
-      "Become a member, volunteer, intern, partner or beneficiary of GSR.",
+    title: "Get Involved | GSR",
+    description: "Join GSR as a volunteer, intern, member or partner.",
   },
 };
+
+const volunteerMail = mailto(
+  "I'd like to volunteer with GSR",
+  "Hello GSR,\n\nI'd like to volunteer.\n\nName:\nPhone:\nWhere I live:\nSkills or interests:\nTime I can give (hours per week, in person or remote):\n\nThank you.",
+);
 
 const pathways = [
   {
     icon: "users",
-    cat: "Become a Member",
-    title: "Help Shape Our Direction",
-    lede: "Join GSR as a registered member and take part in shaping our programmes and priorities.",
-    mail: "mailto:info.gsrwf@gmail.com?subject=Become%20a%20Member",
-    label: "Become a Member →",
-  },
-  {
-    icon: "heart",
-    cat: "Volunteer",
-    title: "Give Your Time & Skills",
-    lede: "Contribute your time and skills to environmental, education or community initiatives — locally or remotely.",
-    mail: "mailto:info.gsrwf@gmail.com?subject=Become%20a%20Volunteer",
-    label: "Become a Volunteer →",
-  },
-  {
-    icon: "handshake",
-    cat: "Partner",
-    title: "Bring Your Organization In",
-    lede: "NGOs, institutions, businesses and CSR teams can join our growing network of partner organizations.",
-    mail: "mailto:info.gsrwf@gmail.com?subject=Partner%20With%20GSR",
-    label: "Explore Partnership →",
+    label: "Volunteer",
+    body: "Help on environment, education or community projects, in person or remotely.",
+    href: volunteerMail,
   },
   {
     icon: "graduate",
-    cat: "Internship",
-    title: "Learn by Doing",
-    lede: "Gain hands-on experience across research, communications, field programmes and GSR Tech.",
-    mail: "mailto:info.gsrwf@gmail.com?subject=Apply%20for%20an%20Internship",
-    label: "Apply for an Internship →",
+    label: "Internship",
+    body: "Work in research, communications, field programmes or GSR Tech.",
+    href: mailto(
+      "Internship application",
+      "Hello GSR,\n\nI'd like to apply for an internship.\n\nName:\nPhone:\nCollege or course:\nArea of interest (research / communications / field programmes / GSR Tech):\nDates I'm available:\n\nThank you.",
+    ),
+  },
+  {
+    icon: "flag",
+    label: "Membership",
+    body: "Become a registered member and have a say in our priorities.",
+    href: mailto("I'd like to become a GSR member", "Hello GSR,\n\nI'd like to become a member.\n\nName:\nPhone:\nCity:\n\nThank you."),
+  },
+  {
+    icon: "handshake",
+    label: "Partner organisation",
+    body: "For NGOs, schools, colleges, businesses and CSR teams.",
+    href: "/partner",
   },
   {
     icon: "sprout",
-    cat: "GSR Beneficiary",
-    title: "Access Our Programmes",
-    lede: "Individuals and communities can register to access GSR's education, health, livelihood and environmental programmes.",
-    mail: "mailto:info.gsrwf@gmail.com?subject=Register%20as%20a%20GSR%20Beneficiary",
-    label: "Register as a Beneficiary →",
+    label: "Join a programme",
+    body: "Register for our education, health, livelihood or environment programmes.",
+    href: mailto(
+      "Register for a GSR programme",
+      "Hello GSR,\n\nI'd like to register for a programme.\n\nName:\nPhone:\nVillage or town:\nProgramme I'm interested in (education / health / livelihood / environment):\n\nThank you.",
+    ),
   },
   {
     icon: "network",
-    cat: "GSR Network",
-    title: "Connect Your Organization",
-    lede: "Connect your NGO, CSR team, institution or government agency to the wider GSR Network.",
-    mail: "mailto:info.gsrwf@gmail.com?subject=Join%20the%20GSR%20Network",
-    label: "Join the GSR Network →",
+    label: "GSR Network",
+    body: "List your organisation in the GSR Tech directory.",
+    href: "/gsr-tech/network-hub",
   },
 ];
 
-const roles = [
-  "Volunteer",
-  "Student",
-  "Intern",
-  "Researcher",
-  "Educator",
-  "Environmentalist",
-  "Community Leader",
-  "Social Entrepreneur",
-  "Partner Organisation",
-  "CSR Partner",
-  "Donor",
-  "Institution",
+const emailChecklist = [
+  "Your name and phone number",
+  "Where you live, or if you'd prefer to help remotely",
+  "Skills you'd like to use, such as teaching, design or field work",
+  "How much time you can give each week",
+];
+
+const steps = [
+  { title: "You write to us", body: "Send a short email, or call us, saying how you'd like to help." },
+  { title: "We reply", body: "Someone from our team gets back to you with questions and options." },
+  { title: "We find a fit", body: "We match you to a project that suits your time and skills." },
+  { title: "You start", body: "You join the project team, in person or remotely." },
+];
+
+const areas = [
+  {
+    title: "Environment",
+    description: "Native tree planting and land restoration with local communities.",
+    href: "/social-responsibility/environmental",
+    src: "/images/landscape-guardians.jpg",
+    alt: "Tall trees on a forested hillside",
+    position: "object-center",
+  },
+  {
+    title: "Education",
+    description: "After-school classes and digital skills for children and young people.",
+    href: "/social-responsibility/education",
+    src: "/images/youth-learning.jpg",
+    alt: "Children sitting at desks in a decorated village classroom",
+    position: "object-[center_75%]",
+  },
+  {
+    title: "Empowerment",
+    description: "Practical training that leads to work and income.",
+    href: "/social-responsibility/empowerment",
+    src: "/images/empowerment-sewing.jpg",
+    alt: "A woman smiling beside a sewing machine in a small shop",
+    position: "object-[70%_center]",
+  },
 ];
 
 export default function Join() {
   return (
-    <main className="flex flex-1 flex-col bg-paper">
-      {/* HERO */}
-      <section className="relative isolate flex min-h-[46vh] items-end overflow-hidden bg-banyan-deep">
-        <ImagePlaceholder
-          label="[ GET INVOLVED HERO IMAGE HOLDER ]"
-          ratio=""
-          tone="emerald"
-          className="absolute inset-0 h-full w-full"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/90 via-banyan-deep/40 to-banyan-deep/10" />
-        <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8">
-          <Eyebrow tone="dark">Get Involved</Eyebrow>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl">
-            Everyone Has Something to Contribute
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-paper/80">
-            You can become part of GSR as a member, volunteer, partner, intern,
-            beneficiary, or as an organization joining the GSR Network — whatever
-            fits how you want to contribute.
-          </p>
-        </div>
-      </section>
+    <main className="flex flex-1 flex-col">
+      <PageHero
+        image="/hero_1.jpg"
+        imageAlt="Children sitting together on the ground outside a school building"
+        imagePosition="object-[center_55%]"
+        breadcrumbs={[{ label: "Get involved" }]}
+        eyebrow="Get involved"
+        title="Ways to work with GSR"
+        lede="Pick the option that suits you. Most of them start with a short email to our team."
+        actions={[
+          { label: "Email us to volunteer", href: volunteerMail },
+          { label: "See all six options", href: "#pathways" },
+        ]}
+      />
 
       {/* PATHWAYS */}
-      <section className="bg-paper py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Join Our Journey</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Six ways to become part of GSR
-            </h2>
-          </div>
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {pathways.map((p, i) => {
-              const tone = iconToneAt(i);
-              const toneClasses = {
-                banyan: "bg-banyan/10 text-banyan",
-                marigold: "bg-marigold/15 text-marigold-deep",
-                ink: "bg-ink/10 text-ink-soft",
-              };
-              return (
-                <Card key={p.cat} className="flex items-start gap-4">
-                  <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-full ${
-                      toneClasses[tone] || toneClasses.banyan
-                    }`}
-                  >
-                    <Icon name={p.icon} className="size-5" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-semibold uppercase tracking-[0.2em] text-marigold-deep">
-                      {p.cat}
-                    </span>
-                    <h3 className="mt-2 font-display text-lg font-semibold text-ink">
-                      {p.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-ink-soft">
-                      {p.lede}
-                    </p>
-                    <div className="mt-5">
-                      <TextLink href={p.mail}>{p.label}</TextLink>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <Section tone="white" id="pathways" labelledBy="pathways-heading">
+        <SectionHeader
+          id="pathways-heading"
+          eyebrow="Six ways in"
+          title="How would you like to help?"
+          lede="Choose a tile. Email options open a message with the details we need already listed."
+        />
+        <ActionTiles columns={3} items={pathways} className="mt-12" />
+      </Section>
 
-      {/* ROLES */}
-      <section className="bg-paper-deep py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Every Role Matters</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Find the role that fits you
-            </h2>
-          </div>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {roles.map((r) => (
-              <Pill key={r}>{r}</Pill>
-            ))}
-          </div>
-          <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-ink-soft/70">
-            You can contribute your time, knowledge, skills, ideas, resources,
-            network and experience.
+      {/* VOLUNTEERING */}
+      <Section tone="sand" labelledBy="volunteer-heading">
+        <MediaSplit
+          image="/images/youth-learning.jpg"
+          imageAlt="Children sitting at desks in a decorated village classroom"
+          imagePosition="object-[center_30%]"
+          ratio="4/5"
+          frame
+          className="lg:grid-cols-[5fr_6fr]"
+          sizes="(min-width: 1024px) 45vw, 100vw"
+        >
+          <Eyebrow>Volunteering</Eyebrow>
+          <h2 id="volunteer-heading" className="mt-4 text-balance font-display text-h2 font-medium text-ink">
+            What to put in your email
+          </h2>
+          <p className="mt-5 max-w-2xl text-pretty text-lede text-ink-soft">
+            A few details help us suggest the right project the first time.
           </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-paper px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 rounded-3xl bg-banyan-deep px-6 py-16 shadow-[0_24px_60px_rgba(18,49,44,0.35)] sm:px-10 lg:grid-cols-[1.2fr_1fr] lg:items-start lg:gap-16 lg:px-16">
-          <div>
-            <h2 className="max-w-md font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-              Join the Global Movement
-            </h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-paper/70">
-              Whichever path fits you, your contribution can make a lasting
-              difference — one world, one humanity, one shared responsibility.
-            </p>
-          </div>
-          <ul className="divide-y divide-paper/15 border-t border-paper/15">
-            {[
-              { label: "Become a Member", detail: "Help shape our direction and priorities.", href: "mailto:info.gsrwf@gmail.com?subject=Become%20a%20Member" },
-              { label: "Become a Volunteer", detail: "Give your time and skills where they're needed.", href: "mailto:info.gsrwf@gmail.com?subject=Become%20a%20Volunteer" },
-              { label: "Donate Now", detail: "Fund the work directly, no middle layer.", href: "/donate" },
-              { label: "Contact Us", detail: "Talk to us about how you'd like to help.", href: "mailto:info.gsrwf@gmail.com" },
-            ].map((action) => (
-              <li key={action.label}>
-                <Link
-                  href={action.href}
-                  className="group flex items-baseline justify-between gap-4 py-4 text-paper transition-colors hover:text-marigold"
-                >
-                  <span className="font-display text-lg font-semibold">{action.label}</span>
-                  <span className="hidden text-right text-sm text-paper/50 sm:block">
-                    {action.detail}
-                  </span>
-                </Link>
+          <ul className="mt-8 space-y-4">
+            {emailChecklist.map((item) => (
+              <li key={item} className="flex gap-4">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-banyan/10 text-banyan">
+                  <Icon name="checkCircle" className="size-5" />
+                </span>
+                <span className="pt-1 leading-7 text-ink-soft">{item}</span>
               </li>
             ))}
           </ul>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Button href={volunteerMail} variant="primary" arrow>
+              Email us to volunteer
+            </Button>
+          </div>
+        </MediaSplit>
+      </Section>
+
+      {/* WHAT HAPPENS NEXT */}
+      <DarkBand image="/images/landscape-guardians.jpg" labelledBy="next-heading">
+        <SectionHeader
+          id="next-heading"
+          tone="dark"
+          eyebrow="What happens next"
+          title="From your first email to your first day"
+          lede="The same four steps apply to volunteers, interns and members."
+        />
+        <NumberedSteps tone="dark" items={steps} className="mt-12" />
+      </DarkBand>
+
+      {/* AREAS */}
+      <Section tone="paper" labelledBy="areas-heading">
+        <SectionHeader
+          id="areas-heading"
+          eyebrow="Where your time goes"
+          title="Three areas of work"
+          lede="Tell us if one of these interests you most."
+        />
+        <PhotoCardRow label="GSR areas of work" className="mt-12">
+          {areas.map((a) => (
+            <PhotoCard
+              key={a.title}
+              href={a.href}
+              src={a.src}
+              alt={a.alt}
+              tag="Our work"
+              title={a.title}
+              description={a.description}
+              imagePosition={a.position}
+            />
+          ))}
+        </PhotoCardRow>
+      </Section>
+
+      {/* NOT SURE */}
+      <Section tone="sand" labelledBy="unsure-heading">
+        <SectionHeader
+          id="unsure-heading"
+          align="center"
+          eyebrow="Not sure where you fit?"
+          title="Tell us what you can offer"
+          lede="Time, skills, money, space or contacts. Write to us and we will suggest where it would help most."
+        />
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <Button href={mailto("How can I help GSR?")} variant="primary" size="lg" arrow>
+            Email us
+          </Button>
+          <Button href={`tel:${org.phones[0].tel}`} variant="secondary" size="lg">
+            Call {org.phones[0].display}
+          </Button>
         </div>
-      </section>
+        <div className="mt-6 flex justify-center">
+          <TextLink href="/contact">See our address and directions</TextLink>
+        </div>
+      </Section>
     </main>
   );
 }

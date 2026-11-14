@@ -2,17 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { authNav, donateNav, mainNav } from "./navbar-data";
+import { donateNav, isActive, mainNav, visibleNav } from "./navbar-data";
 
-function ChevronDown() {
+const NAV = visibleNav(mainNav);
+
+function Chevron({ open = false, className = "size-4" }) {
   return (
     <svg
       viewBox="0 0 20 20"
       fill="none"
       stroke="currentColor"
       strokeWidth={2}
-      className="size-3.5 shrink-0 transition-transform duration-200 group-hover:rotate-180"
+      className={`${className} shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
       aria-hidden="true"
     >
       <path d="m5 7.5 5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
@@ -20,193 +23,176 @@ function ChevronDown() {
   );
 }
 
-function ChevronRight() {
-  return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      className="size-3.5 shrink-0"
-      aria-hidden="true"
-    >
-      <path d="m7.5 5 5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
+// Flattens children (and any visible grandchildren) into one indented list,
+// so the desktop dropdown never needs fly-out sub-menus.
+function flatten(items, depth = 0) {
+  return items.flatMap((item) => [
+    { ...item, depth },
+    ...(item.children?.length ? flatten(item.children, depth + 1) : []),
+  ]);
 }
 
-function DesktopDropdownItem({ item }) {
-  const [open, setOpen] = useState(false);
+function DesktopNavItem({ item, pathname, openKey, setOpenKey }) {
   const closeTimer = useRef(null);
+  const toggleRef = useRef(null);
+  const hasChildren = item.children?.length > 0;
+  const open = openKey === item.label;
+  const active = isActive(item, pathname);
+  const exact = item.href === pathname;
+  const panelId = `nav-panel-${item.label.replace(/\W+/g, "-").toLowerCase()}`;
 
-  useEffect(() => {
-    return () => {
-      if (closeTimer.current) clearTimeout(closeTimer.current);
-    };
-  }, []);
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
 
-  function handleEnter() {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setOpen(true);
-  }
+  const baseText = `relative inline-flex h-11 items-center whitespace-nowrap gap-1 rounded-full px-3 text-[0.9375rem] font-medium transition-colors after:absolute after:inset-x-3 after:-bottom-[3px] after:h-0.5 after:rounded-full after:transition-colors ${
+    active ? "text-banyan after:bg-marigold" : "text-ink-soft hover:text-banyan after:bg-transparent"
+  }`;
 
-  function handleLeave() {
-    closeTimer.current = setTimeout(() => setOpen(false), 150);
-  }
-
-  if (!item.children?.length) {
+  if (!hasChildren) {
     return (
-      <Link
-        href={item.href}
-        className="block px-4 py-2 text-sm text-ink-soft hover:bg-paper-deep hover:text-banyan"
-      >
+      <Link href={item.href} aria-current={exact ? "page" : undefined} className={baseText}>
         {item.label}
       </Link>
     );
   }
 
+  function enter() {
+    clearTimeout(closeTimer.current);
+    setOpenKey(item.label);
+  }
+  function leave() {
+    closeTimer.current = setTimeout(() => setOpenKey((k) => (k === item.label ? null : k)), 160);
+  }
+  function onKeyDown(e) {
+    if (e.key === "Escape" && open) {
+      e.stopPropagation();
+      setOpenKey(null);
+      toggleRef.current?.focus();
+    }
+  }
+  function onBlur(e) {
+    if (!e.currentTarget.contains(e.relatedTarget)) leave();
+  }
+
+  const linkable = item.href && !item.pageSoon;
+
   return (
-    <div
-      className="relative"
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-      onFocus={handleEnter}
-      onBlur={handleLeave}
-    >
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="flex w-full items-center justify-between gap-2 px-4 py-2 text-left text-sm text-ink-soft hover:bg-paper-deep hover:text-banyan"
-      >
-        {item.label}
-        <ChevronRight />
-      </button>
+    <div className="relative" onMouseEnter={enter} onMouseLeave={leave} onKeyDown={onKeyDown} onBlur={onBlur}>
+      <div className="flex items-center">
+        {linkable ? (
+          <>
+            <Link
+              href={item.href}
+              aria-current={exact ? "page" : undefined}
+              className={`${baseText} pr-1`}
+            >
+              {item.label}
+            </Link>
+            <button
+              ref={toggleRef}
+              type="button"
+              onClick={() => setOpenKey(open ? null : item.label)}
+              aria-expanded={open}
+              aria-controls={panelId}
+              aria-label={`${open ? "Hide" : "Show"} ${item.label} pages`}
+              className={`-ml-1 inline-flex size-8 items-center justify-center rounded-full transition-colors hover:bg-paper hover:text-banyan ${
+                active ? "text-banyan" : "text-ink-soft"
+              }`}
+            >
+              <Chevron open={open} className="size-3.5" />
+            </button>
+          </>
+        ) : (
+          <button
+            ref={toggleRef}
+            type="button"
+            onClick={() => setOpenKey(open ? null : item.label)}
+            aria-expanded={open}
+            aria-controls={panelId}
+            className={baseText}
+          >
+            {item.label}
+            <Chevron open={open} className="size-3.5" />
+          </button>
+        )}
+      </div>
+
       <div
-        className={`absolute left-full top-0 z-50 ml-0.5 min-w-56 border border-clay bg-white py-2 shadow-lg transition duration-150 ${
-          open ? "visible translate-x-0 opacity-100" : "invisible -translate-x-1 opacity-0"
+        id={panelId}
+        className={`absolute left-0 top-full z-50 pt-3 transition duration-150 ${
+          open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
         }`}
-        role="menu"
       >
-        {item.children.map((child) => (
-          <DesktopDropdownItem key={child.label} item={child} />
-        ))}
+        <ul className="min-w-64 rounded-2xl border border-clay/70 bg-surface p-2 shadow-[0_20px_40px_-16px_rgb(11_38_24/0.3)]">
+          {flatten(item.children).map((child) => {
+            const childActive = child.href === pathname;
+            return (
+              <li key={`${child.depth}-${child.label}`}>
+                <Link
+                  href={child.href}
+                  aria-current={childActive ? "page" : undefined}
+                  onClick={() => setOpenKey(null)}
+                  className={`flex min-h-11 items-center rounded-xl px-3 text-[0.9375rem] transition-colors ${
+                    child.depth > 0 ? "pl-7 text-sm" : ""
+                  } ${
+                    childActive
+                      ? "bg-paper font-semibold text-banyan"
+                      : "text-ink-soft hover:bg-paper hover:text-banyan"
+                  }`}
+                >
+                  {child.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
 }
 
-function DesktopNavItem({ item }) {
-  const [open, setOpen] = useState(false);
-  const closeTimer = useRef(null);
-
-  useEffect(() => {
-    return () => {
-      if (closeTimer.current) clearTimeout(closeTimer.current);
-    };
-  }, []);
-
-  function handleEnter() {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setOpen(true);
-  }
-
-  function handleLeave() {
-    closeTimer.current = setTimeout(() => setOpen(false), 150);
-  }
-
-  if (!item.children?.length) {
-    return (
-      <Link
-        href={item.href}
-        className="px-3 py-2 text-sm font-medium text-ink-soft hover:text-banyan"
-      >
-        {item.label}
-      </Link>
-    );
-  }
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-      onFocus={handleEnter}
-      onBlur={handleLeave}
-    >
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-ink-soft hover:text-banyan"
-      >
-        {item.label}
-        <ChevronDown />
-      </button>
-      <div
-        className={`absolute left-0 top-full z-50 min-w-64 -translate-y-1 border border-clay bg-white py-2 shadow-lg transition duration-150 ${
-          open ? "visible translate-y-0 opacity-100" : "invisible opacity-0"
-        }`}
-        role="menu"
-      >
-        {item.children.map((child) => (
-          <DesktopDropdownItem key={child.label} item={child} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function MobileNavItem({ item, depth = 0, expanded, onToggle, onNavigate }) {
+function MobileNavItem({ item, depth = 0, pathname, expanded, onToggle, onNavigate }) {
   const key = `${depth}-${item.label}`;
   const isOpen = expanded.has(key);
-  const hasChildren = !!item.children?.length;
+  const hasChildren = item.children?.length > 0;
+  const exact = item.href === pathname;
+  const active = hasChildren ? isActive(item, pathname) : exact;
+  const linkable = item.href && !item.pageSoon;
+  const textClass = `flex min-h-12 flex-1 items-center text-left ${
+    depth === 0 ? "text-base font-semibold" : "text-[0.9375rem] font-medium"
+  } ${active ? "text-banyan" : "text-ink"}`;
 
   return (
-    <div className={depth > 0 ? "border-clay/60" : ""}>
-      <div className="flex items-center justify-between">
-        {hasChildren ? (
-          <button
-            type="button"
-            onClick={() => onToggle(key)}
-            className="flex-1 py-2.5 text-left text-sm font-medium text-ink"
-            style={{ paddingLeft: depth * 16 }}
-          >
-            {item.label}
-          </button>
-        ) : (
-          <Link
-            href={item.href}
-            onClick={onNavigate}
-            className="flex-1 py-2.5 text-sm font-medium text-ink"
-            style={{ paddingLeft: depth * 16 }}
-          >
+    <div>
+      <div className="flex items-center" style={{ paddingLeft: depth * 16 }}>
+        {linkable ? (
+          <Link href={item.href} onClick={onNavigate} aria-current={exact ? "page" : undefined} className={textClass}>
             {item.label}
           </Link>
+        ) : (
+          <button type="button" onClick={() => onToggle(key)} aria-expanded={isOpen} className={textClass}>
+            {item.label}
+          </button>
         )}
         {hasChildren && (
           <button
             type="button"
             onClick={() => onToggle(key)}
             aria-expanded={isOpen}
-            aria-label={`Toggle ${item.label} submenu`}
-            className="flex h-9 w-9 items-center justify-center text-ink-soft"
+            aria-label={`${isOpen ? "Hide" : "Show"} ${item.label} pages`}
+            className="flex size-12 items-center justify-center rounded-full text-ink-soft"
           >
-            <span
-              className={`inline-block transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-            >
-              <ChevronDown />
-            </span>
+            <Chevron open={isOpen} />
           </button>
         )}
       </div>
       {hasChildren && isOpen && (
-        <div className="border-l border-clay">
+        <div className="mb-2 ml-1 border-l-2 border-clay pl-2">
           {item.children.map((child) => (
             <MobileNavItem
               key={child.label}
               item={child}
               depth={depth + 1}
+              pathname={pathname}
               expanded={expanded}
               onToggle={onToggle}
               onNavigate={onNavigate}
@@ -219,17 +205,31 @@ function MobileNavItem({ item, depth = 0, expanded, onToggle, onNavigate }) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expanded, setExpanded] = useState(new Set());
+  const [openKey, setOpenKey] = useState(null);
+  const menuButtonRef = useRef(null);
+
+  // Escape closes whichever menu is open.
+  useEffect(() => {
+    function onKey(e) {
+      if (e.key !== "Escape") return;
+      setOpenKey(null);
+      setMobileOpen((wasOpen) => {
+        if (wasOpen) menuButtonRef.current?.focus();
+        return false;
+      });
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   function toggleExpanded(key) {
     setExpanded((prev) => {
       const next = new Set(prev);
-      if (next.has(key)) {
-        next.delete(key);
-      } else {
-        next.add(key);
-      }
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
       return next;
     });
   }
@@ -239,92 +239,94 @@ export default function Navbar() {
     setExpanded(new Set());
   }
 
+  const donateActive = pathname === donateNav.href;
+
   return (
-    <header className="sticky top-0 z-50 select-none border-b border-clay bg-white">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center">
+    <header className="sticky top-0 z-50 border-b border-clay/70 bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/90">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
+        <Link href="/" className="flex shrink-0 items-center rounded-md" aria-label="GSR home">
           <Image
-            src="/GSR_final_logo.png"
-            alt="GSR"
-            width={160}
-            height={54}
-            priority
-            className="h-12 w-auto"
+            src="/gsr-logo.png"
+            alt="GSR, Global Social Responsibility Welfare Foundation"
+            width={1308}
+            height={494}
+            preload
+            sizes="160px"
+            className="h-11 w-auto lg:h-14"
           />
         </Link>
 
-        <nav className="hidden items-center lg:flex" aria-label="Primary">
-          {mainNav.map((item) => (
-            <DesktopNavItem key={item.label} item={item} />
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
+          {NAV.map((item) => (
+            <DesktopNavItem
+              key={item.label}
+              item={item}
+              pathname={pathname}
+              openKey={openKey}
+              setOpenKey={setOpenKey}
+            />
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            href={authNav.href}
-            className="px-3 py-2 text-sm font-medium text-ink-soft hover:text-banyan"
-          >
-            {authNav.label}
-          </Link>
+        <div className="flex items-center gap-2">
           <Link
             href={donateNav.href}
-            className="bg-marigold px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-marigold-deep hover:text-paper"
+            aria-current={donateActive ? "page" : undefined}
+            className="inline-flex min-h-10 items-center justify-center rounded-full bg-marigold px-5 text-sm font-semibold text-ink transition-colors hover:bg-gold-hover lg:min-h-11 lg:px-6 lg:text-[0.9375rem]"
           >
             {donateNav.label}
           </Link>
-        </div>
-
-        <button
-          type="button"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-expanded={mobileOpen}
-          aria-label="Toggle navigation menu"
-          className="flex h-10 w-10 items-center justify-center rounded-md text-ink-soft lg:hidden"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            className="size-6"
-            aria-hidden="true"
+          <button
+            ref={menuButtonRef}
+            type="button"
+            onClick={() => (mobileOpen ? closeMobile() : setMobileOpen(true))}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            className="flex size-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-paper xl:hidden"
           >
-            {mobileOpen ? (
-              <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="size-6" aria-hidden="true">
+              {mobileOpen ? (
+                <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-clay bg-white px-4 pb-6 lg:hidden">
+        <div
+          id="mobile-nav"
+          className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-clay/70 bg-surface px-4 pb-8 pt-2 shadow-[0_24px_40px_-24px_rgb(11_38_24/0.4)] sm:px-6 xl:hidden"
+        >
           <nav aria-label="Primary mobile" className="divide-y divide-clay/60">
-            {mainNav.map((item) => (
+            {NAV.map((item) => (
               <MobileNavItem
                 key={item.label}
                 item={item}
+                pathname={pathname}
                 expanded={expanded}
                 onToggle={toggleExpanded}
                 onNavigate={closeMobile}
               />
             ))}
           </nav>
-          <div className="mt-4 flex flex-col gap-3 border-t border-clay/60 pt-4">
+          <div className="mt-6 grid grid-cols-2 gap-3">
             <Link
-              href={authNav.href}
+              href="/join"
               onClick={closeMobile}
-              className="border border-ink/25 px-4 py-2 text-center text-sm font-medium text-ink-soft"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-banyan text-[0.9375rem] font-semibold text-banyan"
             >
-              {authNav.label}
+              Volunteer
             </Link>
             <Link
-              href={donateNav.href}
+              href="/contact"
               onClick={closeMobile}
-              className="bg-marigold px-4 py-2 text-center text-sm font-semibold text-ink hover:bg-marigold-deep hover:text-paper"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-banyan text-[0.9375rem] font-semibold text-white"
             >
-              {donateNav.label}
+              Contact us
             </Link>
           </div>
         </div>

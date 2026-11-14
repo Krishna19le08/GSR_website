@@ -1,17 +1,21 @@
-import { Zilla_Slab, Work_Sans, Geist_Mono } from "next/font/google";
+import { Fraunces, Work_Sans, Geist_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./globals.css";
 
-const zillaSlab = Zilla_Slab({
+// Display: Fraunces, a warm old-style serif with an optical-size axis,
+// close in feel to the classic serif "GSR" in the logo.
+const fraunces = Fraunces({
   variable: "--font-display",
-  weight: ["500", "600", "700"],
   subsets: ["latin"],
+  axes: ["opsz"],
+  display: "swap",
 });
 
 const workSans = Work_Sans({
   variable: "--font-body",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -47,7 +51,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${zillaSlab.variable} ${workSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${workSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
         <a href="#main-content" className="gsr-skip-link">

@@ -8,7 +8,7 @@ import DistrictMapSection from "../../components/dashboard/DistrictMapSection";
 import DistrictBreakdown from "../../components/dashboard/DistrictBreakdown";
 import { getStates, getStateById, TREND_YEARS } from "../../data/states-data";
 import { getDistrictsForState } from "../../data/districts-data";
-import { compositeScore, pillarTotal, PILLAR_MAX_TOTAL } from "../../lib/rating";
+import { pillarTotal, PILLAR_MAX_TOTAL } from "../../lib/rating";
 
 export function generateStaticParams() {
   return getStates().map((state) => ({ stateId: state.id }));
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   const state = getStateById(stateId);
   if (!state) return {};
   return {
-    title: `${state.name} — CSR Fund Grantee Details — GSR`,
+    title: `${state.name} CSR Fund Grantee Details | GSR`,
     description: `CSR fund allocation, grantees and State Rating Protocol score for ${state.name}.`,
   };
 }
@@ -31,7 +31,6 @@ export default async function StateDetail({ params }) {
   const state = getStateById(stateId);
   if (!state) notFound();
 
-  const score = compositeScore(state);
   const totalGranteeCr = state.grantees.reduce((sum, g) => sum + g.amountCr, 0);
   const districts = getDistrictsForState(state.id);
 
@@ -76,7 +75,7 @@ export default async function StateDetail({ params }) {
             <p className="mt-3 max-w-2xl text-sm leading-6 text-ink-soft">
               Click a district on the map, or in the list below, to see its
               spend by development sector, FY2014-15 through{" "}
-              <span className="text-base font-semibold text-banyan">FY2025-26</span>{" "}
+              <span className="text-base font-semibold text-banyan">FY2024-25</span>{" "}
               combined.
             </p>
             <div className="mt-8">
@@ -94,10 +93,9 @@ export default async function StateDetail({ params }) {
       {/* SUMMARY STATS */}
       <section className="bg-paper-deep py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-5 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
             <StatCardRounded label="Government Grant" value={inr(totalGranteeCr)} />
-            <StatCardRounded label="TRP Score" value={`${score}/100`} />
-            <StatCardRounded label="CSR Fund Utilization" value={`${state.csrFundUtilizationPct}%`} />
+            <StatCardRounded label="CSR Spend vs GSDP" value={`${state.csrIntensityPct.toFixed(2)}%`} />
             <StatCardRounded label="Annual Income Growth" value={`${state.annualIncomeGrowthPct}%`} />
             <StatCardRounded label="Pillar Total" value={`${pillarTotal(state.pillars)}/${PILLAR_MAX_TOTAL}`} />
           </div>

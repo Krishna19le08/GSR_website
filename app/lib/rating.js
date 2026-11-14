@@ -3,9 +3,10 @@
 // The presentation this was scoped from described a tiered rating: a state
 // crossing a 25% annual income gain earns "Single Star," and continued gains
 // carry it up through Gold, Platinum and finally Diamond. This module turns
-// that idea into one composite 0-100 score (CSR fund utilization weighted
-// higher than income growth, since utilization is the harder number to fake)
-// and maps it onto a five-tier ladder.
+// that idea into one composite 0-100 score (CSR intensity — real CSR spend
+// as a share of GSDP, normalized across states — weighted higher than
+// income growth, since it's the harder number to inflate) and maps it onto
+// a five-tier ladder.
 
 export const PILLARS = [
   { key: "economicGrowth", label: "Economic Growth", max: 20 },
@@ -33,12 +34,12 @@ export function getTier(score) {
   return TIERS.find((tier) => score >= tier.min) ?? TIERS[TIERS.length - 1];
 }
 
-// Weighted 60/40 toward fund utilization — a state can't inflate this figure
+// Weighted 60/40 toward CSR intensity — a state can't inflate this figure
 // with one good year of income growth the way it could a single-metric score.
-export function compositeScore({ csrFundUtilizationPct, annualIncomeGrowthPct }) {
-  const utilization = clamp(csrFundUtilizationPct, 0, 100);
+export function compositeScore({ csrIntensityScore, annualIncomeGrowthPct }) {
+  const intensity = clamp(csrIntensityScore, 0, 100);
   const growth = clamp(annualIncomeGrowthPct, 0, 100);
-  return Math.round((utilization * 0.6 + growth * 0.4) * 10) / 10;
+  return Math.round((intensity * 0.6 + growth * 0.4) * 10) / 10;
 }
 
 export function pillarTotal(pillars) {

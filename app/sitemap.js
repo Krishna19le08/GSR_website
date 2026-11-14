@@ -18,6 +18,8 @@ export default function sitemap() {
     { path: "/join", priority: 0.7, changeFrequency: "monthly" },
     { path: "/news", priority: 0.6, changeFrequency: "weekly" },
     { path: "/partner", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/donate", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/contact", priority: 0.7, changeFrequency: "monthly" },
   ].map((route) => ({
     url: `${BASE_URL}${route.path}`,
     lastModified: new Date(),

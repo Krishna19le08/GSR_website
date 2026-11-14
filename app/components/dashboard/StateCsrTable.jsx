@@ -34,7 +34,7 @@ export default function StateCsrTable({ states }) {
     { key: "name", label: "State / UT", sortable: false },
     { key: "gsdpCr", label: "GSDP" },
     { key: "gsdpGrowthPct", label: "GSDP Growth" },
-    { key: "csrFundUtilizationPct", label: "CSR Utilization" },
+    { key: "csrIntensityPct", label: "CSR vs GSDP" },
   ];
 
   return (
@@ -85,7 +85,7 @@ export default function StateCsrTable({ states }) {
                 </td>
                 <td className="py-3 pr-4 font-mono tabular-nums text-ink-soft">{inr(state.gsdpCr)}</td>
                 <td className="py-3 pr-4 font-mono tabular-nums text-ink-soft">{state.gsdpGrowthPct}%</td>
-                <td className="py-3 pr-4 font-mono tabular-nums text-ink-soft">{state.csrFundUtilizationPct}%</td>
+                <td className="py-3 pr-4 font-mono tabular-nums text-ink-soft">{state.csrIntensityPct.toFixed(2)}%</td>
                 {DEPARTMENTS.map((dept) => (
                   <td key={dept.key} className="py-3 pr-4 font-mono tabular-nums text-ink-soft">
                     {inr(state.departmentFundsCr[dept.key])}
