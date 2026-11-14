@@ -6,7 +6,7 @@
 // CsrSpendMapSection.jsx. Hover previews a state; click pins it.
 
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 import { stateKey, colorFor } from "@/lib/csr/state-spend";
 
@@ -34,18 +34,24 @@ export default function CsrSpendMap({ spendByKey, max, selectedKey, onSelect, on
     };
   }, []);
 
-  function styleFeature(feature) {
-    const key = stateKey(feature.properties.ST_NM);
-    const state = spendByKey.get(key);
-    const fill = colorFor(state?.total, max);
-    const selected = key === selectedKey;
-    return {
-      fillColor: fill ?? "#d9d2bd",
-      fillOpacity: fill ? 0.9 : 0.4,
-      color: selected ? "#c98a11" : "#f4efe4",
-      weight: selected ? 2.5 : 1,
-    };
-  }
+  // Kept referentially stable: react-leaflet re-applies `style` to every layer
+  // when the prop changes, and onHover re-renders the parent, which would
+  // otherwise wipe the hover highlight as soon as it is drawn.
+  const styleFeature = useCallback(
+    (feature) => {
+      const key = stateKey(feature.properties.ST_NM);
+      const state = spendByKey.get(key);
+      const fill = colorFor(state?.total, max);
+      const selected = key === selectedKey;
+      return {
+        fillColor: fill ?? "#d9d2bd",
+        fillOpacity: fill ? 0.9 : 0.4,
+        color: selected ? "#c98a11" : "#f4efe4",
+        weight: selected ? 2.5 : 1,
+      };
+    },
+    [spendByKey, max, selectedKey],
+  );
 
   function onEachFeature(feature, layer) {
     const key = stateKey(feature.properties.ST_NM);

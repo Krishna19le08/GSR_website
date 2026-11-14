@@ -9,7 +9,7 @@
 // ~90KB static asset the page doesn't need until this section is visible.
 
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { MapContainer, GeoJSON } from "react-leaflet";
 import { getTier } from "@/lib/rating";
@@ -49,18 +49,25 @@ export default function IndiaStateMap({
     };
   }, []);
 
-  function styleFeature(feature) {
-    const id = stateIdFromGeoName(feature.properties.ST_NM);
-    const state = statesById.get(id);
-    const tier = getTier(state?.score ?? 0);
-    const dimmed = activeTier && tier.id !== activeTier;
-    return {
-      fillColor: tier.color,
-      fillOpacity: !state ? 0.15 : dimmed ? 0.12 : 0.65,
-      color: "#f4efe4",
-      weight: 1,
-    };
-  }
+  // Must stay referentially stable across renders: react-leaflet re-applies
+  // `style` to every layer whenever the prop changes, and hovering a state
+  // re-renders this component (via onHoverState), which would otherwise wipe
+  // the hover highlight the instant it is drawn.
+  const styleFeature = useCallback(
+    (feature) => {
+      const id = stateIdFromGeoName(feature.properties.ST_NM);
+      const state = statesById.get(id);
+      const tier = getTier(state?.score ?? 0);
+      const dimmed = activeTier && tier.id !== activeTier;
+      return {
+        fillColor: tier.color,
+        fillOpacity: !state ? 0.15 : dimmed ? 0.12 : 0.65,
+        color: "#f4efe4",
+        weight: 1,
+      };
+    },
+    [statesById, activeTier],
+  );
 
   function onEachFeature(feature, layer) {
     const id = stateIdFromGeoName(feature.properties.ST_NM);

@@ -427,6 +427,8 @@ function buildState([name, type, region, abbr], index) {
     gsdpCr,
     gsdpGrowthPct,
     csrIntensityPct,
+    // compositeScore() in lib/rating needs the normalized score, not the raw %.
+    csrIntensityScore,
     annualIncomeGrowthPct,
     pillars,
     scoreTrend,
@@ -451,7 +453,7 @@ export function getStateById(id) {
 // state pages use; leaving them out keeps them out of the RSC payload.
 const CLIENT_STATE_FIELDS = [
   "id", "name", "type", "region", "abbr", "photoUrl", "population", "gsdpCr",
-  "csrIntensityPct", "annualIncomeGrowthPct", "pillars", "scoreTrend",
+  "csrIntensityPct", "csrIntensityScore", "annualIncomeGrowthPct", "pillars", "scoreTrend",
 ];
 
 export function toClientState(state) {
