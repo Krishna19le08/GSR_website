@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "npm run build:data",
     "dev": "next dev",
+    "prebuild": "npm run build:data",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:data": "node --import ./scripts/lib/register-aliases.mjs scripts/build-csr-data.mjs",
+    "build:geo": "node scripts/simplify-geojson.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.468.0",
     "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -19,6 +25,8 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
+    "mapshaper": "^0.6.102",
+    "sharp": "^0.34.3",
     "tailwindcss": "^4"
   }
 }
