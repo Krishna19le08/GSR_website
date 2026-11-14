@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { mailto } from "@/config/org-info";
-import { buttonClasses } from "@/components/ui/ui";
+import { buttonClasses } from "@/components/ui/button-classes";
 
 const topics = [
   "General question",

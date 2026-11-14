@@ -1,5 +1,5 @@
 import Image from "./ResponsiveImage";
-import Icon from "./icons";
+import { Sprout } from "lucide-react";
 
 // Photography isn't shot yet for every slot. Where a real photo has been
 // sourced (`src`), it renders normally. Where it hasn't, this reads more
@@ -73,8 +73,11 @@ export default function ImagePlaceholder({
             )}
 
             <div className="absolute inset-0 flex items-center justify-center">
-              <Icon
-                name="sprout"
+              {/* Imported directly (not via icons.jsx) so client components that
+                  render ImagePlaceholder don't bundle the whole icon map. */}
+              <Sprout
+                aria-hidden="true"
+                strokeWidth={1.75}
                 className={`size-8 ${isDark ? "text-paper/20" : "text-ink/15"}`}
               />
             </div>
