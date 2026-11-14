@@ -2,6 +2,10 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+// Leaflet's stylesheet ships with the page CSS (not the lazily loaded map
+// chunk), so it is in place before the map renders. Loaded only by the async
+// chunk, the map could render unstyled for a moment and shift the layout.
+import "leaflet/dist/leaflet.css";
 import { Eyebrow } from "@/components/ui/ui";
 import { getMembers } from "@/content/members-data";
 

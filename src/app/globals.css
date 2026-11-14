@@ -315,6 +315,14 @@ footer :focus-visible {
 .gsr-globe-marker--selected .gsr-globe-marker__ping {
   background: rgba(31, 74, 68, 0.55);
 }
+/* Isolate the map's layout and painting from the rest of the page. Without
+   this, Leaflet building the map on mount registers as a large layout shift
+   (CLS ~0.5 on /csr-tracker under mobile CPU throttling). Leaflet already
+   clips its panes to the container, so nothing visible changes. */
+.gsr-india-map {
+  contain: layout paint;
+}
+
 /* India Rating Map (IndiaStateMap.jsx) — no basemap tiles, so the container
    stays transparent and only the state/country polygons are visible. */
 .gsr-india-map .leaflet-container {

@@ -2,6 +2,10 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
+// Leaflet's stylesheet ships with the page CSS (not the lazily loaded map
+// chunk), so it is in place before the map renders. Loaded only by the async
+// chunk, the map could render unstyled for a moment and shift the layout.
+import "leaflet/dist/leaflet.css";
 import { useMemo, useState } from "react";
 import { TIERS, compositeScore, getTier } from "@/lib/rating";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";

@@ -1,6 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+// Leaflet's stylesheet ships with the page CSS (not the lazily loaded map
+// chunk), so it is in place before the map renders. Loaded only by the async
+// chunk, the map could render unstyled for a moment and shift the layout.
+import "leaflet/dist/leaflet.css";
 import { useEffect, useMemo, useState } from "react";
 import { SCALE } from "@/lib/csr/state-spend";
 import { stateDistrictsUrl } from "@/lib/csr/state-projects-url";
