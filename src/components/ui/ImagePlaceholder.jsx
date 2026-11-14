@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "./ResponsiveImage";
 import Icon from "./icons";
 
 // Photography isn't shot yet for every slot. Where a real photo has been

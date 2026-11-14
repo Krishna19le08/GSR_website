@@ -47,7 +47,7 @@ const causeCards = [
     tag: "Environment",
     description: "Protecting nature, wildlife, oceans and natural resources.",
     href: "/social-responsibility/environmental",
-    src: "/images/causes/landscape-guardians.jpg",
+    src: "/images/causes/landscape-guardians.webp",
     alt: "Tall trees on a forested hillside",
     position: "object-center",
   },
@@ -56,7 +56,7 @@ const causeCards = [
     tag: "Education",
     description: "Wider access to education, including environmental learning.",
     href: "/social-responsibility/education",
-    src: "/images/causes/youth-learning.jpg",
+    src: "/images/causes/youth-learning.webp",
     alt: "Children sitting at desks in a decorated village classroom",
     position: "object-[center_70%]",
   },
@@ -65,7 +65,7 @@ const causeCards = [
     tag: "Empowerment",
     description: "Skills training, internships and livelihood programmes.",
     href: "/social-responsibility/empowerment",
-    src: "/images/causes/empowerment-sewing.jpg",
+    src: "/images/causes/empowerment-sewing.webp",
     alt: "A smiling woman standing beside a sewing machine in a small shop",
     position: "object-center",
   },
@@ -144,7 +144,7 @@ export default function About() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/causes/youth-learning.jpg"
+        image="/images/causes/youth-learning.webp"
         imageAlt="Children sitting at desks in a decorated village classroom"
         imagePosition="object-[center_62%]"
         breadcrumbs={[{ label: "About us" }]}
@@ -160,7 +160,7 @@ export default function About() {
       {/* STORY + MISSION + VISION */}
       <Section tone="white" labelledBy="story-heading">
         <MediaSplit
-          image="/images/causes/community-planning.jpg"
+          image="/images/causes/community-planning.webp"
           imageAlt="Women at a village meeting, one of them writing notes"
           imagePosition="object-[30%_center]"
           ratio="4/5"

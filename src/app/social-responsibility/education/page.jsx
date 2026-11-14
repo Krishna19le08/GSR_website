@@ -19,14 +19,14 @@ export default function Education() {
       title="Education for all"
       intro="We support children, students, young people, women and communities who face barriers to education and skills training."
       hero={{
-        src: "/images/causes/youth-learning.jpg",
+        src: "/images/causes/youth-learning.webp",
         alt: "Children sitting at desks in a decorated village classroom",
         position: "object-[center_55%]",
       }}
       overview={{
         heading: "Learning that leads to real opportunities",
         image: {
-          src: "/images/hero/hero_1.jpg",
+          src: "/images/hero/hero_1.webp",
           alt: "Children sitting together on the ground outside a school building",
           position: "object-[35%_center]",
         },
@@ -38,7 +38,7 @@ export default function Education() {
       focus={{
         lede: "Open each area to see the work it covers.",
         image: {
-          src: "/images/causes/youth-learning.jpg",
+          src: "/images/causes/youth-learning.webp",
           alt: "Children reading at desks under paper bunting in a classroom",
           position: "object-[center_80%]",
         },
@@ -110,7 +110,7 @@ export default function Education() {
         ],
       }}
       reporting={{
-        image: "/images/hero/hero_1.jpg",
+        image: "/images/hero/hero_1.webp",
         imagePosition: "object-[center_70%]",
         heading: "What we will publish from each project",
         lede: "GSR was registered in 2026. As our first education projects run, we will publish:",

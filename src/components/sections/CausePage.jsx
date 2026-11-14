@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/ResponsiveImage";
 import Icon from "@/components/ui/icons";
 import {
   ActionTiles,
@@ -23,7 +23,7 @@ const CAUSES = [
     title: "Environmental protection",
     description: "Forests, rivers, wetlands, birds, wildlife and the coast, looked after with local communities.",
     href: "/social-responsibility/environmental",
-    src: "/images/causes/landscape-guardians.jpg",
+    src: "/images/causes/landscape-guardians.webp",
     alt: "Tall trees on a forested hillside",
     position: "object-center",
   },
@@ -32,7 +32,7 @@ const CAUSES = [
     title: "Education for all",
     description: "Scholarships, learning materials and practical skills for children, young people and adults.",
     href: "/social-responsibility/education",
-    src: "/images/causes/youth-learning.jpg",
+    src: "/images/causes/youth-learning.webp",
     alt: "Children sitting at desks in a decorated village classroom",
     position: "object-[center_70%]",
   },
@@ -41,7 +41,7 @@ const CAUSES = [
     title: "Empowerment & opportunity",
     description: "Training, tools and market links that help farmers, women and tribal communities earn a steady income.",
     href: "/social-responsibility/empowerment",
-    src: "/images/causes/empowerment-sewing.jpg",
+    src: "/images/causes/empowerment-sewing.webp",
     alt: "A woman smiling beside a sewing machine in a small shop",
     position: "object-[70%_center]",
   },

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/ResponsiveImage";
 import {
   ActionTiles,
   DarkBand,
@@ -105,7 +105,7 @@ export default function NetworkHub() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/causes/community-planning.jpg"
+        image="/images/causes/community-planning.webp"
         imageAlt="Women at a village meeting, one of them writing notes"
         imagePosition="object-[center_40%]"
         breadcrumbs={[{ label: "GSR Tech", href: "/gsr-tech" }, { label: "Network Hub" }]}
@@ -129,7 +129,7 @@ export default function NetworkHub() {
         <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           <li className="relative min-h-64 overflow-hidden rounded-2xl bg-banyan-deep sm:col-span-2 lg:col-span-1 lg:row-span-1">
             <Image
-              src="/images/causes/digital-rural.jpg"
+              src="/images/causes/digital-rural.webp"
               alt="A man in a rural field holding up a basic mobile phone"
               fill
               sizes="(min-width: 1024px) 33vw, 100vw"
@@ -158,7 +158,7 @@ export default function NetworkHub() {
       </Section>
 
       {/* HOW TO JOIN */}
-      <DarkBand image="/images/causes/community-planning.jpg" imagePosition="object-[center_80%]" labelledBy="steps-heading">
+      <DarkBand image="/images/causes/community-planning.webp" imagePosition="object-[center_80%]" labelledBy="steps-heading">
         <SectionHeader
           id="steps-heading"
           tone="dark"

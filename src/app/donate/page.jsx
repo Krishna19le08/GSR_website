@@ -48,14 +48,14 @@ const causes = [
     title: "Environment",
     description: "Native tree planting and land restoration, run with the people who live on that land.",
     href: "/social-responsibility/environmental",
-    src: "/images/causes/landscape-guardians.jpg",
+    src: "/images/causes/landscape-guardians.webp",
     alt: "Tall trees on a forested hillside",
   },
   {
     title: "Education",
     description: "After-school learning and digital skills for children and young people.",
     href: "/social-responsibility/education",
-    src: "/images/causes/youth-learning.jpg",
+    src: "/images/causes/youth-learning.webp",
     alt: "Children sitting at desks in a village classroom",
     position: "object-[center_70%]",
   },
@@ -63,7 +63,7 @@ const causes = [
     title: "Empowerment",
     description: "Practical training that leads to work and income, and a voice for families who are ignored.",
     href: "/social-responsibility/empowerment",
-    src: "/images/causes/community-planning.jpg",
+    src: "/images/causes/community-planning.webp",
     alt: "Women at a village meeting, one of them writing notes",
   },
 ];
@@ -96,7 +96,7 @@ export default function DonatePage() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/causes/empowerment-sewing.jpg"
+        image="/images/causes/empowerment-sewing.webp"
         imageAlt="A woman smiling beside a sewing machine in a small shop"
         imagePosition="object-[70%_center]"
         breadcrumbs={[{ label: "Donate" }]}

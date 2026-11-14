@@ -422,7 +422,7 @@ function buildState([name, type, region, abbr], index) {
     type,
     region,
     abbr,
-    photoUrl: `/images/states/${id}.jpg`,
+    photoUrl: `/images/states/${id}.webp`,
     population,
     gsdpCr,
     gsdpGrowthPct,

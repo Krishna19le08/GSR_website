@@ -64,10 +64,10 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block rounded-md" aria-label="GSR home">
               <Image
-                src="/brand/gsr-logo-light.png"
+                src="/brand/gsr-logo-light.webp"
                 alt="GSR, Global Social Responsibility Welfare Foundation"
-                width={1308}
-                height={494}
+                width={400}
+                height={151}
                 sizes="220px"
                 className="h-[72px] w-auto"
               />

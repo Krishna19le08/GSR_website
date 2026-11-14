@@ -246,10 +246,10 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center rounded-md" aria-label="GSR home">
           <Image
-            src="/brand/gsr-logo.png"
+            src="/brand/gsr-logo.webp"
             alt="GSR, Global Social Responsibility Welfare Foundation"
-            width={1308}
-            height={494}
+            width={360}
+            height={136}
             preload
             sizes="160px"
             className="h-11 w-auto lg:h-14"

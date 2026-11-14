@@ -19,14 +19,14 @@ export default function Empowerment() {
       title="Empowerment & opportunity"
       intro="We help farmers, tribal communities, women and families turn skills and knowledge into steady income."
       hero={{
-        src: "/images/causes/empowerment-sewing.jpg",
+        src: "/images/causes/empowerment-sewing.webp",
         alt: "A woman smiling beside a sewing machine in a small shop",
         position: "object-[70%_center]",
       }}
       overview={{
         heading: "From skills to a steady income",
         image: {
-          src: "/images/causes/community-planning.jpg",
+          src: "/images/causes/community-planning.webp",
           alt: "Women at a village meeting, one of them writing notes",
           position: "object-[30%_center]",
         },
@@ -38,7 +38,7 @@ export default function Empowerment() {
       focus={{
         lede: "Open each area to see the work it covers.",
         image: {
-          src: "/images/causes/digital-rural.jpg",
+          src: "/images/causes/digital-rural.webp",
           alt: "A man in a rural field holding up a basic mobile phone",
           position: "object-[60%_center]",
         },
@@ -131,7 +131,7 @@ export default function Empowerment() {
         ],
       }}
       reporting={{
-        image: "/images/causes/empowerment-sewing.jpg",
+        image: "/images/causes/empowerment-sewing.webp",
         imagePosition: "object-[20%_center]",
         heading: "What we will publish from each project",
         lede: "GSR was registered in 2026. As our first livelihood projects run, we will publish:",

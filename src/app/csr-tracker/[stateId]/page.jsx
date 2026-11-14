@@ -45,6 +45,7 @@ export default async function StateDetail({ params }) {
           className="absolute inset-0 h-full w-full"
           src={state.photoUrl}
           alt={state.name}
+          priority
         />
         <div className="absolute inset-0 bg-ink/55" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

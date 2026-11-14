@@ -136,7 +136,7 @@ export default function FounderProfile() {
       {/* FOUNDER SPOTLIGHT */}
       <Section tone="sand" id="founder" labelledBy="founder-heading">
         <MediaSplit
-          image="/images/team/zehra-fathima.png"
+          image="/images/team/zehra-fathima.webp"
           imageAlt="Portrait of Zehra Fathima"
           imagePosition="object-top"
           ratio="4/5"
@@ -196,7 +196,7 @@ export default function FounderProfile() {
       </Section>
 
       {/* HER RECORD AT IRAIVI */}
-      <DarkBand image="/images/causes/landscape-guardians.jpg" imagePosition="object-[center_30%]" labelledBy="record-heading">
+      <DarkBand image="/images/causes/landscape-guardians.webp" imagePosition="object-[center_30%]" labelledBy="record-heading">
         <SectionHeader
           id="record-heading"
           tone="dark"

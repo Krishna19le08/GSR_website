@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/ResponsiveImage";
 import Icon from "@/components/ui/icons";
 import {
   ActionTiles,
@@ -30,7 +30,7 @@ const people = [
   {
     name: "Zehra Fathima",
     role: "Founder & Managing Trustee",
-    photo: "/images/team/zehra-fathima-white.jpg",
+    photo: "/images/team/zehra-fathima-white.webp",
     position: "object-top",
     // Hidden for now. To show it again, uncomment:
     // link: { href: "/about#founder", label: "Read her story", icon: null },
@@ -38,13 +38,13 @@ const people = [
   {
     name: "Victoria Selvi",
     role: "Secretary",
-    photo: "/images/team/victoria-selvi.jpg",
+    photo: "/images/team/victoria-selvi.webp",
     position: "object-[center_15%]",
   },
   {
     name: "Kesavan Venugopal",
     role: "Treasurer",
-    photo: "/images/team/kesavan-venugopal-white-v3.jpg",
+    photo: "/images/team/kesavan-venugopal-white-v3.webp",
     position: "object-[center_20%]",
     // LinkedIn hidden for now. To show it again, uncomment:
     // link: { href: "https://www.linkedin.com/in/kesavan-v-7544b1306", label: "LinkedIn", icon: "linkedin" },
@@ -52,13 +52,13 @@ const people = [
   {
     name: "T. Senthilkumar",
     role: "Trustee",
-    photo: "/images/team/t-senthilkumar-white.jpg",
+    photo: "/images/team/t-senthilkumar-white.webp",
     position: "object-[60%_20%]",
   },
   {
     name: "Dr. Clement Winsly",
     role: "Trustee",
-    photo: "/images/team/clement-winsly.jpg",
+    photo: "/images/team/clement-winsly.webp",
     position: "object-top",
   },
 ];
@@ -121,7 +121,7 @@ const causes = [
     title: "Education",
     description: "Classes and learning programmes for children and young people.",
     href: "/social-responsibility/education",
-    src: "/images/causes/youth-learning.jpg",
+    src: "/images/causes/youth-learning.webp",
     alt: "Children sitting at desks in a decorated village classroom",
     position: "object-[center_70%]",
   },
@@ -129,7 +129,7 @@ const causes = [
     title: "Environment",
     description: "Conservation of local habitats, trees and rivers.",
     href: "/social-responsibility/environmental",
-    src: "/images/causes/landscape-guardians.jpg",
+    src: "/images/causes/landscape-guardians.webp",
     alt: "Tall trees on a forested hillside",
     position: "object-center",
   },
@@ -137,7 +137,7 @@ const causes = [
     title: "Empowerment",
     description: "Skills, livelihoods and digital access for communities.",
     href: "/social-responsibility/empowerment",
-    src: "/images/causes/empowerment-sewing.jpg",
+    src: "/images/causes/empowerment-sewing.webp",
     alt: "A smiling woman standing beside a sewing machine in a small shop",
     position: "object-center",
   },
@@ -158,7 +158,7 @@ export default function Team() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/causes/community-planning.jpg"
+        image="/images/causes/community-planning.webp"
         imageAlt="Women at a village meeting, one of them writing notes"
         imagePosition="object-[center_30%]"
         breadcrumbs={[{ label: "About us", href: "/about" }, { label: "Team & governance" }]}
@@ -327,7 +327,7 @@ export default function Team() {
       </Section>
 
       {/* EXECUTIVE TEAM */}
-      <DarkBand image="/images/causes/landscape-guardians.jpg" imagePosition="object-[center_70%]" labelledBy="daily-heading">
+      <DarkBand image="/images/causes/landscape-guardians.webp" imagePosition="object-[center_70%]" labelledBy="daily-heading">
         <SectionHeader
           id="daily-heading"
           tone="dark"

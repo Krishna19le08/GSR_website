@@ -35,7 +35,7 @@ const areas = [
     title: "Environment",
     description: "Native tree planting and land restoration, run with the people who live on that land.",
     href: "/social-responsibility/environmental",
-    src: "/images/causes/landscape-guardians.jpg",
+    src: "/images/causes/landscape-guardians.webp",
     alt: "Tall trees on a forested hillside",
     position: "object-center",
   },
@@ -43,7 +43,7 @@ const areas = [
     title: "Education",
     description: "After-school learning and digital skills for children and young people.",
     href: "/social-responsibility/education",
-    src: "/images/causes/youth-learning.jpg",
+    src: "/images/causes/youth-learning.webp",
     alt: "Children sitting at desks in a decorated village classroom",
     position: "object-[center_70%]",
   },
@@ -51,7 +51,7 @@ const areas = [
     title: "Empowerment and livelihoods",
     description: "Practical training that leads to work and income.",
     href: "/social-responsibility/empowerment",
-    src: "/images/causes/empowerment-sewing.jpg",
+    src: "/images/causes/empowerment-sewing.webp",
     alt: "A woman smiling beside a sewing machine in a small shop",
     position: "object-[70%_center]",
   },
@@ -131,7 +131,7 @@ export default function Partner() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/causes/community-planning.jpg"
+        image="/images/causes/community-planning.webp"
         imageAlt="Women at a village meeting, one of them writing notes"
         imagePosition="object-[center_40%]"
         breadcrumbs={[{ label: "Partner with us" }]}
@@ -191,7 +191,7 @@ export default function Partner() {
       </Section>
 
       {/* TRUST */}
-      <DarkBand image="/images/causes/landscape-guardians.jpg" imagePosition="object-[center_30%]" labelledBy="trust-heading">
+      <DarkBand image="/images/causes/landscape-guardians.webp" imagePosition="object-[center_30%]" labelledBy="trust-heading">
         <SectionHeader
           id="trust-heading"
           tone="dark"

@@ -94,7 +94,7 @@ const areas = [
     title: "Environment",
     description: "Native tree planting and land restoration with local communities.",
     href: "/social-responsibility/environmental",
-    src: "/images/causes/landscape-guardians.jpg",
+    src: "/images/causes/landscape-guardians.webp",
     alt: "Tall trees on a forested hillside",
     position: "object-center",
   },
@@ -102,7 +102,7 @@ const areas = [
     title: "Education",
     description: "After-school classes and digital skills for children and young people.",
     href: "/social-responsibility/education",
-    src: "/images/causes/youth-learning.jpg",
+    src: "/images/causes/youth-learning.webp",
     alt: "Children sitting at desks in a decorated village classroom",
     position: "object-[center_75%]",
   },
@@ -110,7 +110,7 @@ const areas = [
     title: "Empowerment",
     description: "Practical training that leads to work and income.",
     href: "/social-responsibility/empowerment",
-    src: "/images/causes/empowerment-sewing.jpg",
+    src: "/images/causes/empowerment-sewing.webp",
     alt: "A woman smiling beside a sewing machine in a small shop",
     position: "object-[70%_center]",
   },
@@ -120,7 +120,7 @@ export default function Join() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/hero/hero_1.jpg"
+        image="/images/hero/hero_1.webp"
         imageAlt="Children sitting together on the ground outside a school building"
         imagePosition="object-[center_55%]"
         breadcrumbs={[{ label: "Get involved" }]}
@@ -147,7 +147,7 @@ export default function Join() {
       {/* VOLUNTEERING */}
       <Section tone="sand" labelledBy="volunteer-heading">
         <MediaSplit
-          image="/images/causes/youth-learning.jpg"
+          image="/images/causes/youth-learning.webp"
           imageAlt="Children sitting at desks in a decorated village classroom"
           imagePosition="object-[center_30%]"
           ratio="4/5"
@@ -181,7 +181,7 @@ export default function Join() {
       </Section>
 
       {/* WHAT HAPPENS NEXT */}
-      <DarkBand image="/images/causes/landscape-guardians.jpg" labelledBy="next-heading">
+      <DarkBand image="/images/causes/landscape-guardians.webp" labelledBy="next-heading">
         <SectionHeader
           id="next-heading"
           tone="dark"

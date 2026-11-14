@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/ResponsiveImage";
 import {
   ActionTiles,
   Button,
@@ -27,7 +27,7 @@ const projects = [
     tag: "Digital",
     description: "Free websites and digital tools for grassroots NGOs, so they spend less time on paperwork.",
     href: "/gsr-tech",
-    src: "/images/causes/digital-rural.jpg",
+    src: "/images/causes/digital-rural.webp",
     alt: "A man in a rural field holding up a basic mobile phone",
     position: "object-[70%_center]",
   },
@@ -36,7 +36,7 @@ const projects = [
     tag: "Dignity",
     description: "Community rallies against child trafficking that give survivors and their families a voice.",
     href: "/social-responsibility/empowerment",
-    src: "/images/causes/hero-community.jpg",
+    src: "/images/causes/hero-community.webp",
     alt: "A large group of women seated together outdoors at a village gathering",
     position: "object-center",
   },
@@ -45,7 +45,7 @@ const projects = [
     tag: "Education",
     description: "After-school classes for children who don't have a good school nearby.",
     href: "/social-responsibility/education",
-    src: "/images/causes/youth-learning.jpg",
+    src: "/images/causes/youth-learning.webp",
     alt: "Children sitting at desks in a decorated village classroom",
     position: "object-[center_70%]",
   },
@@ -54,7 +54,7 @@ const projects = [
     tag: "Empowerment",
     description: "Basic digital literacy classes in tribal communities.",
     href: "/social-responsibility/empowerment",
-    src: "/images/causes/community-planning.jpg",
+    src: "/images/causes/community-planning.webp",
     alt: "Women at a village meeting, one of them writing notes",
     position: "object-center",
   },
@@ -63,7 +63,7 @@ const projects = [
     tag: "Environment",
     description: "Native tree planting and land restoration, run by local communities.",
     href: "/social-responsibility/environmental",
-    src: "/images/causes/landscape-guardians.jpg",
+    src: "/images/causes/landscape-guardians.webp",
     alt: "Tall trees on a forested hillside",
     position: "object-center",
   },
@@ -116,7 +116,7 @@ export default function Home() {
       {/* HERO */}
       <section className="surface-dark relative isolate flex min-h-[calc(100svh-4rem)] items-end overflow-hidden bg-banyan-deep lg:min-h-[min(calc(100svh-5rem),880px)]">
         <Image
-          src="/images/hero/hero_1.jpg"
+          src="/images/hero/hero_1.webp"
           alt="Children sitting together on the ground outside a school building"
           fill
           preload
@@ -197,7 +197,7 @@ export default function Home() {
       {/* FOUNDER */}
       <Section tone="sand" labelledBy="founder-heading">
         <MediaSplit
-          image="/images/team/zehra-fathima.png"
+          image="/images/team/zehra-fathima.webp"
           imageAlt="Portrait of Zehra Fathima, founder of GSR"
           imagePosition="object-top"
           ratio="4/5"
@@ -242,7 +242,7 @@ export default function Home() {
       </Section>
 
       {/* COMMITMENTS */}
-      <DarkBand image="/images/causes/landscape-guardians.jpg" labelledBy="promises-heading">
+      <DarkBand image="/images/causes/landscape-guardians.webp" labelledBy="promises-heading">
         <SectionHeader
           id="promises-heading"
           tone="dark"

@@ -25,7 +25,7 @@ export default function ContactPage() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/causes/hero-community.jpg"
+        image="/images/causes/hero-community.webp"
         imageAlt="A large group of women seated together outdoors at a village gathering"
         imagePosition="object-[center_65%]"
         breadcrumbs={[{ label: "Contact" }]}

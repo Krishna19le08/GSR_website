@@ -167,7 +167,7 @@ export default function GsrTech() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/causes/digital-rural.jpg"
+        image="/images/causes/digital-rural.webp"
         imageAlt="A man in a rural field holding up a basic mobile phone"
         imagePosition="object-[70%_center]"
         breadcrumbs={[{ label: "GSR Tech" }]}
@@ -219,7 +219,7 @@ export default function GsrTech() {
       {/* WHY */}
       <Section tone="white" labelledBy="why-heading">
         <MediaSplit
-          image="/images/causes/community-planning.jpg"
+          image="/images/causes/community-planning.webp"
           imageAlt="Women at a village meeting, one of them writing notes"
           imagePosition="object-[40%_center]"
           ratio="4/5"
@@ -251,7 +251,7 @@ export default function GsrTech() {
       </Section>
 
       {/* HOW IT WORKS */}
-      <DarkBand image="/images/causes/digital-rural.jpg" imagePosition="object-[20%_center]" labelledBy="how-heading">
+      <DarkBand image="/images/causes/digital-rural.webp" imagePosition="object-[20%_center]" labelledBy="how-heading">
         <SectionHeader
           id="how-heading"
           tone="dark"

@@ -78,7 +78,7 @@ export default function News() {
   return (
     <main className="flex flex-1 flex-col">
       <PageHero
-        image="/images/causes/community-planning.jpg"
+        image="/images/causes/community-planning.webp"
         imageAlt="Women at a village meeting, one of them writing notes"
         imagePosition="object-[center_35%]"
         breadcrumbs={[{ label: "News & events" }]}
@@ -113,7 +113,7 @@ export default function News() {
       {/* EVENTS */}
       <Section tone="sand" labelledBy="events-heading">
         <MediaSplit
-          image="/images/hero/hero_1.jpg"
+          image="/images/hero/hero_1.webp"
           imageAlt="Children sitting together on the ground outside a school building"
           imagePosition="object-[30%_center]"
           ratio="4/5"
@@ -150,7 +150,7 @@ export default function News() {
       </Section>
 
       {/* MEDIA */}
-      <DarkBand image="/images/causes/landscape-guardians.jpg" labelledBy="media-heading">
+      <DarkBand image="/images/causes/landscape-guardians.webp" labelledBy="media-heading">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[7fr_5fr] lg:items-end lg:gap-20">
           <SectionHeader
             id="media-heading"

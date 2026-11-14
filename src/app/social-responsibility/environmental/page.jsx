@@ -19,14 +19,14 @@ export default function Environmental() {
       title="Environmental protection"
       intro="We work with local communities on conservation, restoration and environmental awareness, covering forests, rivers, wetlands, wildlife and the coast."
       hero={{
-        src: "/images/causes/landscape-guardians.jpg",
+        src: "/images/causes/landscape-guardians.webp",
         alt: "Tall trees on a forested hillside",
         position: "object-[center_40%]",
       }}
       overview={{
         heading: "Conservation run with the people who live on the land",
         image: {
-          src: "/images/causes/community-planning.jpg",
+          src: "/images/causes/community-planning.webp",
           alt: "Women at a village meeting, one of them writing notes",
           position: "object-[30%_center]",
         },
@@ -38,7 +38,7 @@ export default function Environmental() {
       focus={{
         lede: "Open each area to see the work it covers.",
         image: {
-          src: "/images/causes/landscape-guardians.jpg",
+          src: "/images/causes/landscape-guardians.webp",
           alt: "Tree trunks and green undergrowth on a forest slope",
           position: "object-[75%_center]",
         },
@@ -111,7 +111,7 @@ export default function Environmental() {
         ],
       }}
       reporting={{
-        image: "/images/causes/community-planning.jpg",
+        image: "/images/causes/community-planning.webp",
         imagePosition: "object-[70%_center]",
         heading: "What we will publish from each project",
         lede: "GSR was registered in 2026. As our first environmental projects run, we will publish:",

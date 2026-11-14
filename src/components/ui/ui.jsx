@@ -1,5 +1,5 @@
 import { Children } from "react";
-import Image from "next/image";
+import Image from "./ResponsiveImage";
 import Link from "next/link";
 import ImagePlaceholder from "./ImagePlaceholder";
 import Icon from "./icons";
