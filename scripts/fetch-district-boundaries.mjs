@@ -1,7 +1,7 @@
 // One-off script: downloads per-state district boundary topojson from
 // guneetnarula/indian-district-boundaries (MIT licensed) and converts each
-// to a plain GeoJSON FeatureCollection under public/data/districts/<id>.json,
-// keyed by the same state `id` slug used in app/data/states-data.js.
+// to a plain GeoJSON FeatureCollection under public/data/geo/districts/<id>.json,
+// keyed by the same state `id` slug used in src/content/states-data.js.
 //
 // Run once with `node scripts/fetch-district-boundaries.mjs`; not part of
 // the app's runtime or build.
@@ -52,7 +52,7 @@ const FILE_TO_STATE_ID = {
   westbengal: "west-bengal",
 };
 
-mkdirSync("public/data/districts", { recursive: true });
+mkdirSync("public/data/geo/districts", { recursive: true });
 
 for (const [file, stateId] of Object.entries(FILE_TO_STATE_ID)) {
   const res = await fetch(`${BASE}${file}.json`);
@@ -72,6 +72,6 @@ for (const [file, stateId] of Object.entries(FILE_TO_STATE_ID)) {
     properties: { district: f.properties.district ?? f.properties.dtname },
   }));
 
-  writeFileSync(`public/data/districts/${stateId}.json`, JSON.stringify(geojson));
+  writeFileSync(`public/data/geo/districts/${stateId}.json`, JSON.stringify(geojson));
   console.log(`${stateId}: ${geojson.features.length} districts`);
 }
