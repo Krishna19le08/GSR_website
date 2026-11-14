@@ -444,3 +444,16 @@ export function getStates() {
 export function getStateById(id) {
   return sampleStates.find((state) => state.id === id) ?? null;
 }
+
+// Fields the client components (IndiaStateMapSection, IndiaStateMap,
+// StateRatingExplorer, rating.js) read. The full record also carries
+// grantees and department fund splits, which only the server-rendered
+// state pages use; leaving them out keeps them out of the RSC payload.
+const CLIENT_STATE_FIELDS = [
+  "id", "name", "type", "region", "abbr", "photoUrl", "population", "gsdpCr",
+  "csrIntensityPct", "annualIncomeGrowthPct", "pillars", "scoreTrend",
+];
+
+export function toClientState(state) {
+  return Object.fromEntries(CLIENT_STATE_FIELDS.map((k) => [k, state[k]]));
+}

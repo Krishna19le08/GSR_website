@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "npm run build:data",
     "dev": "next dev",
+    "prebuild": "npm run build:data",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "optimize:images": "node scripts/optimize-images.mjs",
-    "build:geo": "node scripts/simplify-geojson.mjs"
+    "build:data": "node --import ./scripts/lib/register-aliases.mjs scripts/build-csr-data.mjs",
+    "build:geo": "node scripts/simplify-geojson.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

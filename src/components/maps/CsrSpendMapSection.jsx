@@ -1,8 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SCALE } from "@/lib/csr/state-spend";
+import { stateDistrictsUrl } from "@/lib/csr/state-projects-url";
 
 const CsrSpendMap = dynamic(() => import("./CsrSpendMap"), {
   ssr: false,
@@ -35,6 +36,23 @@ export default function CsrSpendMapSection({ data, financialYear, projects = [] 
   const active = byKey.get(hovered ?? pinned) ?? states[0];
   const activeProjects = projectsByKey.get(active.key);
   const pinnedProjects = pinned ? projectsByKey.get(pinned) : null;
+
+  // Full per-district breakdown for the pinned state, fetched on click
+  // (public/data/csr/districts/<key>.json, from scripts/build-csr-data.mjs).
+  const [districtData, setDistrictData] = useState({});
+  const pinnedKey = pinnedProjects?.hasDistricts ? pinnedProjects.key : null;
+  useEffect(() => {
+    if (!pinnedKey || districtData[pinnedKey]) return undefined;
+    let cancelled = false;
+    fetch(stateDistrictsUrl(pinnedKey))
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`HTTP ${res.status}`))))
+      .then((rows) => !cancelled && setDistrictData((prev) => ({ ...prev, [pinnedKey]: rows })))
+      .catch(() => !cancelled && setDistrictData((prev) => ({ ...prev, [pinnedKey]: "error" })));
+    return () => {
+      cancelled = true;
+    };
+  }, [pinnedKey, districtData]);
+  const pinnedDistricts = pinnedKey ? districtData[pinnedKey] : null;
   const share = stateTotal ? (active.total / stateTotal) * 100 : 0;
   const topSectorMax = active.sectors[0]?.amount || 1;
   const topDistrictMax = activeProjects?.topDistricts[0]?.amount || 1;
@@ -134,12 +152,22 @@ export default function CsrSpendMapSection({ data, financialYear, projects = [] 
             {pinnedProjects?.name ?? byKey.get(pinned)?.name ?? pinned} · districts
           </p>
           <div className="mt-4">
-            {pinnedProjects && pinnedProjects.districts.length > 0 ? (
-              <CsrDistrictMap
-                stateId={pinnedProjects.stateId}
-                stateName={pinnedProjects.name}
-                districts={pinnedProjects.districts}
-              />
+            {pinnedProjects?.hasDistricts ? (
+              Array.isArray(pinnedDistricts) ? (
+                <CsrDistrictMap
+                  stateId={pinnedProjects.stateId}
+                  stateName={pinnedProjects.name}
+                  districts={pinnedDistricts}
+                />
+              ) : pinnedDistricts === "error" ? (
+                <p className="text-sm text-ink-soft">
+                  Couldn&rsquo;t load the district breakdown. Please refresh and try again.
+                </p>
+              ) : (
+                <div className="flex h-[320px] animate-pulse items-center justify-center bg-paper-deep text-sm text-ink-soft">
+                  Loading district map…
+                </div>
+              )
             ) : (
               <p className="text-sm text-ink-soft">
                 No district-level project data is recorded for this state in the current dataset.

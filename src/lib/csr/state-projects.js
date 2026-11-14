@@ -151,3 +151,16 @@ export function getCsrStateProjects() {
     };
   });
 }
+
+
+// Props for CsrSpendMapSection. The hover panel only shows each state's top
+// districts by name and amount; the full per-district breakdown (used once a
+// state is clicked) is written to public/data/csr/districts/<key>.json by
+// scripts/build-csr-data.mjs and fetched on demand.
+export function getCsrStateProjectSummaries(projects = getCsrStateProjects()) {
+  return projects.map(({ districts, topDistricts, ...rest }) => ({
+    ...rest,
+    topDistricts: topDistricts.map(({ district, amount }) => ({ district, amount: Math.round(amount * 100) / 100 })),
+    hasDistricts: districts.length > 0,
+  }));
+}

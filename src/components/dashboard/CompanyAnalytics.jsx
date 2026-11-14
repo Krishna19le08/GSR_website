@@ -1,8 +1,56 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { COMPANIES_URL, decodeCompanies } from "@/lib/csr/company-codec";
 
 const PAGE_SIZE = 25;
+
+// false during server rendering and hydration, true afterwards.
+const noopSubscribe = () => () => {};
+const useHydrated = () => useSyncExternalStore(noopSubscribe, () => true, () => false);
+
+// The full company list is fetched (once) when the table gets near the
+// viewport or on the first search/filter/sort/page action. Until then the
+// table shows the server-rendered first page, which is identical to page 1
+// of the default view.
+function useCompanyList(sectionRef) {
+  const [companies, setCompanies] = useState(null);
+  const [failed, setFailed] = useState(false);
+  const requested = useRef(false);
+
+  const load = useCallback(() => {
+    if (requested.current) return;
+    requested.current = true;
+    fetch(COMPANIES_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((json) => setCompanies(decodeCompanies(json)))
+      .catch(() => {
+        requested.current = false;
+        setFailed(true);
+      });
+  }, []);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return undefined;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          load();
+          io.disconnect();
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [sectionRef, load]);
+
+  return { companies, failed, load };
+}
 
 const cr = (rupees) =>
   `₹${(rupees / 1e7).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Cr`;
@@ -30,11 +78,11 @@ function BarRow({ label, value, max, right, color = "bg-banyan" }) {
   );
 }
 
-function ParetoChart({ points }) {
+// `points` are already thinned to ~100 on the server; `count` is the full
+// number of companies, which sets the x scale.
+function ParetoChart({ points: pts, count }) {
   const W = 400, H = 160, P = 28;
-  const step = Math.max(1, Math.floor(points.length / 100));
-  const pts = points.filter((p, i) => i % step === 0 || i === points.length - 1);
-  const x = (r) => P + ((r - 1) / Math.max(1, points.length - 1)) * (W - P - 8);
+  const x = (r) => P + ((r - 1) / Math.max(1, count - 1)) * (W - P - 8);
   const y = (s) => H - 20 - s * (H - 20 - 8);
   const d = pts.map((p, i) => `${i ? "L" : "M"}${x(p.rank).toFixed(1)},${y(p.share).toFixed(1)}`).join(" ");
   return (
@@ -63,16 +111,20 @@ const COLUMNS = [
 export default function CompanyAnalytics({ data, mapSection }) {
   const {
     kpis,
-    companies,
     buckets,
     byListing,
     byOwnership,
-    cumulative,
+    pareto,
+    top10,
+    firstPage,
     sectorOptions = [],
     stateOptions = [],
-    districtOptions = [],
     districtsByState = {},
+    yearOptions = [],
+    ownershipOptions = [],
   } = data;
+  const tableRef = useRef(null);
+  const { companies, failed, load } = useCompanyList(tableRef);
   const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("rank");
@@ -85,12 +137,22 @@ export default function CompanyAnalytics({ data, mapSection }) {
   const [ownership, setOwnership] = useState("all");
   const [page, setPage] = useState(0);
 
-  const yearOptions = useMemo(() => [...new Set(companies.flatMap((c) => c.years))].sort(), [companies]);
-  const ownershipOptions = useMemo(() => [...new Set(companies.map((c) => c.ownership))].sort(), [companies]);
+  // The full district list is the union of every state's districts. Its ~500
+  // <option>s are rendered only after hydration to keep them out of the HTML
+  // (the select can't filter anything before JavaScript runs anyway).
+  const hydrated = useHydrated();
+  const districtOptions = useMemo(
+    () => [...new Set(Object.values(districtsByState).flat())].sort(),
+    [districtsByState],
+  );
+  const availableDistricts = !hydrated ? [] : state === "all" ? districtOptions : districtsByState[state] ?? [];
 
-  const availableDistricts = state === "all" ? districtOptions : districtsByState[state] ?? [];
+  const isDefaultView =
+    !search && sortBy === "rank" && dir === "asc" && listing === "all" && sector === "all" &&
+    state === "all" && district === "all" && year === "all" && ownership === "all";
 
   const rows = useMemo(() => {
+    if (!companies) return null;
     const q = search.trim().toLowerCase();
     const filtered = companies.filter(
       (c) =>
@@ -110,9 +172,20 @@ export default function CompanyAnalytics({ data, mapSection }) {
     });
   }, [companies, search, sortBy, dir, listing, sector, state, district, year, ownership]);
 
-  const pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  // Before the full list arrives: the default view's first page is known
+  // (server-rendered); any other view waits for the data.
+  const pending = !rows;
+  const resultCount = rows ? rows.length : kpis.count;
+  const pages = Math.max(1, Math.ceil(resultCount / PAGE_SIZE));
   const safePage = Math.min(page, pages - 1);
-  const visible = rows.slice(safePage * PAGE_SIZE, (safePage + 1) * PAGE_SIZE);
+  // While waiting, keep showing the first page (dimmed) rather than an empty table.
+  const visible = rows ? rows.slice(safePage * PAGE_SIZE, (safePage + 1) * PAGE_SIZE) : firstPage;
+  const waiting = pending && !(isDefaultView && safePage === 0);
+
+  // Any table interaction needs the full list.
+  useEffect(() => {
+    if (!isDefaultView || page > 0) load();
+  }, [isDefaultView, page, load]);
 
   function toggleSort(key) {
     if (sortBy === key) {
@@ -136,7 +209,6 @@ export default function CompanyAnalytics({ data, mapSection }) {
     { value: kpis.zeroSpend.toLocaleString("en-IN"), label: "Companies with Zero Spend" },
   ];
 
-  const top10 = companies.slice(0, 10);
   const maxBucket = Math.max(...buckets.map((b) => b.count));
   const maxOwn = Math.max(...byOwnership.map((o) => o.total));
 
@@ -172,7 +244,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
         </Panel>
 
         <Panel title="Concentration curve" sub="Cumulative share of total spend, companies ranked high to low">
-          <ParetoChart points={cumulative} />
+          <ParetoChart points={pareto.points} count={pareto.count} />
         </Panel>
 
         <Panel title="Spend by company type" sub="Derived from the CIN ownership code">
@@ -189,7 +261,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
         </Panel>
       </div>
 
-      <section className="mt-10">
+      <section ref={tableRef} className="mt-10">
         <h2 className="font-display text-2xl font-semibold text-ink">All companies</h2>
         <form
           onSubmit={(e) => { e.preventDefault(); setSearch(searchInput.trim()); setPage(0); }}
@@ -278,7 +350,9 @@ export default function CompanyAnalytics({ data, mapSection }) {
               <option key={o} value={o}>{o}</option>
             ))}
           </select>
-          <span className="text-xs text-ink-soft">{rows.length} results</span>
+          <span className="text-xs text-ink-soft" aria-live="polite">
+            {failed ? "Couldn't load the company list. Please refresh." : waiting ? "Loading…" : `${resultCount} results`}
+          </span>
         </form>
 
         <div className="mt-4 overflow-x-auto">
@@ -305,7 +379,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
                 )}
               </tr>
             </thead>
-            <tbody>
+            <tbody className={waiting ? "opacity-50" : undefined} aria-busy={waiting || undefined}>
               {visible.map((c) => (
                 <tr key={c.cin || c.name} className="border-b border-clay/60">
                   <td className="py-3 pr-4 font-mono text-ink-soft">{c.rank}</td>

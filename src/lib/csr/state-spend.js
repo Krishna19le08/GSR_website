@@ -82,3 +82,22 @@ export function colorFor(value, max) {
   const t = Math.sqrt(value / max);
   return SCALE[Math.min(SCALE.length - 1, Math.floor(t * SCALE.length))];
 }
+
+// Client props for CsrSpendMapSection. Amounts (₹ crore) are displayed with
+// two decimals, so they are rounded to two decimals here to drop float noise
+// (e.g. 8630.800000000003) from the serialized page payload.
+const round2 = (n) => Math.round(n * 100) / 100;
+export function toClientStateSpend(data) {
+  return {
+    ...data,
+    panIndia: round2(data.panIndia),
+    stateTotal: round2(data.stateTotal),
+    grandTotal: round2(data.grandTotal),
+    max: round2(data.max),
+    states: data.states.map((s) => ({
+      ...s,
+      total: round2(s.total),
+      sectors: s.sectors.map(({ sector, amount }) => ({ sector, amount: round2(amount) })),
+    })),
+  };
+}

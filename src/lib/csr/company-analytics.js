@@ -125,3 +125,33 @@ export function getCsrCompanyAnalytics() {
     cumulative,
   };
 }
+
+export const COMPANY_PAGE_SIZE = 25;
+
+// Props for the CompanyAnalytics client component: everything it renders
+// before the full company list is needed (KPIs, charts, filter options and
+// the first table page in default rank order). The full list is fetched
+// on demand from public/data/csr/companies.json (see company-codec.js).
+export function getCsrCompanySummary(data = getCsrCompanyAnalytics()) {
+  const { companies, cumulative } = data;
+  // Same thinning the concentration chart applies when drawing (~100 points).
+  const step = Math.max(1, Math.floor(cumulative.length / 100));
+  const paretoPoints = cumulative
+    .filter((p, i) => i % step === 0 || i === cumulative.length - 1)
+    .map(({ rank, share }) => ({ rank, share: Math.round(share * 1e4) / 1e4 }));
+  return {
+    financialYear: data.financialYear,
+    kpis: data.kpis,
+    buckets: data.buckets,
+    byListing: data.byListing,
+    byOwnership: data.byOwnership,
+    pareto: { count: cumulative.length, points: paretoPoints },
+    top10: companies.slice(0, 10).map(({ name, cin, rank, amountSpent }) => ({ name, cin, rank, amountSpent })),
+    firstPage: companies.slice(0, COMPANY_PAGE_SIZE).map(({ districts, states, years, ...row }) => row),
+    sectorOptions: data.sectorOptions,
+    stateOptions: data.stateOptions,
+    districtsByState: data.districtsByState,
+    yearOptions: [...new Set(companies.flatMap((c) => c.years))].sort(),
+    ownershipOptions: [...new Set(companies.map((c) => c.ownership))].sort(),
+  };
+}

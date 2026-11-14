@@ -8,12 +8,12 @@ import IndiaStateMapSection from "@/components/maps/IndiaStateMapSection";
 import StateRatingExplorer from "@/components/dashboard/StateRatingExplorer";
 import CompanyAnalytics from "@/components/dashboard/CompanyAnalytics";
 import CsrSpendMapSection from "@/components/maps/CsrSpendMapSection";
-import { getStates, DEPARTMENTS } from "@/content/states-data";
+import { getStates, toClientState, DEPARTMENTS } from "@/content/states-data";
 import { getInstructors } from "@/content/instructors-data";
-import { getCsrCompanyAnalytics } from "@/lib/csr/company-analytics";
-import { getCsrStateSpend } from "@/lib/csr/state-spend";
+import { getCsrCompanySummary } from "@/lib/csr/company-analytics";
+import { getCsrStateSpend, toClientStateSpend } from "@/lib/csr/state-spend";
 import { SPEND_FINANCIAL_YEAR } from "@/lib/csr/state-spend";
-import { getCsrStateProjects } from "@/lib/csr/state-projects";
+import { getCsrStateProjectSummaries } from "@/lib/csr/state-projects";
 
 const DEPT_COLORS = [
   "#1f4a44", "#c98a11", "#5b7b74", "#a8710b", "#8a8371",
@@ -29,10 +29,14 @@ export const metadata = {
 export default function CsrTracker() {
   const states = getStates();
   const instructors = getInstructors();
-  const statesById = new Map(states.map((s) => [s.id, s]));
-  const companyData = getCsrCompanyAnalytics();
-  const stateSpend = getCsrStateSpend();
-  const stateProjects = getCsrStateProjects();
+  // Client components only get the fields they render (see toClientState,
+  // getCsrCompanySummary, getCsrStateProjectSummaries); bulky detail is
+  // fetched on demand from public/data/csr/ (scripts/build-csr-data.mjs).
+  const clientStates = states.map(toClientState);
+  const stateNamesById = new Map(states.map((s) => [s.id, { name: s.name }]));
+  const companyData = getCsrCompanySummary();
+  const stateSpend = toClientStateSpend(getCsrStateSpend());
+  const stateProjects = getCsrStateProjectSummaries();
 
   const totalGsdpCr = states.reduce((sum, s) => sum + s.gsdpCr, 0);
   const totalPopulation = states.reduce((sum, s) => sum + s.population, 0);
@@ -188,7 +192,7 @@ export default function CsrTracker() {
             full fund allocation and grantee record.
           </p>
           <div className="mt-8">
-            <IndiaStateMapSection states={states} />
+            <IndiaStateMapSection states={clientStates} />
           </div>
         </div>
       </section>
@@ -225,7 +229,7 @@ export default function CsrTracker() {
             projection.
           </p>
           <div className="mt-8">
-            <StateRatingExplorer states={states} />
+            <StateRatingExplorer states={clientStates} />
           </div>
         </div>
       </section>
@@ -238,7 +242,7 @@ export default function CsrTracker() {
             25 instructors, assigned by region
           </h2>
           <div className="mt-8">
-            <InstructorDirectory instructors={instructors} statesById={statesById} />
+            <InstructorDirectory instructors={instructors} statesById={stateNamesById} />
           </div>
         </div>
       </section>
