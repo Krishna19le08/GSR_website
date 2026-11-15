@@ -318,7 +318,7 @@ export default function Navbar() {
           <Link
             href={donateNav.href}
             aria-current={donateActive ? "page" : undefined}
-            className="inline-flex min-h-10 items-center justify-center rounded-full bg-marigold px-5 text-sm font-semibold text-ink transition-colors hover:bg-gold-hover lg:min-h-11 lg:px-6 lg:text-[0.9375rem]"
+            className="hidden min-h-10 items-center justify-center rounded-full bg-marigold px-5 text-sm font-semibold text-ink transition-colors hover:bg-gold-hover md:inline-flex lg:min-h-11 lg:px-6 lg:text-[0.9375rem]"
           >
             {donateNav.label}
           </Link>
@@ -360,6 +360,15 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="mt-6 grid grid-cols-2 gap-3">
+            {/* The header's Donate pill is hidden on phones, so it lives here. */}
+            <Link
+              href={donateNav.href}
+              onClick={closeMobile}
+              aria-current={donateActive ? "page" : undefined}
+              className="col-span-2 inline-flex min-h-12 items-center justify-center rounded-full bg-marigold text-[0.9375rem] font-semibold text-ink md:hidden"
+            >
+              {donateNav.label}
+            </Link>
             <Link
               href="/join"
               onClick={closeMobile}

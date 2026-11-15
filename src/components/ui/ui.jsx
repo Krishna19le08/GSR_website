@@ -329,8 +329,12 @@ export function PageHero({
 
       <Container className="pb-14 pt-28 md:pb-20">
         {crumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 rounded-full bg-black/40 px-4 py-1.5 text-sm text-white backdrop-blur-sm">
+          // Visually hidden by request; kept for screen readers.
+          <nav aria-label="Breadcrumb" className="sr-only">
+            {/* No pill background: over dark photos its edge vanished and the
+                inset text looked misaligned with the heading below. Plain text
+                on the same left edge, with a shadow for legibility. */}
+            <ol className="flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white [text-shadow:0_1px_8px_rgb(0_0_0/0.6)]">
               {crumbs.map((c, i) => {
                 const last = i === crumbs.length - 1;
                 return (

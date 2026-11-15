@@ -63,6 +63,10 @@ const people = [
   },
 ];
 
+// The org-chart section is hidden on request. Flip to true to show it again
+// (and the hero's "See the structure" button that jumps to it).
+const SHOW_ORG_STRUCTURE = false;
+
 // Organisation structure (from GSR's official org chart).
 // `holder` shows the name under a Board seat when it is filled publicly.
 const boardSeats = [
@@ -167,7 +171,7 @@ export default function Team() {
         lede="How decisions are made at GSR, and who oversees the money, partnerships and projects."
         actions={[
           { label: "Join GSR", href: "/join" },
-          { label: "See the structure", href: "#structure" },
+          ...(SHOW_ORG_STRUCTURE ? [{ label: "See the structure", href: "#structure" }] : []),
         ]}
       />
 
@@ -227,7 +231,8 @@ export default function Team() {
         </ul>
       </Section>
 
-      {/* ORG STRUCTURE */}
+      {/* ORG STRUCTURE (hidden for now; set SHOW_ORG_STRUCTURE to bring it back) */}
+      {SHOW_ORG_STRUCTURE && (
       <Section tone="white" id="structure" labelledBy="structure-heading">
         <SectionHeader
           id="structure-heading"
@@ -301,6 +306,7 @@ export default function Team() {
           </div>
         </div>
       </Section>
+      )}
 
       {/* SUB-COMMITTEES */}
       <Section tone="sand" id="committees" labelledBy="committees-heading">
