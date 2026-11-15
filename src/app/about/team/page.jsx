@@ -83,15 +83,15 @@ const committees = [
   { icon: "scale", title: "PoSH Committee", desc: "Prevents and handles workplace sexual harassment, as required by law." },
   { icon: "shield", title: "Child Protection Committee", desc: "Keeps children safe across all programmes and partnerships." },
   { icon: "compass", title: "Program & Development Committee", desc: "Plans programmes and reviews new project proposals." },
-  { icon: "heart", title: "Fundraising Committee", desc: "Plans fundraising and looks after donor relations." },
-  { icon: "chart", title: "Audit & Finance Committee", desc: "Budgets, accounts and internal audit." },
-  { icon: "receipt", title: "Procurement Committee", desc: "Oversees purchasing so spending is fair and documented." },
+  { icon: "heart", title: "Fundraising Committee", desc: "Builds support for our work and looks after donor relations." },
+  { icon: "chart", title: "Audit & Finance Committee", desc: "Accounts, records and internal audit." },
+  { icon: "receipt", title: "Procurement Committee", desc: "Oversees purchasing so it is fair and documented." },
 ];
 
 const managers = [
   { icon: "users", title: "HR Manager", body: "Hiring, staff records and volunteer coordination." },
   { icon: "compass", title: "Program Manager", body: "Runs projects day to day and tracks their progress." },
-  { icon: "wallet", title: "Finance Manager", body: "Accounts, payments and financial reports." },
+  { icon: "wallet", title: "Finance Manager", body: "Accounts, records and yearly reports." },
   { icon: "megaphone", title: "Public Relationship Manager", body: "Media, communications and public relations." },
   { icon: "handshake", title: "Community Development Manager", body: "Works with the communities where projects run." },
   { icon: "heart", title: "Fundraising Manager", body: "Donors, CSR partners and fundraising campaigns." },
@@ -168,7 +168,7 @@ export default function Team() {
         breadcrumbs={[{ label: "About us", href: "/about" }, { label: "Team & governance" }]}
         eyebrow="Team & governance"
         title="How GSR is run"
-        lede="How decisions are made at GSR, and who oversees its funds, partnerships and projects."
+        lede="How decisions are made at GSR, and who oversees its partnerships and projects."
         actions={[
           { label: "Join GSR", href: "/join" },
           ...(SHOW_ORG_STRUCTURE ? [{ label: "See the structure", href: "#structure" }] : []),
@@ -181,7 +181,7 @@ export default function Team() {
           id="people-heading"
           eyebrow="Our people"
           title="Board of Trustees"
-          lede="The trustees set GSR's direction and oversee its funds, partnerships and projects."
+          lede="The trustees set GSR's direction and oversee its partnerships and projects."
         />
         <ul className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 sm:gap-x-8 lg:grid-cols-5 lg:gap-x-6">
           {people.map((p) => {

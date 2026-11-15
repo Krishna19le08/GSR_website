@@ -229,7 +229,7 @@ export default function Home() {
           id="csr-heading"
           eyebrow="CSR Tracker"
           title={`Where CSR funds go, across ${states.length} states and union territories`}
-          lede="Each state is coloured by its rating. The rating looks at CSR spend relative to state GDP and at year-on-year income growth. Click a state to see who received funds."
+          lede="Each state is coloured by its rating. The rating looks at CSR spend relative to state GDP and at year-on-year growth in CSR spend. Click a state to see who received support."
         />
         <div className="mt-12 overflow-hidden rounded-2xl shadow-[0_24px_48px_-28px_rgb(11_38_24/0.35)]">
           <IndiaStateMapSection states={states.map(toClientState)} />

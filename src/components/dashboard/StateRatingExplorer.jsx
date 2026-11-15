@@ -120,7 +120,7 @@ export default function StateRatingExplorer({ states }) {
 
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
               <Stat label="CSR vs GSDP" value={`${selected.csrIntensityPct.toFixed(2)}%`} />
-              <Stat label="Income Growth" value={`${selected.annualIncomeGrowthPct}%`} />
+              <Stat label="CSR Spend Growth" value={`${selected.annualIncomeGrowthPct}%`} />
               <Stat
                 label="Pillar Total"
                 value={`${pillarTotal(selected.pillars)}/${PILLAR_MAX_TOTAL}`}

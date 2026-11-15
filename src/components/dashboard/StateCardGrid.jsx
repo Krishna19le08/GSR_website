@@ -253,7 +253,7 @@ export default function StateCardGrid({ states, maxCompare = 4 }) {
                   <CompareRow label="Score" states={compareStates} get={(s) => s.score} />
                   <CompareRow label="GSDP" states={compareStates} get={(s) => lakhCr(s.gsdpCr)} />
                   <CompareRow label="CSR Spend vs GSDP" states={compareStates} get={(s) => `${s.csrIntensityPct.toFixed(2)}%`} />
-                  <CompareRow label="Annual Income Growth" states={compareStates} get={(s) => `${s.annualIncomeGrowthPct}%`} />
+                  <CompareRow label="Annual CSR Spend Growth" states={compareStates} get={(s) => `${s.annualIncomeGrowthPct}%`} />
                 </tbody>
               </table>
             </div>

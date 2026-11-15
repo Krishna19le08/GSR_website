@@ -97,7 +97,7 @@ export default async function StateDetail({ params }) {
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
             <StatCardRounded label="Government Grant" value={inr(totalGranteeCr)} />
             <StatCardRounded label="CSR Spend vs GSDP" value={`${state.csrIntensityPct.toFixed(2)}%`} />
-            <StatCardRounded label="Annual Income Growth" value={`${state.annualIncomeGrowthPct}%`} />
+            <StatCardRounded label="Annual CSR Spend Growth" value={`${state.annualIncomeGrowthPct}%`} />
             <StatCardRounded label="Pillar Total" value={`${pillarTotal(state.pillars)}/${PILLAR_MAX_TOTAL}`} />
           </div>
         </div>
