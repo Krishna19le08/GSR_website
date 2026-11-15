@@ -336,7 +336,10 @@ export function PageHero({
                 return (
                   <li key={`${c.label}-${i}`} className="inline-flex items-center gap-2">
                     {c.href && !last ? (
-                      <Link href={c.href} className="text-white/90 underline-offset-4 hover:text-white hover:underline">
+                      <Link
+                        href={c.href}
+                        className="-my-2 inline-flex min-h-9 items-center py-2 text-white/90 underline-offset-4 hover:text-white hover:underline"
+                      >
                         {c.label}
                       </Link>
                     ) : (

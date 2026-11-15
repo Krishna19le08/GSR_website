@@ -52,6 +52,8 @@ export default function StateRatingExplorer({ states }) {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <input
               type="text"
+              inputMode="search"
+              enterKeyHint="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search states or UTs…"
@@ -111,7 +113,7 @@ export default function StateRatingExplorer({ states }) {
 
             <Link
               href={`/csr-tracker/${selected.id}`}
-              className="mt-4 inline-flex items-center text-sm font-semibold text-banyan underline decoration-clay decoration-2 underline-offset-4 transition-colors hover:text-marigold-deep hover:decoration-marigold"
+              className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-banyan underline decoration-clay decoration-2 underline-offset-4 transition-colors hover:text-marigold-deep hover:decoration-marigold"
             >
               View full fund grantee details →
             </Link>

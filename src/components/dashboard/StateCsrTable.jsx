@@ -41,6 +41,8 @@ export default function StateCsrTable({ states }) {
     <div>
       <input
         type="text"
+        inputMode="search"
+        enterKeyHint="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search states or union territories…"

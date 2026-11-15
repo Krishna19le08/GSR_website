@@ -15,7 +15,7 @@ import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 const IndiaStateMap = dynamic(() => import("./IndiaStateMap"), {
   ssr: false,
   loading: () => (
-    <div className="flex h-full min-h-[420px] items-center justify-center bg-paper-deep text-sm text-ink-soft">
+    <div className="flex h-full min-h-[360px] items-center justify-center bg-paper-deep text-sm text-ink-soft">
       Loading map…
     </div>
   ),
@@ -24,6 +24,8 @@ const IndiaStateMap = dynamic(() => import("./IndiaStateMap"), {
 export default function IndiaStateMapSection({ states, basePath = "/csr-tracker" }) {
   const [hoveredId, setHoveredId] = useState(null);
   const [activeTier, setActiveTier] = useState(null);
+  // Tapped state on touch screens (no hover there); see IndiaStateMap.
+  const [selectedId, setSelectedId] = useState(null);
 
   const scoredStates = useMemo(
     () => states.map((state) => ({ ...state, score: compositeScore(state) })),
@@ -49,7 +51,8 @@ export default function IndiaStateMapSection({ states, basePath = "/csr-tracker"
   }, [scoredStates]);
 
   const hoveredState = hoveredId ? statesById.get(hoveredId) : null;
-  const previewState = hoveredState ?? topState;
+  const selectedState = selectedId ? statesById.get(selectedId) : null;
+  const previewState = hoveredState ?? selectedState ?? topState;
 
   return (
     <div className="border border-clay bg-paper">
@@ -58,7 +61,8 @@ export default function IndiaStateMapSection({ states, basePath = "/csr-tracker"
         <button
           type="button"
           onClick={() => setActiveTier(null)}
-          className={`inline-flex items-center gap-1.5 border px-3 py-1.5 text-xs font-semibold transition-colors ${
+          aria-pressed={activeTier === null}
+          className={`inline-flex min-h-10 items-center gap-1.5 border px-3 text-xs font-semibold transition-colors ${
             activeTier === null
               ? "border-ink bg-ink text-paper"
               : "border-clay text-ink-soft hover:border-ink/40 hover:text-ink"
@@ -71,7 +75,8 @@ export default function IndiaStateMapSection({ states, basePath = "/csr-tracker"
             key={tier.id}
             type="button"
             onClick={() => setActiveTier((current) => (current === tier.id ? null : tier.id))}
-            className={`inline-flex items-center gap-1.5 border px-3 py-1.5 text-xs font-semibold transition-colors ${
+            aria-pressed={activeTier === tier.id}
+            className={`inline-flex min-h-10 items-center gap-1.5 border px-3 text-xs font-semibold transition-colors ${
               activeTier === tier.id
                 ? "border-transparent text-paper"
                 : "border-clay text-ink-soft hover:border-ink/40 hover:text-ink"
@@ -93,13 +98,46 @@ export default function IndiaStateMapSection({ states, basePath = "/csr-tracker"
 
       {/* MAP + LIVE PREVIEW */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px]">
-        <div className="h-[460px] w-full border-b border-clay lg:border-b-0 lg:border-r">
+        <div className="relative h-[400px] w-full border-b border-clay sm:h-[460px] lg:border-b-0 lg:border-r">
           <IndiaStateMap
             statesById={statesById}
             basePath={basePath}
             activeTier={activeTier}
             onHoverState={setHoveredId}
+            selectedId={selectedId}
+            onSelectState={setSelectedId}
           />
+
+          {/* Touch preview: the side panel sits below the map on phones, out
+              of sight, so the tapped state is summarised right on the map. */}
+          {selectedState && (
+            <div className="absolute inset-x-3 bottom-3 z-[500] flex items-center gap-3 border border-clay bg-surface/95 p-3 shadow-[0_12px_28px_-12px_rgb(11_38_24/0.45)] backdrop-blur lg:hidden">
+              <div className="min-w-0 flex-1">
+                <p className="truncate font-display text-base font-semibold leading-tight text-ink">
+                  {selectedState.name}
+                </p>
+                <p className="mt-0.5 text-xs text-ink-soft">
+                  Score {Math.round(selectedState.score)} &middot; CSR {selectedState.csrIntensityPct.toFixed(2)}% of GSDP
+                </p>
+              </div>
+              <Link
+                href={`${basePath}/${selectedState.id}`}
+                className="inline-flex min-h-11 shrink-0 items-center bg-banyan px-4 text-sm font-semibold text-paper"
+              >
+                Open &rarr;
+              </Link>
+              <button
+                type="button"
+                onClick={() => setSelectedId(null)}
+                aria-label="Clear selection"
+                className="-mr-1 flex size-11 shrink-0 items-center justify-center text-ink-soft"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="size-5" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
 
         <aside className="flex flex-col justify-between">
@@ -113,7 +151,7 @@ export default function IndiaStateMapSection({ states, basePath = "/csr-tracker"
                 alt={previewState.name}
               />
               <span className="absolute left-3 top-3 bg-paper/90 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
-                {hoveredState ? "Now hovering" : "Top performer"}
+                {hoveredState ? "Now hovering" : selectedState ? "Selected" : "Top performer"}
               </span>
             </div>
 
@@ -145,15 +183,21 @@ export default function IndiaStateMapSection({ states, basePath = "/csr-tracker"
 
             <Link
               href={`${basePath}/${previewState.id}`}
-              className="mx-5 mt-5 inline-flex items-center text-sm font-semibold text-banyan underline decoration-clay decoration-2 underline-offset-4 transition-colors hover:text-marigold-deep hover:decoration-marigold"
+              className="mx-5 mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-banyan underline decoration-clay decoration-2 underline-offset-4 transition-colors hover:text-marigold-deep hover:decoration-marigold"
             >
               Open full dashboard &rarr;
             </Link>
           </div>
 
           <p className="mx-5 mb-5 mt-6 border-t border-clay pt-4 text-xs text-ink-soft/70">
-            Hover any state on the map to preview it here, click to open its
-            full CSR fund and grantee details.
+            <span className="[@media(hover:none)]:hidden">
+              Hover any state on the map to preview it here, click to open its
+              full CSR fund and grantee details.
+            </span>
+            <span className="hidden [@media(hover:none)]:inline">
+              Tap a state to preview it, tap it again (or Open) for its full
+              CSR fund and grantee details.
+            </span>
           </p>
         </aside>
       </div>

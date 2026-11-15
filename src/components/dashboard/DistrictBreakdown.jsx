@@ -17,6 +17,8 @@ export default function DistrictBreakdown({ districts }) {
     <div>
       <input
         type="text"
+        inputMode="search"
+        enterKeyHint="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search districts…"

@@ -222,6 +222,8 @@ export default function GlobalMembersGlobe() {
               <span className="sr-only">Search members</span>
               <input
                 type="text"
+                inputMode="search"
+                enterKeyHint="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search members..."

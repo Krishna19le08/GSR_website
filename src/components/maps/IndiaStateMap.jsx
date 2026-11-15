@@ -9,13 +9,15 @@
 // ~90KB static asset the page doesn't need until this section is visible.
 
 import "leaflet/dist/leaflet.css";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { MapContainer, GeoJSON } from "react-leaflet";
 import { getTier } from "@/lib/rating";
 import { stateIdFromGeoName } from "@/lib/geo/state-geo";
 
 const INDIA_CENTER = [22.9, 82];
+const HIGHLIGHT = { weight: 2.5, fillOpacity: 0.92 };
+
 const INDIA_BOUNDS = [
   [6, 68],
   [38, 98],
@@ -26,8 +28,16 @@ export default function IndiaStateMap({
   basePath = "/csr-tracker",
   activeTier = null,
   onHoverState,
+  selectedId = null,
+  onSelectState,
 }) {
   const router = useRouter();
+  // Read inside Leaflet's event closures, which are bound once per layer.
+  const selectedRef = useRef(selectedId);
+  const layersRef = useRef(new Map());
+  useEffect(() => {
+    selectedRef.current = selectedId;
+  }, [selectedId]);
   const [geoData, setGeoData] = useState(null);
   const [error, setError] = useState(false);
 
@@ -69,9 +79,18 @@ export default function IndiaStateMap({
     [statesById, activeTier],
   );
 
+  // Keep the selected (tapped) state highlighted, and un-highlight the
+  // previous one, whenever the selection changes.
+  useEffect(() => {
+    layersRef.current.forEach(({ layer, feature }, id) => {
+      layer.setStyle(id === selectedId ? HIGHLIGHT : styleFeature(feature));
+    });
+  }, [selectedId, styleFeature]);
+
   function onEachFeature(feature, layer) {
     const id = stateIdFromGeoName(feature.properties.ST_NM);
     const state = statesById.get(id);
+    if (state) layersRef.current.set(state.id, { layer, feature });
     if (state?.abbr) {
       layer.bindTooltip(state.abbr, {
         permanent: true,
@@ -81,14 +100,23 @@ export default function IndiaStateMap({
     }
     layer.on({
       click: () => {
-        if (state) router.push(`${basePath}/${state.id}`);
+        if (!state) return;
+        // Touch screens have no hover preview, so the first tap selects the
+        // state (the section shows a preview card) and a second tap on the
+        // same state opens its dashboard.
+        const touch = window.matchMedia("(hover: none)").matches;
+        if (touch && onSelectState && selectedRef.current !== state.id) {
+          onSelectState(state.id);
+          return;
+        }
+        router.push(`${basePath}/${state.id}`);
       },
       mouseover: (e) => {
-        e.target.setStyle({ weight: 2.5, fillOpacity: 0.92 });
+        e.target.setStyle(HIGHLIGHT);
         if (state) onHoverState?.(state.id);
       },
       mouseout: (e) => {
-        e.target.setStyle(styleFeature(feature));
+        if (state?.id !== selectedRef.current) e.target.setStyle(styleFeature(feature));
         onHoverState?.(null);
       },
     });
@@ -126,7 +154,7 @@ export default function IndiaStateMap({
         boxZoom={false}
         keyboard={false}
         attributionControl={false}
-        className="h-full min-h-[420px] w-full"
+        className="h-full min-h-[360px] w-full"
       >
         {/* keyed on activeTier so the whole layer remounts and re-runs styleFeature
             when the tier filter changes — GeoJSON otherwise never re-styles */}

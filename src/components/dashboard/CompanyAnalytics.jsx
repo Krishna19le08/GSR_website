@@ -108,6 +108,15 @@ const COLUMNS = [
   { key: "amountSpent", label: "CSR spent" },
 ];
 
+// Sort choices for the phone card list, which has no column headers.
+const MOBILE_SORTS = [
+  ["rank:asc", "Rank (top first)"],
+  ["amountSpent:desc", "CSR spent (highest first)"],
+  ["amountSpent:asc", "CSR spent (lowest first)"],
+  ["name:asc", "Company name (A–Z)"],
+  ["name:desc", "Company name (Z–A)"],
+];
+
 export default function CompanyAnalytics({ data, mapSection }) {
   const {
     kpis,
@@ -265,11 +274,13 @@ export default function CompanyAnalytics({ data, mapSection }) {
         <h2 className="font-display text-2xl font-semibold text-ink">All companies</h2>
         <form
           onSubmit={(e) => { e.preventDefault(); setSearch(searchInput.trim()); setPage(0); }}
-          className="mt-4 flex flex-wrap items-center gap-3"
+          className="mt-4 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center"
         >
-          <div className="flex w-full max-w-xs">
+          <div className="col-span-2 flex w-full sm:max-w-xs">
             <input
               type="text"
+              inputMode="search"
+              enterKeyHint="search"
               value={searchInput}
               onChange={(e) => {
                 setSearchInput(e.target.value);
@@ -288,7 +299,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
           <select
             value={listing}
             onChange={(e) => { setListing(e.target.value); setPage(0); }}
-            className="border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none"
+            className="w-full min-w-0 border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none sm:w-auto"
             aria-label="Filter by listing status"
           >
             <option value="all">All listings</option>
@@ -298,7 +309,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
           <select
             value={sector}
             onChange={(e) => { setSector(e.target.value); setPage(0); }}
-            className="border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none"
+            className="w-full min-w-0 border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none sm:w-auto"
             aria-label="Filter by development sector"
           >
             <option value="all">All sectors</option>
@@ -309,7 +320,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
           <select
             value={state}
             onChange={(e) => { setState(e.target.value); setDistrict("all"); setPage(0); }}
-            className="border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none"
+            className="w-full min-w-0 border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none sm:w-auto"
             aria-label="Filter by state"
           >
             <option value="all">All states</option>
@@ -320,7 +331,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
           <select
             value={district}
             onChange={(e) => { setDistrict(e.target.value); setPage(0); }}
-            className="border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none"
+            className="w-full min-w-0 border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none sm:w-auto"
             aria-label="Filter by district"
           >
             <option value="all">All districts</option>
@@ -331,7 +342,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
           <select
             value={year}
             onChange={(e) => { setYear(e.target.value); setPage(0); }}
-            className="border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none"
+            className="w-full min-w-0 border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none sm:w-auto"
             aria-label="Filter by year"
           >
             <option value="all">All years</option>
@@ -342,7 +353,7 @@ export default function CompanyAnalytics({ data, mapSection }) {
           <select
             value={ownership}
             onChange={(e) => { setOwnership(e.target.value); setPage(0); }}
-            className="border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none"
+            className="w-full min-w-0 border border-clay bg-paper px-3 py-2.5 text-sm text-ink focus:border-banyan focus:outline-none sm:w-auto"
             aria-label="Filter by company type"
           >
             <option value="all">All company types</option>
@@ -350,12 +361,57 @@ export default function CompanyAnalytics({ data, mapSection }) {
               <option key={o} value={o}>{o}</option>
             ))}
           </select>
-          <span className="text-xs text-ink-soft" aria-live="polite">
+          <span className="col-span-2 text-xs text-ink-soft" aria-live="polite">
             {failed ? "Couldn't load the company list. Please refresh." : waiting ? "Loading…" : `${resultCount} results`}
           </span>
         </form>
 
-        <div className="mt-4 overflow-x-auto">
+        {/* Phones: one card per company instead of a 720px table that has to
+            be swiped sideways. Sorting stays available through the select. */}
+        <div className="mt-4 md:hidden">
+          <label className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft">
+            Sort by
+            <select
+              value={`${sortBy}:${dir}`}
+              onChange={(e) => {
+                const [key, d] = e.target.value.split(":");
+                setSortBy(key);
+                setDir(d);
+                setPage(0);
+              }}
+              className="min-w-0 flex-1 border border-clay bg-paper px-3 py-2.5 text-sm normal-case tracking-normal text-ink focus:border-banyan focus:outline-none"
+            >
+              {MOBILE_SORTS.map(([value, label]) => (
+                <option key={value} value={value}>{label}</option>
+              ))}
+              {!MOBILE_SORTS.some(([value]) => value === `${sortBy}:${dir}`) && (
+                <option value={`${sortBy}:${dir}`}>Custom</option>
+              )}
+            </select>
+          </label>
+          <ul className={`mt-3 divide-y divide-clay/60 border-y border-clay ${waiting ? "opacity-50" : ""}`} aria-busy={waiting || undefined}>
+            {visible.map((c) => (
+              <li key={c.cin || c.name} className="flex gap-3 py-4">
+                <span className="w-8 shrink-0 pt-0.5 font-mono text-xs text-ink-soft">{c.rank}</span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="min-w-0 text-[0.9375rem] font-semibold leading-snug text-ink">{c.name}</p>
+                    <p className="shrink-0 font-mono text-sm font-semibold text-ink">{cr(c.amountSpent)}</p>
+                  </div>
+                  <p className="mt-1 text-xs text-ink-soft">
+                    {[c.ownership, c.listed, c.sectors[0] && `${c.sectors[0]}${c.sectors.length > 1 ? ` +${c.sectors.length - 1}` : ""}`]
+                      .filter(Boolean)
+                      .join(" · ")}
+                  </p>
+                  {c.cin && <p className="mt-0.5 truncate font-mono text-[11px] text-ink-muted">{c.cin}</p>}
+                </div>
+              </li>
+            ))}
+            {!visible.length && <li className="py-8 text-center text-sm text-ink-soft">No companies match.</li>}
+          </ul>
+        </div>
+
+        <div className="mt-4 hidden overflow-x-auto md:block">
           <table className="w-full min-w-[720px] border-collapse text-sm">
             <thead>
               <tr className="border-b border-clay text-left text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft">
@@ -414,8 +470,8 @@ export default function CompanyAnalytics({ data, mapSection }) {
         <div className="mt-4 flex items-center justify-between text-xs text-ink-soft">
           <span>Page {safePage + 1} of {pages}</span>
           <div className="flex gap-2">
-            <button type="button" disabled={safePage === 0} onClick={() => setPage(safePage - 1)} className="border border-clay px-3 py-1.5 hover:border-banyan disabled:opacity-40">Previous</button>
-            <button type="button" disabled={safePage >= pages - 1} onClick={() => setPage(safePage + 1)} className="border border-clay px-3 py-1.5 hover:border-banyan disabled:opacity-40">Next</button>
+            <button type="button" disabled={safePage === 0} onClick={() => { setPage(safePage - 1); tableRef.current?.scrollIntoView({ block: "start" }); }} className="min-h-11 border border-clay px-4 hover:border-banyan disabled:opacity-40">Previous</button>
+            <button type="button" disabled={safePage >= pages - 1} onClick={() => { setPage(safePage + 1); tableRef.current?.scrollIntoView({ block: "start" }); }} className="min-h-11 border border-clay px-4 hover:border-banyan disabled:opacity-40">Next</button>
           </div>
         </div>
       </section>

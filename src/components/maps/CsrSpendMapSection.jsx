@@ -146,7 +146,7 @@ export default function CsrSpendMapSection({ data, financialYear, projects = [] 
             </div>
           )}
 
-          <p className="mt-5 text-[11px] text-ink-soft/70">Hover a state to preview, click to pin.</p>
+          <p className="mt-5 text-[11px] text-ink-soft/70"><span className="[@media(hover:none)]:hidden">Hover a state to preview, click to pin.</span><span className="hidden [@media(hover:none)]:inline">Tap a state to see its figures.</span></p>
         </div>
       </div>
 

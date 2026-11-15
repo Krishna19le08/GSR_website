@@ -86,6 +86,8 @@ export default function StateCardGrid({ states, maxCompare = 4 }) {
             />
             <input
               type="text"
+              inputMode="search"
+              enterKeyHint="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search states or union territories…"
@@ -280,7 +282,7 @@ function Chip({ active, onClick, children }) {
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center border px-3 py-1.5 text-xs font-semibold transition-colors ${
+      className={`inline-flex min-h-10 items-center border px-3 text-xs font-semibold transition-colors ${
         active ? "border-banyan bg-banyan text-paper" : "border-clay bg-paper text-ink-soft hover:border-banyan/60"
       }`}
     >

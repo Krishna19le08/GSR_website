@@ -28,6 +28,8 @@ export default function InstructorDirectory({ instructors, statesById }) {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <input
           type="text"
+          inputMode="search"
+          enterKeyHint="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search instructors or focus area…"

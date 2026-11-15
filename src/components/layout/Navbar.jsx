@@ -150,44 +150,74 @@ function DesktopNavItem({ item, pathname, openKey, setOpenKey }) {
   );
 }
 
+// Key under which a mobile drawer group's open state is tracked.
+function mobileKey(item, depth) {
+  return `${depth}-${item.label}`;
+}
+
+// Keys of every group on the path to the current page, so the drawer opens
+// with the visitor's own section already expanded.
+function activeKeys(items, pathname, depth = 0) {
+  return items.flatMap((item) =>
+    item.children?.length && isActive(item, pathname)
+      ? [mobileKey(item, depth), ...activeKeys(item.children, pathname, depth + 1)]
+      : [],
+  );
+}
+
+// On touch screens the whole parent row toggles its group: a tap on
+// "About Us" should reveal its pages, not navigate away before the visitor
+// sees them. The parent's own page is listed as the group's first link when
+// the children don't already include it.
 function MobileNavItem({ item, depth = 0, pathname, expanded, onToggle, onNavigate }) {
-  const key = `${depth}-${item.label}`;
+  const key = mobileKey(item, depth);
   const isOpen = expanded.has(key);
   const hasChildren = item.children?.length > 0;
   const exact = item.href === pathname;
   const active = hasChildren ? isActive(item, pathname) : exact;
   const linkable = item.href && !item.pageSoon;
-  const textClass = `flex min-h-12 flex-1 items-center text-left ${
+  const textClass = `flex min-h-12 flex-1 items-center gap-3 text-left ${
     depth === 0 ? "text-base font-semibold" : "text-[0.9375rem] font-medium"
   } ${active ? "text-banyan" : "text-ink"}`;
+  const groupId = `mobile-group-${key.replace(/\W+/g, "-").toLowerCase()}`;
+
+  const children = hasChildren
+    ? linkable && !item.children.some((c) => c.href === item.href)
+      ? [{ label: `${item.label} overview`, href: item.href }, ...item.children]
+      : item.children
+    : [];
 
   return (
     <div>
       <div className="flex items-center" style={{ paddingLeft: depth * 16 }}>
-        {linkable ? (
-          <Link href={item.href} onClick={onNavigate} aria-current={exact ? "page" : undefined} className={textClass}>
-            {item.label}
-          </Link>
-        ) : (
-          <button type="button" onClick={() => onToggle(key)} aria-expanded={isOpen} className={textClass}>
-            {item.label}
-          </button>
-        )}
-        {hasChildren && (
+        {hasChildren ? (
           <button
             type="button"
             onClick={() => onToggle(key)}
             aria-expanded={isOpen}
-            aria-label={`${isOpen ? "Hide" : "Show"} ${item.label} pages`}
-            className="flex size-12 items-center justify-center rounded-full text-ink-soft"
+            aria-controls={groupId}
+            className={`${textClass} justify-between pr-1`}
           >
-            <Chevron open={isOpen} />
+            {item.label}
+            <span
+              className={`flex size-9 shrink-0 items-center justify-center rounded-full transition-colors ${
+                isOpen ? "bg-paper text-banyan" : "text-ink-soft"
+              }`}
+              aria-hidden="true"
+            >
+              <Chevron open={isOpen} />
+            </span>
           </button>
+        ) : (
+          <Link href={item.href} onClick={onNavigate} aria-current={exact ? "page" : undefined} className={textClass}>
+            {active && <span className="h-5 w-0.5 rounded-full bg-marigold" aria-hidden="true" />}
+            {item.label}
+          </Link>
         )}
       </div>
       {hasChildren && isOpen && (
-        <div className="mb-2 ml-1 border-l-2 border-clay pl-2">
-          {item.children.map((child) => (
+        <div id={groupId} className="mb-2 ml-1 border-l-2 border-clay pl-2">
+          {children.map((child) => (
             <MobileNavItem
               key={child.label}
               item={child}
@@ -224,6 +254,22 @@ export default function Navbar() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  // While the drawer is open the page behind it must not scroll: on phones a
+  // swipe past the end of the menu would otherwise drag the page instead.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = overflow;
+    };
+  }, [mobileOpen]);
+
+  function openMobile() {
+    setExpanded(new Set(activeKeys(NAV, pathname)));
+    setMobileOpen(true);
+  }
 
   function toggleExpanded(key) {
     setExpanded((prev) => {
@@ -279,7 +325,7 @@ export default function Navbar() {
           <button
             ref={menuButtonRef}
             type="button"
-            onClick={() => (mobileOpen ? closeMobile() : setMobileOpen(true))}
+            onClick={() => (mobileOpen ? closeMobile() : openMobile())}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -299,7 +345,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div
           id="mobile-nav"
-          className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-clay/70 bg-surface px-4 pb-8 pt-2 shadow-[0_24px_40px_-24px_rgb(11_38_24/0.4)] sm:px-6 xl:hidden"
+          className="h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-clay/70 bg-surface px-4 pb-8 pt-2 shadow-[0_24px_40px_-24px_rgb(11_38_24/0.4)] sm:px-6 xl:hidden"
         >
           <nav aria-label="Primary mobile" className="divide-y divide-clay/60">
             {NAV.map((item) => (
