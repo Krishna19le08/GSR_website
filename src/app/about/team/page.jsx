@@ -168,7 +168,7 @@ export default function Team() {
         breadcrumbs={[{ label: "About us", href: "/about" }, { label: "Team & governance" }]}
         eyebrow="Team & governance"
         title="How GSR is run"
-        lede="How decisions are made at GSR, and who oversees the money, partnerships and projects."
+        lede="How decisions are made at GSR, and who oversees its funds, partnerships and projects."
         actions={[
           { label: "Join GSR", href: "/join" },
           ...(SHOW_ORG_STRUCTURE ? [{ label: "See the structure", href: "#structure" }] : []),
@@ -181,7 +181,7 @@ export default function Team() {
           id="people-heading"
           eyebrow="Our people"
           title="Board of Trustees"
-          lede="The trustees set GSR's direction and oversee its money, partnerships and projects."
+          lede="The trustees set GSR's direction and oversee its funds, partnerships and projects."
         />
         <ul className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 sm:gap-x-8 lg:grid-cols-5 lg:gap-x-6">
           {people.map((p) => {

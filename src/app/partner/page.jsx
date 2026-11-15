@@ -137,7 +137,7 @@ export default function Partner() {
         breadcrumbs={[{ label: "Partner with us" }]}
         eyebrow="For CSR teams, foundations and institutions"
         title="Partner with GSR"
-        lede="Fund environment, education and empowerment projects in India, with clear governance and regular reports on how the money is used."
+        lede="Fund environment, education and empowerment projects in India, with clear governance and regular reports on how the funds are used."
         actions={[
           { label: "Email us about CSR", href: csrMail },
           { label: `Call ${org.phones[0].display}`, href: `tel:${org.phones[0].tel}` },
@@ -235,7 +235,7 @@ export default function Partner() {
           id="steps-heading"
           eyebrow="How a partnership works"
           title="Four steps from first call to reports"
-          lede="You agree the plan, budget and reporting schedule before any money moves."
+          lede="You agree the plan, budget and reporting schedule before any funds move."
         />
         <NumberedSteps items={steps} className="mt-12" />
       </Section>

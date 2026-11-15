@@ -177,7 +177,7 @@ export default function DonatePage() {
 
       {/* OTHER WAYS */}
       <Section tone="paper" labelledBy="other-heading">
-        <SectionHeader id="other-heading" eyebrow="Other ways to help" title="Not ready to give money?" lede="Time, skills and contacts help just as much." />
+        <SectionHeader id="other-heading" eyebrow="Other ways to help" title="Not ready to donate?" lede="Time, skills and contacts help just as much." />
         <ActionTiles items={otherWays} className="mt-12" />
       </Section>
     </main>

@@ -223,7 +223,7 @@ export default function Join() {
           align="center"
           eyebrow="Not sure where you fit?"
           title="Tell us what you can offer"
-          lede="Time, skills, money, space or contacts. Write to us and we will suggest where it would help most."
+          lede="Time, skills, funding, space or contacts. Write to us and we will suggest where it would help most."
         />
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Button href={mailto("How can I help GSR?")} variant="primary" size="lg" arrow>

@@ -228,7 +228,7 @@ export default function Home() {
         <SectionHeader
           id="csr-heading"
           eyebrow="CSR Tracker"
-          title={`Where CSR money goes, across ${states.length} states and union territories`}
+          title={`Where CSR funds go, across ${states.length} states and union territories`}
           lede="Each state is coloured by its rating. The rating looks at CSR spend relative to state GDP and at year-on-year income growth. Click a state to see who received funds."
         />
         <div className="mt-12 overflow-hidden rounded-2xl shadow-[0_24px_48px_-28px_rgb(11_38_24/0.35)]">
@@ -269,7 +269,7 @@ export default function Home() {
         <SectionHeader
           id="involved-heading"
           eyebrow="Get involved"
-          title="You can give time, money, skills or contacts"
+          title="You can give time, funds, skills or contacts"
           lede="All of it helps. Pick the one that suits you."
         />
         <ActionTiles items={actions} className="mt-12" />

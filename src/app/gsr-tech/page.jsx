@@ -235,7 +235,7 @@ export default function GsrTech() {
             <p>
               Most nonprofit software is built for large organisations. A small trust running one
               after-school programme on volunteer hours ends up with spreadsheets, missed grant deadlines
-              and no easy way to show donors where their money went.
+              and no easy way to show donors where their donations went.
             </p>
             <p>
               GSR Tech handles identity, compliance and donor records so small teams can spend their time on

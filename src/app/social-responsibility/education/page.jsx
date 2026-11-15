@@ -101,7 +101,7 @@ export default function Education() {
           },
           {
             title: "Fund and mentor",
-            body: "Scholarships, materials and school support come with a mentor, so help continues after the money is given.",
+            body: "Scholarships, materials and school support come with a mentor, so help continues after the funds are given.",
           },
           {
             title: "Follow up",
