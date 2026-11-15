@@ -296,8 +296,8 @@ export function PageHero({
   size = "default",
 }) {
   const heights = {
-    default: "min-h-[440px] lg:min-h-[540px]",
-    tall: "min-h-[calc(100svh-4rem)] lg:min-h-[min(calc(100svh-5rem),860px)]",
+    default: "min-h-[340px] md:min-h-[440px] lg:min-h-[540px]",
+    tall: "min-h-[540px] md:min-h-[calc(100svh-4rem)] lg:min-h-[min(calc(100svh-5rem),860px)]",
   };
   const crumbs = breadcrumbs.length ? [{ label: "Home", href: "/" }, ...breadcrumbs] : [];
   const HeadingSize = size === "tall" ? "text-hero" : "text-h1";
@@ -327,7 +327,7 @@ export function PageHero({
         aria-hidden="true"
       />
 
-      <Container className="pb-14 pt-28 md:pb-20">
+      <Container className="pb-12 pt-20 md:pb-20 md:pt-28">
         {crumbs.length > 0 && (
           // Visually hidden by request; kept for screen readers.
           <nav aria-label="Breadcrumb" className="sr-only">

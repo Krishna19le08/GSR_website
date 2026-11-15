@@ -52,10 +52,10 @@ export default function CsrTracker() {
   return (
     <main className="flex flex-1 flex-col bg-paper">
       {/* HERO */}
-      <section className="relative isolate flex min-h-[52vh] items-end overflow-hidden bg-banyan-deep">
+      <section className="relative isolate flex min-h-[360px] items-end overflow-hidden bg-banyan-deep md:min-h-[52vh]">
         <ImagePlaceholder label="[ CSR TRACKER HERO ]" ratio="" tone="emerald" className="absolute inset-0 h-full w-full" />
         <div className="absolute inset-0 bg-gradient-to-t from-banyan-deep/95 via-banyan-deep/50 to-banyan-deep/10" />
-        <div className="relative mx-auto w-full max-w-7xl px-4 pb-12 pt-28 sm:px-6 lg:px-8">
+        <div className="relative mx-auto w-full max-w-7xl px-4 pb-12 pt-20 sm:px-6 md:pt-28 lg:px-8">
           <Eyebrow tone="dark">Platform features &amp; CSR tracker</Eyebrow>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-paper sm:text-5xl">
             Every rupee of CSR spend, mapped to the state it lands in

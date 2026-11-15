@@ -114,7 +114,7 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       {/* HERO */}
-      <section className="surface-dark relative isolate flex min-h-[calc(100svh-4rem)] items-end overflow-hidden bg-banyan-deep lg:min-h-[min(calc(100svh-5rem),880px)]">
+      <section className="surface-dark relative isolate flex min-h-[540px] items-end overflow-hidden bg-banyan-deep md:min-h-[calc(100svh-4rem)] lg:min-h-[min(calc(100svh-5rem),880px)]">
         <Image
           src="/images/hero/hero_1.webp"
           alt="Children sitting together on the ground outside a school building"
@@ -126,7 +126,7 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/45 to-black/20 md:via-black/35 md:to-black/5" aria-hidden="true" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/60 via-black/20 to-transparent" aria-hidden="true" />
 
-        <Container className="pb-16 pt-32 md:pb-24">
+        <Container className="pb-12 pt-20 md:pb-24 md:pt-32">
           <p lang="ta" className="inline-flex items-center gap-3 text-sm font-medium text-gold-light">
             <span className="h-0.5 w-6 rounded-full bg-gold-light" aria-hidden="true" />
             {org.tagline}
