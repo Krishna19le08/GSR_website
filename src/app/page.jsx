@@ -25,7 +25,7 @@ const projects = [
   {
     title: "GSR Tech",
     tag: "Digital",
-    description: "Free websites and digital tools for grassroots NGOs, so they spend less time on paperwork.",
+    description: "Websites and digital tools for grassroots NGOs, so they spend less time on paperwork.",
     href: "/gsr-tech",
     src: "/images/causes/digital-rural.webp",
     alt: "A man in a rural field holding up a basic mobile phone",
@@ -103,7 +103,7 @@ const actions = [
   { icon: "users", label: "Volunteer", body: "Give a few hours on a project near you.", href: "/join" },
   { icon: "heart", label: "Donate", body: "Fund our work in Tamil Nadu.", href: "/donate", accent: "gold" },
   { icon: "handshake", label: "Partner with us (CSR)", body: "Sponsor or co-run a project.", href: "/partner" },
-  { icon: "laptop", label: "GSR Tech and SDIN", body: "Free tools and a verified ID for NGOs.", href: "/gsr-tech" },
+  { icon: "laptop", label: "GSR Tech and SDIN", body: "Digital tools and a verified ID for NGOs.", href: "/gsr-tech" },
   { icon: "chart", label: "CSR Tracker", body: "See CSR spending by state and company.", href: "/csr-tracker" },
   { icon: "mail", label: "Contact us", body: "Write, call or visit us in Chennai.", href: "/contact" },
 ];

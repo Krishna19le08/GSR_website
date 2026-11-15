@@ -14,13 +14,13 @@ import Icon from "@/components/ui/icons";
 import { mailto } from "@/config/org-info";
 
 export const metadata = {
-  title: "GSR Tech | Free Digital Tools for NGOs",
+  title: "GSR Tech | Digital Tools for NGOs",
   description:
-    "GSR Tech gives registered NGOs a free verified digital identity (SDIN), compliance reminders, donor records and a simple website.",
+    "GSR Tech gives registered NGOs a verified digital identity (SDIN), compliance reminders, donor records and a simple website.",
   openGraph: {
-    title: "GSR Tech | Free Digital Tools for NGOs",
+    title: "GSR Tech | Digital Tools for NGOs",
     description:
-      "A free verified digital identity, compliance reminders, donor tools and a website for registered NGOs.",
+      "A verified digital identity, compliance reminders, donor tools and a website for registered NGOs.",
   },
 };
 
@@ -172,8 +172,8 @@ export default function GsrTech() {
         imagePosition="object-[70%_center]"
         breadcrumbs={[{ label: "GSR Tech" }]}
         eyebrow="GSR Tech"
-        title="Free digital tools for NGOs"
-        lede="A verified digital identity, compliance reminders, donor records and a website, in one place. Free for any registered NGO, trust or society."
+        title="Digital tools for NGOs"
+        lede="A verified digital identity, compliance reminders, donor records and a website, in one place, for any registered NGO, trust or society."
         actions={[
           { label: "Get your SDIN", href: sdinMail },
           { label: "Book a walkthrough", href: walkthroughMail },
@@ -233,19 +233,18 @@ export default function GsrTech() {
           </h2>
           <div className="mt-6 max-w-2xl space-y-4 text-pretty leading-7 text-ink-soft">
             <p>
-              Most nonprofit software is priced for large organisations. A small trust running one
+              Most nonprofit software is built for large organisations. A small trust running one
               after-school programme on volunteer hours ends up with spreadsheets, missed grant deadlines
               and no easy way to show donors where their money went.
             </p>
             <p>
               GSR Tech handles identity, compliance and donor records so small teams can spend their time on
-              the work itself. It is part of GSR&rsquo;s own programme, so there is no subscription and no
-              paid tier.
+              the work itself.
             </p>
           </div>
           <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-clay bg-paper px-5 py-2.5 text-sm font-semibold text-banyan">
             <Icon name="sparkles" className="size-5" />
-            Free for every registered organisation
+            Built for registered NGOs, trusts and societies
           </div>
         </MediaSplit>
       </Section>
