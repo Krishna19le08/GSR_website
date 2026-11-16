@@ -42,7 +42,7 @@ const people = [
     position: "object-[center_15%]",
   },
   {
-    name: "P. Revathiy",
+    name: "P.Revathy",
     role: "Joint Secretary",
     photo: "/images/team/p-revathiy.webp",
     position: "object-[center_20%]",
@@ -136,7 +136,7 @@ const SHOW_ORG_STRUCTURE = false;
 const boardSeats = [
   { role: "Founder & Managing Trustee", holder: "Zehra Fathima" },
   { role: "Secretary", holder: "Victoria Selvi" },
-  { role: "Joint Secretary", holder: "P. Revathiy" },
+  { role: "Joint Secretary", holder: "P.Revathy" },
   { role: "Treasurer", holder: "Kesavan Venugopal" },
   { role: "Trustee", holder: "T. Senthilkumar" },
   { role: "Trustee", holder: "Dr. Clement Winsly" },
