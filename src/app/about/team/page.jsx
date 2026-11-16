@@ -42,6 +42,12 @@ const people = [
     position: "object-[center_15%]",
   },
   {
+    name: "P. Revathiy",
+    role: "Joint Secretary",
+    photo: "/images/team/p-revathiy.webp",
+    position: "object-[center_20%]",
+  },
+  {
     name: "Kesavan Venugopal",
     role: "Treasurer",
     photo: "/images/team/kesavan-venugopal-white-v3.webp",
@@ -63,6 +69,64 @@ const people = [
   },
 ];
 
+// Executive team members with a public profile (shown under the Board).
+const executives = [
+  {
+    name: "Aameena Taj",
+    role: "Chief Executive Officer (CEO)",
+    photo: "/images/team/aameena-taj.webp",
+    position: "object-[center_25%]",
+  },
+];
+
+const PEOPLE_GRID =
+  "grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 sm:gap-x-8 lg:grid-cols-6 lg:gap-x-6";
+
+function PersonCard({ person: p }) {
+  const external = p.link?.href.startsWith("http");
+  return (
+    <li className="group">
+      <div className="relative aspect-square overflow-hidden rounded-2xl bg-sand">
+        <Image
+          src={p.photo}
+          alt={`Portrait of ${p.name}`}
+          fill
+          sizes="(min-width: 1024px) 17vw, (min-width: 640px) 33vw, 50vw"
+          className={`object-cover transition duration-500 motion-safe:group-hover:scale-[1.03] ${p.position}`}
+        />
+      </div>
+      <div className="mt-5 text-center">
+        <h3 className="font-display text-lg font-medium leading-snug text-ink sm:text-xl">{p.name}</h3>
+        <span aria-hidden="true" className="mx-auto mt-3 block h-0.5 w-8 rounded-full bg-marigold" />
+        <p className="mt-3 text-xs font-semibold uppercase leading-5 tracking-[0.12em] text-marigold-deep">
+          {p.role}
+        </p>
+        {p.link?.icon ? (
+          <a
+            href={p.link.href}
+            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            aria-label={`${p.name} on ${p.link.label}${external ? " (opens in a new tab)" : ""}`}
+            title={p.link.label}
+            className="mx-auto mt-3 flex size-10 items-center justify-center rounded-full bg-[#0A66C2] text-white transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+          >
+            <Icon name={p.link.icon} className="size-[18px]" strokeWidth={2} />
+          </a>
+        ) : (
+          p.link && (
+            <a
+              href={p.link.href}
+              className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-banyan underline-offset-4 hover:underline"
+            >
+              {p.link.label}
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          )
+        )}
+      </div>
+    </li>
+  );
+}
+
 // The org-chart section is hidden on request. Flip to true to show it again
 // (and the hero's "See the structure" button that jumps to it).
 const SHOW_ORG_STRUCTURE = false;
@@ -72,7 +136,7 @@ const SHOW_ORG_STRUCTURE = false;
 const boardSeats = [
   { role: "Founder & Managing Trustee", holder: "Zehra Fathima" },
   { role: "Secretary", holder: "Victoria Selvi" },
-  { role: "Joint Secretary" },
+  { role: "Joint Secretary", holder: "P. Revathiy" },
   { role: "Treasurer", holder: "Kesavan Venugopal" },
   { role: "Trustee", holder: "T. Senthilkumar" },
   { role: "Trustee", holder: "Dr. Clement Winsly" },
@@ -183,52 +247,22 @@ export default function Team() {
           title="Board of Trustees"
           lede="The trustees set GSR's direction and oversee its partnerships and projects."
         />
-        <ul className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 sm:gap-x-8 lg:grid-cols-5 lg:gap-x-6">
-          {people.map((p) => {
-            const external = p.link?.href.startsWith("http");
-            return (
-              <li key={p.name} className="group">
-                <div className="relative aspect-square overflow-hidden rounded-2xl bg-sand">
-                  <Image
-                    src={p.photo}
-                    alt={`Portrait of ${p.name}`}
-                    fill
-                    sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
-                    className={`object-cover transition duration-500 motion-safe:group-hover:scale-[1.03] ${p.position}`}
-                  />
-                </div>
-                <div className="mt-5 text-center">
-                  <h3 className="font-display text-lg font-medium leading-snug text-ink sm:text-xl">{p.name}</h3>
-                  <span aria-hidden="true" className="mx-auto mt-3 block h-0.5 w-8 rounded-full bg-marigold" />
-                  <p className="mt-3 text-xs font-semibold uppercase leading-5 tracking-[0.12em] text-marigold-deep">
-                    {p.role}
-                  </p>
-                  {p.link?.icon ? (
-                    <a
-                      href={p.link.href}
-                      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      aria-label={`${p.name} on ${p.link.label}${external ? " (opens in a new tab)" : ""}`}
-                      title={p.link.label}
-                      className="mx-auto mt-3 flex size-10 items-center justify-center rounded-full bg-[#0A66C2] text-white transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
-                    >
-                      <Icon name={p.link.icon} className="size-[18px]" strokeWidth={2} />
-                    </a>
-                  ) : (
-                    p.link && (
-                      <a
-                        href={p.link.href}
-                        className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-banyan underline-offset-4 hover:underline"
-                      >
-                        {p.link.label}
-                        <span aria-hidden="true">&rarr;</span>
-                      </a>
-                    )
-                  )}
-                </div>
-              </li>
-            );
-          })}
+        <ul className={`mt-12 ${PEOPLE_GRID}`}>
+          {people.map((p) => (
+            <PersonCard key={p.name} person={p} />
+          ))}
         </ul>
+
+        <div className="mt-16 border-t border-clay pt-12">
+          <h3 id="executives-heading" className="text-eyebrow font-semibold uppercase text-teal">
+            Executive leadership
+          </h3>
+          <ul aria-labelledby="executives-heading" className={`mt-8 ${PEOPLE_GRID}`}>
+            {executives.map((p) => (
+              <PersonCard key={p.name} person={p} />
+            ))}
+          </ul>
+        </div>
       </Section>
 
       {/* ORG STRUCTURE (hidden for now; set SHOW_ORG_STRUCTURE to bring it back) */}
@@ -282,7 +316,9 @@ export default function Team() {
 
             {/* Executive branch */}
             <div>
-              <OrgBox title="Chief Executive Officer (CEO)" icon="network" dark />
+              <OrgBox title="Chief Executive Officer (CEO)" icon="network" dark>
+                <p className="mt-2 text-sm leading-snug text-paper/80">Aameena Taj</p>
+              </OrgBox>
               <Connector />
               <OrgBox title="Project Director" icon="target" dark />
               <Connector />
@@ -339,7 +375,7 @@ export default function Team() {
           tone="dark"
           eyebrow="Executive team"
           title="Who runs the daily work"
-          lede="The CEO and Project Director lead six managers, supported by admin and office staff, volunteers and interns."
+          lede="Our CEO, Aameena Taj, and the Project Director lead six managers, supported by admin and office staff, volunteers and interns."
         />
         <PromiseList items={managers} columns={3} className="mt-12" />
         <div className="mt-10 flex flex-wrap gap-3">
